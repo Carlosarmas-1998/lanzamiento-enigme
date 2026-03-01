@@ -851,4 +851,291 @@
         <article class="card" id="card-gerente">
           <div class="cardH">
             <p class="cardTitle">Gerente de Zona</p>
-          ... (truncated for brevity in request)
+            <span class="badge">Gerencia</span>
+          </div>
+          <p class="cardP">
+            Dirección estratégica de la zona, supervisión del equipo y reporte de resultados a la dirección central de ÈNIGME.
+          </p>
+          <ul class="ul">
+            <li>Planificación de objetivos y métricas de zona.</li>
+            <li>Supervisión del coordinador y la logística local.</li>
+            <li><strong>Incluye formación</strong> proporcionada por ÈNIGME.</li>
+          </ul>
+          <div class="cardCta">
+            <button class="btn btnSmall" type="button" data-pick-role="Gerente de Zona">Postularme a este puesto</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer>ÈNIGME &copy; 2026 &middot; Honduras &middot; <a class="link" href="mailto:info@enigmeofficial.com">info@enigmeofficial.com</a></footer>
+  </div>
+
+  <!-- Apply modal -->
+  <div class="modalOverlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitleEl">
+    <div class="modal">
+      <div class="modalHeader">
+        <div>
+          <h2 class="modalTitle" id="modalTitleEl">Postúlate a ÈNIGME</h2>
+          <p class="modalSub">Selecciona la vacante a la que deseas aplicar y completa tu solicitud. Nos pondremos en contacto contigo lo antes posible.</p>
+        </div>
+        <button class="x" id="modalCloseBtn" type="button" aria-label="Cerrar">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+
+      <div class="modalBody">
+        <!-- Step 1: role selection -->
+        <div class="step show" id="step1">
+          <div class="navRow">
+            <span style="font-size:13px;color:var(--ink2);font-weight:600;">Paso 1 de 2 &middot; Elige tu vacante</span>
+          </div>
+          <div class="mGrid">
+            <div class="mCard">
+              <p class="mTitle">Repartidor / Logística</p>
+              <p class="mText">Distribución y entregas según rutas planificadas, cuidando el producto y el control de entrega.</p>
+              <ul class="mList">
+                <li>Rutas programadas y confirmación de entrega.</li>
+                <li>Orden, puntualidad y comunicación operativa.</li>
+                <li><strong>Requisito:</strong> furgoneta y licencia vigente.</li>
+              </ul>
+              <div class="mPick">
+                <button class="btn btnSmall" type="button" data-pick-role="Repartidor / Logística">Seleccionar</button>
+              </div>
+            </div>
+            <div class="mCard">
+              <p class="mTitle">Coordinador de Zona</p>
+              <p class="mText">Coordinación territorial y seguimiento operativo del equipo, con control de actividad y soporte continuo.</p>
+              <ul class="mList">
+                <li>Organización de incidencias y reportes internos.</li>
+                <li>Soporte y acompañamiento al equipo local.</li>
+                <li><strong>Incluye formación</strong> por ÈNIGME.</li>
+              </ul>
+              <div class="mPick">
+                <button class="btn btnSmall" type="button" data-pick-role="Coordinador de Zona">Seleccionar</button>
+              </div>
+            </div>
+            <div class="mCard">
+              <p class="mTitle">Gerente de Zona</p>
+              <p class="mText">Dirección estratégica de la zona, supervisión del equipo y reporte a la dirección central.</p>
+              <ul class="mList">
+                <li>Planificación de objetivos y métricas de zona.</li>
+                <li>Supervisión del coordinador y logística local.</li>
+                <li><strong>Incluye formación</strong> por ÈNIGME.</li>
+              </ul>
+              <div class="mPick">
+                <button class="btn btnSmall" type="button" data-pick-role="Gerente de Zona">Seleccionar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: application form -->
+        <div class="step" id="step2">
+          <div class="navRow">
+            <button class="ghostLink" id="backBtn" type="button">&#8592; Volver</button>
+            <span style="font-size:13px;color:var(--ink2);font-weight:600;">Paso 2 de 2 &middot; Completa tu solicitud</span>
+          </div>
+          <div class="roleInfo" id="roleInfo"></div>
+          <form id="applyForm" novalidate style="margin-top:14px;">
+            <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" />
+            <div class="formGrid">
+              <div class="field">
+                <label for="fname">Nombre *</label>
+                <input type="text" id="fname" name="nombre" placeholder="Tu nombre" required autocomplete="given-name" />
+              </div>
+              <div class="field">
+                <label for="lname">Apellido *</label>
+                <input type="text" id="lname" name="apellido" placeholder="Tu apellido" required autocomplete="family-name" />
+              </div>
+              <div class="field">
+                <label for="phone">Teléfono / WhatsApp *</label>
+                <input type="tel" id="phone" name="telefono" placeholder="+504 9999 9999" required autocomplete="tel" />
+              </div>
+              <div class="field">
+                <label for="femail">Correo electrónico</label>
+                <input type="email" id="femail" name="correo" placeholder="tu@correo.com" autocomplete="email" />
+              </div>
+              <div class="field full">
+                <label for="deptBtn">Departamento *</label>
+                <div class="cselect" id="deptSelect">
+                  <button class="cselectBtn" type="button" id="deptBtn" aria-haspopup="listbox" aria-expanded="false">Selecciona tu departamento</button>
+                  <ul class="cselectList" role="listbox" id="deptList" aria-label="Departamento">
+                    <li class="cselectOption" role="option" aria-selected="false" data-value="Choluteca">Choluteca</li>
+                    <li class="cselectOption" role="option" aria-selected="false" data-value="Valle">Valle</li>
+                  </ul>
+                </div>
+                <input type="hidden" name="departamento" id="deptHidden" />
+              </div>
+              <div class="field full">
+                <label for="fvacante">Vacante seleccionada</label>
+                <input type="text" id="fvacante" name="vacante" readonly />
+              </div>
+              <div class="field full">
+                <label for="fmensaje">Mensaje (opcional)</label>
+                <textarea id="fmensaje" name="mensaje" placeholder="Cuéntanos brevemente sobre ti y tu motivación&#8230;"></textarea>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="modalFooter">
+        <div class="status" id="statusMsg" role="status" aria-live="polite"></div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-left:auto;">
+          <button class="btn btnGhost" id="modalCancelBtn" type="button">Cancelar</button>
+          <button class="btn" id="submitBtn" type="button" style="display:none;">Enviar solicitud</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var overlay     = document.getElementById('modalOverlay');
+      var step1       = document.getElementById('step1');
+      var step2       = document.getElementById('step2');
+      var statusMsg   = document.getElementById('statusMsg');
+      var submitBtn   = document.getElementById('submitBtn');
+      var fvacante    = document.getElementById('fvacante');
+      var roleInfo    = document.getElementById('roleInfo');
+      var backBtn     = document.getElementById('backBtn');
+      var deptSelect  = document.getElementById('deptSelect');
+      var deptBtn     = document.getElementById('deptBtn');
+      var deptList    = document.getElementById('deptList');
+      var deptHidden  = document.getElementById('deptHidden');
+
+      function openModal(role) {
+        overlay.classList.add('show');
+        document.body.style.overflow = 'hidden';
+        statusMsg.className = 'status';
+        statusMsg.textContent = '';
+        if (role) {
+          pickRole(role);
+        } else {
+          showStep(1);
+        }
+      }
+
+      function closeModal() {
+        overlay.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+
+      function showStep(n) {
+        step1.classList.toggle('show', n === 1);
+        step2.classList.toggle('show', n === 2);
+        submitBtn.style.display = n === 2 ? '' : 'none';
+      }
+
+      function pickRole(role) {
+        fvacante.value = role;
+        roleInfo.innerHTML = '<strong>Vacante seleccionada:</strong> ' + role;
+        showStep(2);
+      }
+
+      /* Open triggers */
+      document.getElementById('floatingApplyBtn').addEventListener('click', function () { openModal(null); });
+      document.getElementById('applyFromSectionBtn').addEventListener('click', function () { openModal(null); });
+      document.getElementById('viewVacanciesBtn').addEventListener('click', function () {
+        document.getElementById('operaciones').scrollIntoView({ behavior: 'smooth' });
+      });
+
+      /* Pick-role buttons (both main cards and modal cards) */
+      document.querySelectorAll('[data-pick-role]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var role = btn.dataset.pickRole;
+          openModal(role);
+          /* pulse the matching main card (look up by data-pick-role on the card's own button) */
+          var mainBtn = document.querySelector('.cards [data-pick-role="' + role + '"]');
+          var card = mainBtn && mainBtn.closest('.card');
+          if (card) {
+            card.classList.add('pulse');
+            card.addEventListener('animationend', function () { card.classList.remove('pulse'); }, { once: true });
+          }
+        });
+      });
+
+      /* Close triggers */
+      document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+      document.getElementById('modalCancelBtn').addEventListener('click', closeModal);
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+
+      /* Back */
+      backBtn.addEventListener('click', function () { showStep(1); });
+
+      /* Custom select */
+      deptBtn.addEventListener('click', function () {
+        var open = deptSelect.classList.toggle('open');
+        deptBtn.setAttribute('aria-expanded', open);
+      });
+      document.addEventListener('click', function (e) {
+        if (!deptSelect.contains(e.target)) {
+          deptSelect.classList.remove('open');
+          deptBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+      deptList.querySelectorAll('.cselectOption').forEach(function (opt) {
+        opt.addEventListener('click', function () {
+          deptList.querySelectorAll('.cselectOption').forEach(function (o) { o.setAttribute('aria-selected', 'false'); });
+          opt.setAttribute('aria-selected', 'true');
+          deptBtn.textContent = opt.textContent;
+          deptHidden.value = opt.dataset.value;
+          deptSelect.classList.remove('open');
+          deptBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      /* Form submit */
+      submitBtn.addEventListener('click', function () {
+        var form     = document.getElementById('applyForm');
+        var nombre   = form.nombre.value.trim();
+        var apellido = form.apellido.value.trim();
+        var telefono = form.telefono.value.trim();
+        var vacante  = form.vacante.value.trim();
+        var dept     = form.departamento.value.trim();
+        var hp       = form.website.value;
+
+        if (hp) return; /* honeypot */
+
+        if (!nombre || !apellido || !telefono || !vacante || !dept) {
+          statusMsg.className = 'status bad';
+          statusMsg.textContent = 'Por favor, completa los campos obligatorios: nombre, apellido, teléfono, departamento y vacante.';
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando\u2026';
+        statusMsg.className = 'status';
+        statusMsg.textContent = '';
+
+        var data = new FormData(form);
+        fetch('https://formspree.io/f/YOUR_FORM_ID', { /* replace YOUR_FORM_ID with your Formspree form ID */
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        }).then(function (resp) {
+          if (resp.ok) {
+            statusMsg.className = 'status ok';
+            statusMsg.textContent = '\u2713 Solicitud enviada. Nos pondremos en contacto contigo pronto.';
+            form.reset();
+            fvacante.value = '';
+            deptHidden.value = '';
+            deptBtn.textContent = 'Selecciona tu departamento';
+            deptList.querySelectorAll('.cselectOption').forEach(function (o) { o.setAttribute('aria-selected', 'false'); });
+          } else {
+            throw new Error('server');
+          }
+        }).catch(function () {
+          statusMsg.className = 'status bad';
+          statusMsg.textContent = 'Error al enviar. Escr\u00edbenos a info@enigmeofficial.com';
+        }).finally(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Enviar solicitud';
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
