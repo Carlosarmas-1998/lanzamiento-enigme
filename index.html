@@ -13,7 +13,6 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- ✅ Optimizado: menos pesos = carga más rápida -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
@@ -57,14 +56,12 @@
       overflow-x:hidden;
     }
 
-    /* ✅ evita desbordes por media */
     img, video, svg, canvas{
       max-width: 100%;
       height: auto;
       display: block;
     }
 
-    /* soft texture */
     body::before{
       content:"";
       position:fixed;
@@ -91,7 +88,6 @@
       padding: 26px 20px 60px;
     }
 
-    /* Fixed apply button */
     .floatApply{
       position: fixed;
       right: 18px;
@@ -120,13 +116,13 @@
       box-shadow: 0 0 0 3px rgba(184,138,58,.18);
     }
 
-    /* Topbar */
     .topbar{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:16px;
       padding: 14px 0 22px;
+      flex-wrap:wrap;
     }
     .brand{ display:flex; flex-direction:column; gap:6px; }
     .logo{
@@ -161,7 +157,6 @@
       box-shadow: 0 0 0 3px rgba(184,138,58,.18);
     }
 
-    /* Hero */
     .hero{
       border:1px solid var(--line);
       background: var(--paper);
@@ -190,7 +185,6 @@
     }
     @media (max-width: 900px){ .heroGrid{ grid-template-columns: 1fr; } }
 
-    /* ✅ FIX overflow móvil (antes era max-content) */
     .kicker{
       display:inline-flex;
       align-items:center;
@@ -219,14 +213,15 @@
       color: var(--ink2);
       font-size: 15px;
       line-height: 1.9;
-      max-width: 76ch;
+      max-width: 74ch;
     }
     .row{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 16px; }
     .mini{
       font-size:12px;
       color: var(--ink3);
       margin-top: 14px;
-      line-height:1.8;
+      line-height:1.75;
+      max-width: 84ch;
     }
 
     .ctaRow{
@@ -264,16 +259,22 @@
     }
     .btnGhost:hover{ filter: brightness(1.02); }
 
-    .link{
+    .btnSmall{ padding: 10px 12px; border-radius: 14px; font-size: 13px; }
+
+    .linkBtn{
+      border:0;
+      background:transparent;
+      padding:0;
+      cursor:pointer;
+      font:inherit;
       color: var(--ink);
       text-decoration: underline;
       text-decoration-color: rgba(184,138,58,.60);
       text-underline-offset: 4px;
       text-decoration-thickness: 1px;
     }
-    .link:hover{ text-decoration-color: rgba(184,138,58,.90); }
+    .linkBtn:hover{ text-decoration-color: rgba(184,138,58,.90); }
 
-    /* Side card */
     .sideCard{
       border:1px solid var(--line);
       background: rgba(255,255,255,.62);
@@ -313,10 +314,16 @@
       font-size: 14px;
       color: var(--ink);
       line-height:1.4;
-      font-weight: 600;
+      font-weight: 650;
+    }
+    .kSub{
+      margin-top: 4px;
+      font-size: 13px;
+      color: var(--ink2);
+      line-height:1.4;
+      font-weight: 500;
     }
 
-    /* Section */
     .section{
       margin-top: 18px;
       border: 1px solid var(--line2);
@@ -415,14 +422,6 @@
     }
     .ul li{ margin:6px 0; }
     .cardCta{ margin-top: 12px; display:flex; gap:10px; flex-wrap:wrap; }
-    .btnSmall{ padding: 10px 12px; border-radius: 14px; font-size: 13px; }
-
-    .pulse{ animation: pulseGold 1.1s ease-in-out 1; }
-    @keyframes pulseGold{
-      0%{ box-shadow: var(--shadow); }
-      45%{ box-shadow: 0 0 0 6px rgba(184,138,58,.14), var(--shadow); }
-      100%{ box-shadow: var(--shadow); }
-    }
 
     footer{
       margin-top: 18px;
@@ -432,9 +431,18 @@
       letter-spacing:.08em;
       text-transform:uppercase;
     }
+    .footerLinks{
+      margin-top: 10px;
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+      text-transform:none;
+      letter-spacing:0;
+    }
 
     /* ===========================
-       Modal (marfil) + responsive
+       MODALES
        =========================== */
     .modalOverlay{
       position:fixed;
@@ -445,9 +453,10 @@
       justify-content:center;
       padding: calc(18px + env(safe-area-inset-top)) calc(18px + env(safe-area-inset-right)) calc(18px + env(safe-area-inset-bottom)) calc(18px + env(safe-area-inset-left));
       z-index: 1000;
-      overscroll-behavior: contain; /* ✅ evita scroll del fondo en móvil */
+      overscroll-behavior: contain;
     }
     .modalOverlay.show{ display:flex; }
+    .modalOverlay.info{ z-index: 1105; }
 
     .modal{
       width:min(940px, 100%);
@@ -458,8 +467,7 @@
       overflow:hidden;
       position:relative;
       backdrop-filter: blur(10px);
-
-      max-height: 92dvh; /* ✅ no se sale nunca */
+      max-height: 92dvh;
       display:flex;
       flex-direction:column;
     }
@@ -504,7 +512,7 @@
 
     .modalBody{
       padding: 16px 18px 18px;
-      overflow:auto; /* ✅ scroll interno */
+      overflow:auto;
       -webkit-overflow-scrolling: touch;
       overscroll-behavior: contain;
       flex: 1 1 auto;
@@ -529,6 +537,7 @@
       color: var(--ink2);
       cursor:pointer;
       font-weight: 650;
+      white-space: nowrap;
     }
     .ghostLink:hover{ filter: brightness(1.02); }
 
@@ -674,11 +683,8 @@
       overflow:hidden !important;
     }
 
-    /* ===========================
-       Custom Select (marfil)
-       =========================== */
+    /* Custom Select */
     .cselect{ position:relative; width:100%; }
-
     .cselectBtn{
       width:100%;
       text-align:left;
@@ -724,18 +730,13 @@
       margin:0;
       box-shadow: 0 18px 55px rgba(15,17,21,.18);
       display:none;
-      max-height: min(240px, 40vh); /* ✅ se adapta a pantalla */
+      max-height: min(240px, 40vh);
       overflow:auto;
       z-index: 60;
       backdrop-filter: blur(10px);
     }
     .cselect.open .cselectList{ display:block; }
-
-    /* ✅ Si no hay espacio abajo, abre hacia arriba */
-    .cselect.up .cselectList{
-      top: auto;
-      bottom: calc(100% + 8px);
-    }
+    .cselect.up .cselectList{ top:auto; bottom: calc(100% + 8px); }
 
     .cselectOption{
       border-radius: 12px;
@@ -751,8 +752,180 @@
       border: 1px solid rgba(184,138,58,.22);
     }
 
+    /* Consent */
+    .consentBox{
+      border: 1px solid rgba(15,17,21,.10);
+      background: rgba(255,255,255,.60);
+      border-radius: 16px;
+      padding: 12px;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      margin-top: 10px;
+      box-shadow: 0 10px 24px rgba(15,17,21,.05);
+    }
+    .consentBox input{
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      box-shadow:none;
+    }
+    .consentText{
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--ink2);
+    }
+    .errText{
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--bad);
+      display:none;
+      font-weight: 650;
+    }
+    .errText.show{ display:block; }
+
+    /* Info blocks */
+    .infoBlock{
+      border:1px solid rgba(15,17,21,.10);
+      background: rgba(255,255,255,.60);
+      border-radius: 18px;
+      padding: 14px;
+      box-shadow: 0 10px 30px rgba(15,17,21,.06);
+    }
+    .infoBlock h3{
+      margin:0 0 8px;
+      font-weight:850;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      font-size: 12px;
+      color: var(--ink);
+    }
+    .infoBlock p{
+      margin:0;
+      color: var(--ink2);
+      font-size: 13px;
+      line-height:1.9;
+    }
+    .infoBlock ul{
+      margin:10px 0 0;
+      padding:0 0 0 18px;
+      color: var(--ink2);
+      font-size: 13px;
+      line-height:1.85;
+    }
+    .infoBlock li{ margin:6px 0; }
+
     /* ===========================
-       Mobile (comodo + rápido)
+       CALENDARIO (premium)
+       =========================== */
+    .calWrap{
+      border:1px solid rgba(15,17,21,.10);
+      background: rgba(255,255,255,.62);
+      border-radius: 18px;
+      padding: 14px;
+      position:relative;
+      overflow:hidden;
+      box-shadow: 0 10px 30px rgba(15,17,21,.06);
+    }
+    .calWrap::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: radial-gradient(620px 260px at 18% 0%, rgba(184,138,58,.12), transparent 70%);
+      pointer-events:none;
+      opacity:.95;
+    }
+    .calWrap > *{ position:relative; }
+
+    .calHead{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom: 10px;
+      flex-wrap:wrap;
+    }
+    .calMonth{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      letter-spacing:.02em;
+      font-size: 20px;
+      margin:0;
+    }
+    .calMeta{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .calChip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border: 1px solid var(--goldStroke);
+      background: rgba(184,138,58,.08);
+      color: var(--ink2);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space:nowrap;
+    }
+
+    .calGrid{
+      display:grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap:8px;
+    }
+    .calDow{
+      font-size: 11px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      color: var(--ink3);
+      font-weight: 750;
+      padding: 10px 10px;
+      border: 1px solid rgba(15,17,21,.08);
+      border-radius: 14px;
+      background: rgba(255,255,255,.55);
+      text-align:center;
+    }
+    .calCell{
+      border: 1px solid rgba(15,17,21,.08);
+      border-radius: 14px;
+      background: rgba(255,255,255,.55);
+      min-height: 48px;
+      padding: 10px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:flex-end;
+      font-weight: 700;
+      color: rgba(15,17,21,.84);
+      position:relative;
+      overflow:hidden;
+    }
+    .calCell.muted{
+      opacity:.35;
+      background: rgba(255,255,255,.40);
+    }
+    .calCell.highlight{
+      border-color: rgba(184,138,58,.28);
+      background: rgba(184,138,58,.12);
+      box-shadow: 0 0 0 4px rgba(184,138,58,.08);
+    }
+    .calCell.highlight::before{
+      content:"Inicio previsto";
+      position:absolute;
+      left:10px;
+      bottom:10px;
+      font-size: 10px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color: rgba(15,17,21,.62);
+      font-weight: 750;
+    }
+
+    /* ===========================
+       Mobile
        =========================== */
     @media (max-width: 520px){
       body::before{
@@ -784,7 +957,6 @@
         justify-content: center;
       }
 
-      /* ✅ modal bottom-sheet */
       .modalOverlay{
         align-items: flex-end;
         padding: 12px 12px calc(12px + env(safe-area-inset-bottom)) 12px;
@@ -797,22 +969,25 @@
       .modalHeader{ padding: 14px 14px 12px; }
       .modalBody{ padding: 12px 14px 14px; }
 
-      /* ✅ rendimiento: blur pesado en móviles */
       .hero, .sideCard, .section, .modal, .pill, .cselectList{
         backdrop-filter: none !important;
       }
+
+      .calCell{ min-height: 42px; padding: 9px; }
+      .calDow{ padding: 9px; }
     }
 
     @media (max-width: 380px){
       .logo{ font-size: 20px; }
       .pill{ font-size: 12px; padding: 8px 10px; }
       .btn{ padding: 12px; border-radius: 14px; }
+      .calGrid{ gap:6px; }
+      .calCell{ min-height: 40px; padding: 8px; }
     }
 
     @media (prefers-reduced-motion: reduce){
       *{ scroll-behavior: auto !important; }
       .btn, .floatApply{ transition: none !important; }
-      .pulse{ animation: none !important; }
     }
   </style>
 </head>
@@ -828,18 +1003,26 @@
         <div class="logo">ÈNIGME</div>
         <div class="tagline">Aura · Misterio · Presencia</div>
       </div>
-      <div class="pill"><span class="dot"></span> Honduras · Zona Sur</div>
+
+      <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+        <div class="pill"><span class="dot"></span> Honduras · Zona Sur</div>
+        <button class="btn btnGhost btnSmall" id="openAboutTop" type="button">Quiénes somos</button>
+        <button class="btn btnGhost btnSmall" id="openPurposeTop" type="button">Fin corporativo</button>
+        <button class="btn btnGhost btnSmall" id="openGlossaryTop" type="button">Glosario de trabajo</button>
+        <button class="btn btnGhost btnSmall" id="openPrivacyTop" type="button">Protección de datos</button>
+      </div>
     </div>
 
     <section class="hero">
       <div class="heroGrid">
         <div>
-          <div class="kicker">Firma en construcción · Operación inicial en el sur del país</div>
+          <div class="kicker">Fase de lanzamiento · Operación inicial en el sur del país</div>
 
           <h1 class="h1">Somos ÈNIGME.</h1>
+
+          <!-- ✅ TEXTO MÁS CORTO (premium y directo) -->
           <p class="lead">
-            ÈNIGME es una firma de estética y presencia: joyería y universo editorial diseñados para elevar identidad.
-            Este es el portal de lanzamiento en Honduras y el canal oficial para integrarte al equipo operativo.
+            ÈNIGME es una firma de joyería y estética editorial. Este portal gestiona el lanzamiento y la selección del equipo operativo en Honduras.
           </p>
 
           <div class="row" aria-label="Áreas">
@@ -852,10 +1035,11 @@
             <a class="btn btnGhost" href="#operaciones">Inicio de operaciones</a>
           </div>
 
+          <!-- ✅ TEXTO MÁS CORTO + FECHA CLICKABLE -->
           <div class="mini">
-            <strong>Inicio de operaciones:</strong> <a class="link" href="#operaciones">septiembre 2026</a>.
-            Operación inicial en el <strong>sur del país</strong>.
-            Para coordinación y gerencia, se proporcionará formación previa por parte de ÈNIGME.
+            <strong>Inicio de operaciones:</strong>
+            <button class="linkBtn" id="openCalendarFromDate" type="button" aria-label="Ver calendario de septiembre 2026">septiembre 2026</button>.
+            Operación inicial en el sur del país. Formación previa para coordinación y gerencia.
           </div>
         </div>
 
@@ -865,16 +1049,12 @@
             <div class="kv">
               <div class="k">
                 <div class="kLabel">Estado</div>
-                <div class="kValue">Lanzamiento / Reclutamiento</div>
+                <div class="kValue">Fase de lanzamiento</div>
+                <div class="kSub">Proceso de selección interno</div>
               </div>
               <div class="k">
                 <div class="kLabel">Región inicial</div>
                 <div class="kValue">Zona Sur de Honduras</div>
-              </div>
-              <div class="k">
-                <div class="kLabel">Departamentos</div>
-                <div class="kValue">Choluteca</div>
-                <div class="kValue">Valle</div>
               </div>
             </div>
           </div>
@@ -956,10 +1136,21 @@
       </div>
     </section>
 
-    <footer>© <span id="y"></span> ÈNIGME</footer>
+    <footer>
+      © <span id="y"></span> ÈNIGME
+      <div class="footerLinks">
+        <button class="linkBtn" id="openAboutFooter" type="button">Quiénes somos</button>
+        <span style="opacity:.55;">·</span>
+        <button class="linkBtn" id="openPurposeFooter" type="button">Fin corporativo</button>
+        <span style="opacity:.55;">·</span>
+        <button class="linkBtn" id="openGlossaryFooter" type="button">Glosario de trabajo</button>
+        <span style="opacity:.55;">·</span>
+        <button class="linkBtn" id="openPrivacyFooter" type="button">Protección de datos</button>
+      </div>
+    </footer>
   </div>
 
-  <!-- MODAL -->
+  <!-- MODAL APLICACIÓN -->
   <div class="modalOverlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal">
       <div class="modalHeader">
@@ -973,7 +1164,6 @@
       </div>
 
       <div class="modalBody" id="modalBody">
-        <!-- STEP 1 -->
         <div class="step show" id="stepVacantes">
           <div class="navRow">
             <div style="color:rgba(15,17,21,.72);font-size:13px;line-height:1.8;">
@@ -1024,7 +1214,6 @@
           </div>
         </div>
 
-        <!-- STEP 2 -->
         <div class="step" id="stepForm">
           <div class="navRow">
             <button class="ghostLink" id="backToVacanciesBtn" type="button">← Volver a vacantes</button>
@@ -1055,7 +1244,6 @@
                 <input id="phone" name="phone" type="tel" placeholder="+504 0000-0000" />
               </div>
 
-              <!-- Ciudad -->
               <div class="field">
                 <label>Ciudad (Zona Sur)</label>
                 <div class="cselect" id="citySelect">
@@ -1068,7 +1256,6 @@
                 <input type="hidden" name="city" id="cityHidden" />
               </div>
 
-              <!-- Vacante -->
               <div class="field full">
                 <label>Vacante</label>
                 <div class="cselect" id="roleSelect">
@@ -1091,18 +1278,29 @@
                 <textarea id="message" name="message" placeholder="Cuéntanos brevemente tu experiencia y disponibilidad." required></textarea>
               </div>
 
+              <div class="full">
+                <div class="consentBox">
+                  <input id="consent" name="consent" type="checkbox" />
+                  <div class="consentText">
+                    <strong>Protección de datos:</strong> He leído y acepto la
+                    <button class="linkBtn" id="openPrivacyFromForm" type="button">Política de privacidad</button>
+                    y autorizo el tratamiento de mis datos para fines de selección.
+                    <div class="errText" id="consentErr">Debes aceptar la política para poder enviar la solicitud.</div>
+                  </div>
+                </div>
+              </div>
+
               <input type="hidden" name="_subject" value="Nueva postulación · ÈNIGME Honduras" />
             </div>
 
             <div class="modalFooter">
               <div class="hint">
-                Inicio estimado de operaciones: <strong>septiembre 2026</strong> (zona sur).
-                Para coordinación y gerencia, ÈNIGME proporcionará formación previa.
+                Inicio estimado: <strong>septiembre 2026</strong> (zona sur). Formación previa para coordinación y gerencia.
               </div>
 
               <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
                 <span class="status" id="statusOk">✓ Solicitud recibida. Pronto nos pondremos en contacto contigo.</span>
-                <span class="status" id="statusBad">✕ No se pudo enviar. Intenta de nuevo.</span>
+                <span class="status" id="statusBad">✕ No se pudo enviar. Revisa los datos e intenta de nuevo.</span>
                 <button class="btn" id="submitBtn" type="submit">Enviar solicitud</button>
               </div>
             </div>
@@ -1113,8 +1311,169 @@
     </div>
   </div>
 
+  <!-- MODAL INFO (Quiénes somos / Fin corporativo / Glosario / Privacidad / Calendario) -->
+  <div class="modalOverlay info" id="infoOverlay" role="dialog" aria-modal="true" aria-labelledby="infoTitle">
+    <div class="modal">
+      <div class="modalHeader">
+        <div>
+          <h2 class="modalTitle" id="infoTitle">ÈNIGME · Información</h2>
+          <p class="modalSub" id="infoSub">Contenido corporativo y legal.</p>
+        </div>
+        <button class="x" id="closeInfoBtn" type="button" aria-label="Cerrar">✕</button>
+      </div>
+
+      <div class="modalBody" id="infoBody">
+        <div class="navRow">
+          <button class="ghostLink" id="tabAbout" type="button">Quiénes somos</button>
+          <button class="ghostLink" id="tabPurpose" type="button">Fin corporativo</button>
+          <button class="ghostLink" id="tabGlossary" type="button">Glosario de trabajo</button>
+          <button class="ghostLink" id="tabCalendar" type="button">Calendario</button>
+          <button class="ghostLink" id="tabPrivacy" type="button">Protección de datos</button>
+        </div>
+
+        <div class="step show" id="infoAbout">
+          <div class="infoBlock">
+            <h3>Quiénes somos</h3>
+            <p>
+              ÈNIGME es una firma en fase de lanzamiento, construida desde una visión de estética, disciplina y presencia.
+              Nacemos con un estándar corporativo claro: operación organizada, imagen cuidada y cultura de equipo basada en respeto, claridad y resultados.
+            </p>
+          </div>
+        </div>
+
+        <div class="step" id="infoPurpose">
+          <div class="infoBlock">
+            <h3>Fin corporativo · Zona Sur (Honduras)</h3>
+            <p>
+              En esta fase, la prioridad es establecer una operación sólida en la Zona Sur: estructura interna, coordinación de equipos y procesos de servicio.
+              Buscamos una red organizada con roles claros, seguimiento de actividad y comunicación directa, cuidando la experiencia de marca.
+              <br><br>
+              <strong>Inicio operativo previsto:</strong> septiembre 2026 (sujeto a planificación).
+            </p>
+            <ul>
+              <li>Orden operativo y control de procesos.</li>
+              <li>Estándares de servicio y cumplimiento interno.</li>
+              <li>Formación previa para coordinación y gerencia.</li>
+            </ul>
+            <p style="margin-top:10px;">
+              <strong>Nota:</strong> La postulación no constituye contrato ni compromiso de contratación. Las posiciones se asignan tras evaluación y disponibilidad.
+            </p>
+          </div>
+        </div>
+
+        <!-- ✅ GLOSARIO (menos técnico, profesional) -->
+        <div class="step" id="infoGlossary">
+          <div class="infoBlock">
+            <h3>Glosario de trabajo (resumen)</h3>
+            <p style="margin-bottom:10px;">
+              Para que todo el mundo entienda claramente qué se hace en cada rol, aquí va una explicación simple (sin tecnicismos, pero profesional).
+            </p>
+            <ul>
+              <li>
+                <strong>Logística / Repartidor:</strong> recoge y entrega pedidos, confirma cada entrega, cuida el producto y avisa si hay incidencias (faltantes, retrasos, devoluciones).
+              </li>
+              <li>
+                <strong>Coordinación de Zona:</strong> es el punto de apoyo del equipo: organiza pedidos, resuelve dudas, da seguimiento a la actividad y mantiene comunicación directa con la gerencia.
+              </li>
+              <li>
+                <strong>Gerencia de Zona:</strong> dirige la operación del territorio: planifica, supervisa a coordinadores, revisa que se cumplan estándares y toma decisiones para que todo funcione con orden.
+              </li>
+            </ul>
+            <p style="margin-top:10px;">
+              <strong>Objetivo común:</strong> orden, servicio impecable y una experiencia coherente con la marca.
+            </p>
+          </div>
+        </div>
+
+        <!-- ✅ CALENDARIO SEPTIEMBRE 2026 -->
+        <div class="step" id="infoCalendar">
+          <div class="calWrap" aria-label="Calendario Septiembre 2026">
+            <div class="calHead">
+              <div>
+                <p class="calMonth">Septiembre 2026</p>
+                <p style="margin:6px 0 0; color:rgba(15,17,21,.70); font-size:13px; line-height:1.75;">
+                  Vista mensual para referencia del inicio operativo previsto. Fechas sujetas a planificación final.
+                </p>
+              </div>
+              <div class="calMeta">
+                <span class="calChip"><span class="dot"></span> Inicio previsto</span>
+              </div>
+            </div>
+
+            <div class="calGrid" role="grid" aria-label="Calendario de septiembre 2026">
+              <!-- DOW -->
+              <div class="calDow">Lun</div><div class="calDow">Mar</div><div class="calDow">Mié</div><div class="calDow">Jue</div><div class="calDow">Vie</div><div class="calDow">Sáb</div><div class="calDow">Dom</div>
+
+              <!-- Semana 1 (Sep 2026 inicia martes) -->
+              <div class="calCell muted" aria-hidden="true"></div>
+              <div class="calCell highlight" aria-label="1 de septiembre 2026 (Inicio previsto)">1</div>
+              <div class="calCell">2</div>
+              <div class="calCell">3</div>
+              <div class="calCell">4</div>
+              <div class="calCell">5</div>
+              <div class="calCell">6</div>
+
+              <!-- Semana 2 -->
+              <div class="calCell">7</div>
+              <div class="calCell">8</div>
+              <div class="calCell">9</div>
+              <div class="calCell">10</div>
+              <div class="calCell">11</div>
+              <div class="calCell">12</div>
+              <div class="calCell">13</div>
+
+              <!-- Semana 3 -->
+              <div class="calCell">14</div>
+              <div class="calCell">15</div>
+              <div class="calCell">16</div>
+              <div class="calCell">17</div>
+              <div class="calCell">18</div>
+              <div class="calCell">19</div>
+              <div class="calCell">20</div>
+
+              <!-- Semana 4 -->
+              <div class="calCell">21</div>
+              <div class="calCell">22</div>
+              <div class="calCell">23</div>
+              <div class="calCell">24</div>
+              <div class="calCell">25</div>
+              <div class="calCell">26</div>
+              <div class="calCell">27</div>
+
+              <!-- Semana 5 -->
+              <div class="calCell">28</div>
+              <div class="calCell">29</div>
+              <div class="calCell">30</div>
+              <div class="calCell muted" aria-hidden="true"></div>
+              <div class="calCell muted" aria-hidden="true"></div>
+              <div class="calCell muted" aria-hidden="true"></div>
+              <div class="calCell muted" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step" id="infoPrivacy">
+          <div class="infoBlock">
+            <h3>Protección de datos · Selección</h3>
+            <p>
+              <strong>Responsable del tratamiento:</strong> ÈNIGME Official (marca/operación).<br>
+              <strong>Finalidad:</strong> gestionar tu candidatura, contactarte y evaluar tu perfil para la vacante seleccionada.<br>
+              <strong>Base legal:</strong> tu consentimiento al enviar la solicitud.<br>
+              <strong>Datos tratados:</strong> nombre, email, teléfono/WhatsApp, ciudad, vacante y el mensaje que envíes.<br>
+              <strong>Destinatarios:</strong> no se cederán datos a terceros, salvo obligación legal.<br>
+              <strong>Conservación:</strong> durante el proceso y, si no resultas seleccionado/a, hasta <strong>12 meses</strong> para futuras vacantes (salvo que solicites eliminación antes).<br>
+              <strong>Derechos:</strong> acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a <strong>info@enigmeofficial.com</strong> indicando “Protección de datos”.
+            </p>
+            <p style="margin-top:10px;">
+              Si consideras que tus derechos no han sido atendidos, puedes presentar una reclamación ante la autoridad de protección de datos competente.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // ✅ Formspree endpoint
     const FORMSPREE_ENDPOINT = "https://formspree.io/f/xykdaowe";
     document.getElementById('y').textContent = new Date().getFullYear();
 
@@ -1132,32 +1491,36 @@
     const goToFormBtn = document.getElementById('goToFormBtn');
     const backToVacanciesBtn = document.getElementById('backToVacanciesBtn');
 
-    // ✅ iOS-safe scroll lock
-    let scrollY = 0;
+    let bodyLockCount = 0;
+    let savedScrollY = 0;
+
     function lockBody(){
-      scrollY = window.scrollY || 0;
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.left = '0';
-      document.body.style.right = '0';
-      document.body.style.width = '100%';
+      if(bodyLockCount === 0){
+        savedScrollY = window.scrollY || 0;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${savedScrollY}px`;
+        document.body.style.left = '0';
+        document.body.style.right = '0';
+        document.body.style.width = '100%';
+      }
+      bodyLockCount++;
     }
     function unlockBody(){
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.left = '';
-      document.body.style.right = '';
-      document.body.style.width = '';
-      window.scrollTo(0, scrollY);
+      bodyLockCount = Math.max(0, bodyLockCount - 1);
+      if(bodyLockCount === 0){
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        document.body.style.width = '';
+        window.scrollTo(0, savedScrollY);
+      }
     }
 
     function scrollToOperaciones(){
       const el = document.getElementById('operaciones');
       if(!el) return;
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setTimeout(() => {
-        el.classList.remove('pulse'); void el.offsetWidth; el.classList.add('pulse');
-      }, 350);
     }
 
     function showStepVacantes(){
@@ -1172,54 +1535,31 @@
       setTimeout(() => document.getElementById('name')?.focus(), 80);
     }
 
-    // ✅ Focus trap simple (mejor UX y accesibilidad)
-    let trapHandler = null;
-    function enableFocusTrap(){
-      const focusableSelector = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
-      trapHandler = (e) => {
-        if(e.key !== 'Tab') return;
-        const nodes = overlay.querySelectorAll(focusableSelector);
-        const focusables = Array.from(nodes).filter(n => n.offsetParent !== null);
-        if(!focusables.length) return;
-
-        const first = focusables[0];
-        const last = focusables[focusables.length - 1];
-
-        if(e.shiftKey && document.activeElement === first){
-          e.preventDefault(); last.focus();
-        } else if(!e.shiftKey && document.activeElement === last){
-          e.preventDefault(); first.focus();
-        }
-      };
-      overlay.addEventListener('keydown', trapHandler);
-    }
-    function disableFocusTrap(){
-      if(trapHandler){
-        overlay.removeEventListener('keydown', trapHandler);
-        trapHandler = null;
-      }
-    }
-
     function openModal(){
       overlay.classList.add('show');
       lockBody();
       showStepVacantes();
       closeAllCustomSelects();
       setStatus(null);
-      enableFocusTrap();
       setTimeout(() => closeBtn?.focus(), 50);
     }
-
     function closeModal(){
       overlay.classList.remove('show');
       closeAllCustomSelects();
-      disableFocusTrap();
       unlockBody();
     }
 
     closeBtn.addEventListener('click', closeModal);
     overlay.addEventListener('click', (e) => { if(e.target === overlay) closeModal(); });
-    window.addEventListener('keydown', (e) => { if(e.key === 'Escape' && overlay.classList.contains('show')) closeModal(); });
+
+    const infoOverlay = document.getElementById('infoOverlay');
+    const closeInfoBtn = document.getElementById('closeInfoBtn');
+
+    window.addEventListener('keydown', (e) => {
+      if(e.key !== 'Escape') return;
+      if(infoOverlay.classList.contains('show')) closeInfoModal();
+      else if(overlay.classList.contains('show')) closeModal();
+    });
 
     floatingApplyBtn.addEventListener('click', openModal);
     applyFromSectionBtn.addEventListener('click', openModal);
@@ -1246,7 +1586,6 @@
       `
     };
 
-    // Custom selects
     function closeAllCustomSelects(exceptId=null){
       document.querySelectorAll('.cselect').forEach(cs => {
         if(exceptId && cs.id === exceptId) return;
@@ -1257,7 +1596,7 @@
       });
     }
 
-    function decideDropDirection(cs, btn, list){
+    function decideDropDirection(cs, btn){
       try{
         cs.classList.remove('up');
         const r = btn.getBoundingClientRect();
@@ -1265,7 +1604,6 @@
         const spaceBelow = viewportH - r.bottom;
         const spaceAbove = r.top;
         const desired = Math.min(260, viewportH * 0.4);
-
         if(spaceBelow < desired && spaceAbove > spaceBelow){
           cs.classList.add('up');
         }
@@ -1285,13 +1623,8 @@
         const willOpen = !isOpen;
         cs.classList.toggle('open', willOpen);
         btn.setAttribute('aria-expanded', willOpen.toString());
-
-        if(willOpen){
-          decideDropDirection(cs, btn, list);
-          // si el list se recorta, el usuario puede scrollear el modal sin que el fondo se mueva
-        } else {
-          cs.classList.remove('up');
-        }
+        if(willOpen) decideDropDirection(cs, btn);
+        else cs.classList.remove('up');
       });
 
       list.addEventListener('click', (e) => {
@@ -1340,7 +1673,6 @@
       if(!inside) closeAllCustomSelects();
     });
 
-    // Si scrollean el modal, cerramos dropdowns para evitar “cosas flotando”
     modalBody?.addEventListener('scroll', () => closeAllCustomSelects(), { passive: true });
 
     function pickRoleAndGoForm(role){
@@ -1357,7 +1689,6 @@
       });
     });
 
-    // Form submit (AJAX)
     const form = document.getElementById('applyForm');
     const submitBtn = document.getElementById('submitBtn');
     const ok = document.getElementById('statusOk');
@@ -1370,12 +1701,29 @@
       if(type === "bad") bad.className = "status bad";
     }
 
+    const consent = document.getElementById('consent');
+    const consentErr = document.getElementById('consentErr');
+
+    function showConsentError(show){
+      consentErr.classList.toggle('show', !!show);
+    }
+    function syncConsentButton(){
+      const isSending = submitBtn.dataset.sending === "1";
+      if(isSending) return;
+      submitBtn.disabled = !consent.checked;
+      showConsentError(false);
+    }
+    consent.addEventListener('change', syncConsentButton);
+    syncConsentButton();
+
     function resetFormState(){
       form.reset();
       setCustomSelectValue('citySelect', "");
       setCustomSelectValue('roleSelect', "");
       roleInfo.innerHTML = `<strong>Detalle de la vacante:</strong> selecciona una opción para ver una breve descripción.`;
       setStatus(null);
+      showConsentError(false);
+      syncConsentButton();
     }
 
     form.addEventListener('submit', async (e) => {
@@ -1384,6 +1732,13 @@
 
       const hp = form.querySelector('input[name="website"]');
       if(hp && hp.value.trim().length > 0) return;
+
+      if(!consent.checked){
+        showConsentError(true);
+        consent.focus();
+        setStatus("bad");
+        return;
+      }
 
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
@@ -1397,6 +1752,7 @@
       if(!role){ document.getElementById('roleBtn').focus(); setStatus("bad"); return; }
       if(!message){ document.getElementById('message').focus(); setStatus("bad"); return; }
 
+      submitBtn.dataset.sending = "1";
       submitBtn.disabled = true;
       submitBtn.textContent = "Enviando...";
 
@@ -1404,6 +1760,7 @@
         const fd = new FormData(form);
         fd.set('city', city);
         fd.set('role', role);
+        fd.set('consent', consent.checked ? "Sí" : "No");
 
         const res = await fetch(FORMSPREE_ENDPOINT, {
           method: "POST",
@@ -1423,10 +1780,92 @@
       } catch (err){
         setStatus("bad");
       } finally {
-        submitBtn.disabled = false;
+        delete submitBtn.dataset.sending;
         submitBtn.textContent = "Enviar solicitud";
+        syncConsentButton();
       }
     });
+
+    /* ===========================
+       INFO MODAL (tabs)
+       =========================== */
+    const infoTitle = document.getElementById('infoTitle');
+    const infoSub = document.getElementById('infoSub');
+    const infoBody = document.getElementById('infoBody');
+
+    const tabAbout = document.getElementById('tabAbout');
+    const tabPurpose = document.getElementById('tabPurpose');
+    const tabGlossary = document.getElementById('tabGlossary');
+    const tabCalendar = document.getElementById('tabCalendar');
+    const tabPrivacy = document.getElementById('tabPrivacy');
+
+    const infoAbout = document.getElementById('infoAbout');
+    const infoPurpose = document.getElementById('infoPurpose');
+    const infoGlossary = document.getElementById('infoGlossary');
+    const infoCalendar = document.getElementById('infoCalendar');
+    const infoPrivacy = document.getElementById('infoPrivacy');
+
+    function showInfoTab(tab){
+      infoAbout.classList.toggle('show', tab === 'about');
+      infoPurpose.classList.toggle('show', tab === 'purpose');
+      infoGlossary.classList.toggle('show', tab === 'glossary');
+      infoCalendar.classList.toggle('show', tab === 'calendar');
+      infoPrivacy.classList.toggle('show', tab === 'privacy');
+
+      if(tab === 'about'){
+        infoTitle.textContent = "ÈNIGME · Quiénes somos";
+        infoSub.textContent = "Identidad, cultura y estándar operativo.";
+      } else if(tab === 'purpose'){
+        infoTitle.textContent = "ÈNIGME · Fin corporativo";
+        infoSub.textContent = "Objetivo operativo en Zona Sur (Honduras).";
+      } else if(tab === 'glossary'){
+        infoTitle.textContent = "ÈNIGME · Glosario de trabajo";
+        infoSub.textContent = "Qué hace cada rol, de forma simple.";
+      } else if(tab === 'calendar'){
+        infoTitle.textContent = "ÈNIGME · Calendario";
+        infoSub.textContent = "Septiembre 2026 (referencia operativa).";
+      } else {
+        infoTitle.textContent = "ÈNIGME · Protección de datos";
+        infoSub.textContent = "Tratamiento de datos para procesos de selección.";
+      }
+
+      requestAnimationFrame(() => { if(infoBody) infoBody.scrollTop = 0; });
+    }
+
+    function openInfoModal(tab){
+      infoOverlay.classList.add('show');
+      lockBody();
+      showInfoTab(tab || 'about');
+      setTimeout(() => closeInfoBtn?.focus(), 30);
+    }
+    function closeInfoModal(){
+      infoOverlay.classList.remove('show');
+      unlockBody();
+    }
+
+    closeInfoBtn.addEventListener('click', closeInfoModal);
+    infoOverlay.addEventListener('click', (e) => { if(e.target === infoOverlay) closeInfoModal(); });
+
+    tabAbout.addEventListener('click', () => showInfoTab('about'));
+    tabPurpose.addEventListener('click', () => showInfoTab('purpose'));
+    tabGlossary.addEventListener('click', () => showInfoTab('glossary'));
+    tabCalendar.addEventListener('click', () => showInfoTab('calendar'));
+    tabPrivacy.addEventListener('click', () => showInfoTab('privacy'));
+
+    document.getElementById('openAboutTop').addEventListener('click', () => openInfoModal('about'));
+    document.getElementById('openPurposeTop').addEventListener('click', () => openInfoModal('purpose'));
+    document.getElementById('openGlossaryTop').addEventListener('click', () => openInfoModal('glossary'));
+    document.getElementById('openPrivacyTop').addEventListener('click', () => openInfoModal('privacy'));
+
+    document.getElementById('openAboutFooter').addEventListener('click', () => openInfoModal('about'));
+    document.getElementById('openPurposeFooter').addEventListener('click', () => openInfoModal('purpose'));
+    document.getElementById('openGlossaryFooter').addEventListener('click', () => openInfoModal('glossary'));
+    document.getElementById('openPrivacyFooter').addEventListener('click', () => openInfoModal('privacy'));
+
+    document.getElementById('openPrivacyFromForm').addEventListener('click', () => openInfoModal('privacy'));
+
+    /* ✅ CLICK EN "septiembre 2026" => abre calendario premium */
+    document.getElementById('openCalendarFromDate').addEventListener('click', () => openInfoModal('calendar'));
   </script>
 </body>
 </html>
