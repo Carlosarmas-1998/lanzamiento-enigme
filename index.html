@@ -172,16 +172,43 @@
     .btn:active{ transform: translateY(0); }
     .btn:disabled{ opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
 
-    .btnGhost{
-      background: transparent;
-      border: 1px solid var(--ink);
-      color: var(--ink);
-      box-shadow: none;
+    /* Botón Manifiesto con Animación Misteriosa */
+    .manifesto-btn {
+      position: relative;
+      overflow: hidden;
+      animation: auraMystery 4s infinite ease-in-out;
+      border: 1px solid rgba(194, 160, 82, 0.3);
     }
-    .btnGhost:hover{
-      background: rgba(28, 25, 23, 0.05);
-      color: var(--ink);
-      box-shadow: none;
+    
+    .manifesto-btn::after {
+      content: "";
+      position: absolute;
+      top: 0; left: -100%;
+      width: 50%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(194, 160, 82, 0.4), transparent);
+      transform: skewX(-20deg);
+      animation: shimmerMystery 4s infinite linear;
+    }
+
+    @keyframes auraMystery {
+      0% { 
+        box-shadow: 0 4px 15px rgba(28,25,23,0.3); 
+        transform: translateY(0); 
+      }
+      50% { 
+        box-shadow: 0 0 25px rgba(194,160,82,0.5), 0 10px 25px rgba(28,25,23,0.4); 
+        transform: translateY(-3px); 
+      }
+      100% { 
+        box-shadow: 0 4px 15px rgba(28,25,23,0.3); 
+        transform: translateY(0); 
+      }
+    }
+
+    @keyframes shimmerMystery {
+      0% { left: -100%; }
+      20% { left: 200%; }
+      100% { left: 200%; }
     }
 
     .btnSmall{ padding: 12px 20px; font-size: 12px; }
@@ -530,7 +557,7 @@
           </p>
           <div class="ctaRow">
             <button class="btn" id="openCalBtn">Fechas de Despliegue</button>
-            <button class="btn btnGhost" id="openManifestoBtn">Manifiesto Corporativo</button>
+            <button class="btn manifesto-btn" id="openManifestoBtn">Manifiesto Corporativo</button>
           </div>
         </div>
         
@@ -567,7 +594,7 @@
             <ul class="cardList">
               <li>Control de inventarios y logística territorial.</li>
               <li>Supervisión de personal y resolución de incidencias.</li>
-              <li>Oficina virtual.</li>
+              <li>Aplica para los 16 municipios de Choluteca.</li>
             </ul>
             <button class="btn btnSmall" type="button" onclick="openFormModal()">Inscribirse a Coordinador</button>
           </article>
@@ -582,7 +609,6 @@
               <li>Elaboración de presupuestos y reportes de KPIs.</li>
               <li>Auditoría de cumplimiento y estandarización de marca.</li>
               <li>Posición exclusiva de control territorial.</li>
-              <li>Oficina virtual.</li>
             </ul>
             <button class="btn btnSmall" type="button" onclick="openFormModal()">Inscribirse a Gerencia</button>
           </article>
@@ -612,17 +638,17 @@
           <div class="formGrid">
             <div class="field">
               <label>Nombre completo</label>
-              <input id="name" name="name" type="text" placeholder="" required />
+              <input id="name" name="name" type="text" placeholder="Ej. Abril Armas" required />
             </div>
             
             <div class="field">
               <label>Identidad (DNI)</label>
-              <input id="dni" name="dni" type="text" placeholder="0601..." required />
+              <input id="dni" name="dni" type="text" placeholder="0801-1990-12345" required />
             </div>
 
             <div class="field">
               <label>Correo Electrónico</label>
-              <input id="email" name="email" type="email" placeholder="" required />
+              <input id="email" name="email" type="email" placeholder="correo@ejemplo.com" required />
             </div>
 
             <div class="field">
