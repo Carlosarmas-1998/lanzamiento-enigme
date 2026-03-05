@@ -251,6 +251,7 @@
     }
     .btn:hover{ transform: translateY(-1px); filter: brightness(1.04); }
     .btn:active{ transform: translateY(0px); filter: brightness(0.98); }
+    .btn:disabled{ opacity: 0.7; cursor: not-allowed; transform: none; filter: none; }
 
     .btnGhost{
       border: 1px solid var(--line);
@@ -769,6 +770,7 @@
       height: 18px;
       margin-top: 2px;
       box-shadow:none;
+      cursor: pointer;
     }
     .consentText{
       font-size: 13px;
@@ -1020,7 +1022,6 @@
 
           <h1 class="h1">Somos ÈNIGME.</h1>
 
-          <!-- ✅ TEXTO MÁS CORTO (premium y directo) -->
           <p class="lead">
             ÈNIGME es una firma de joyería y estética editorial. Este portal gestiona el lanzamiento y la selección del equipo operativo en Honduras.
           </p>
@@ -1035,7 +1036,6 @@
             <a class="btn btnGhost" href="#operaciones">Inicio de operaciones</a>
           </div>
 
-          <!-- ✅ TEXTO MÁS CORTO + FECHA CLICKABLE -->
           <div class="mini">
             <strong>Inicio de operaciones:</strong>
             <button class="linkBtn" id="openCalendarFromDate" type="button" aria-label="Ver calendario de septiembre 2026">septiembre 2026</button>.
@@ -1150,7 +1150,6 @@
     </footer>
   </div>
 
-  <!-- MODAL APLICACIÓN -->
   <div class="modalOverlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal">
       <div class="modalHeader">
@@ -1231,7 +1230,7 @@
             <div class="formGrid">
               <div class="field">
                 <label for="name">Nombre completo</label>
-                <input id="name" name="name" type="text" placeholder="Tu nombre" required />
+                <input id="name" name="name" type="text" placeholder="Ej. Abril Armas" required />
               </div>
 
               <div class="field">
@@ -1245,18 +1244,28 @@
               </div>
 
               <div class="field">
-                <label>Ciudad (Zona Sur)</label>
-                <div class="cselect" id="citySelect">
-                  <button type="button" class="cselectBtn" id="cityBtn" aria-haspopup="listbox" aria-expanded="false">Selecciona una opción</button>
-                  <ul class="cselectList" id="cityList" role="listbox" aria-label="Ciudad">
+                <label>Departamento (Zona Sur)</label>
+                <div class="cselect" id="deptSelect">
+                  <button type="button" class="cselectBtn" id="deptBtn" aria-haspopup="listbox" aria-expanded="false">Selecciona una opción</button>
+                  <ul class="cselectList" id="deptList" role="listbox" aria-label="Departamento">
                     <li class="cselectOption" role="option" aria-selected="false" data-value="Choluteca">Choluteca</li>
-                    <li class="cselectOption" role="option" aria-selected="false" data-value="San Lorenzo">San Lorenzo</li>
+                    <li class="cselectOption" role="option" aria-selected="false" data-value="Valle">Valle</li>
                   </ul>
                 </div>
-                <input type="hidden" name="city" id="cityHidden" />
+                <input type="hidden" name="department" id="deptHidden" />
               </div>
 
-              <div class="field full">
+              <div class="field">
+                <label>Municipio</label>
+                <div class="cselect" id="muniSelect">
+                  <button type="button" class="cselectBtn" id="muniBtn" aria-haspopup="listbox" aria-expanded="false">Primero elige departamento</button>
+                  <ul class="cselectList" id="muniList" role="listbox" aria-label="Municipio">
+                    </ul>
+                </div>
+                <input type="hidden" name="municipality" id="muniHidden" />
+              </div>
+
+              <div class="field">
                 <label>Vacante</label>
                 <div class="cselect" id="roleSelect">
                   <button type="button" class="cselectBtn" id="roleBtn" aria-haspopup="listbox" aria-expanded="false">Selecciona una opción</button>
@@ -1282,10 +1291,10 @@
                 <div class="consentBox">
                   <input id="consent" name="consent" type="checkbox" />
                   <div class="consentText">
-                    <strong>Protección de datos:</strong> He leído y acepto la
+                    <strong>Protección de datos (Honduras):</strong> He leído y acepto la
                     <button class="linkBtn" id="openPrivacyFromForm" type="button">Política de privacidad</button>
-                    y autorizo el tratamiento de mis datos para fines de selección.
-                    <div class="errText" id="consentErr">Debes aceptar la política para poder enviar la solicitud.</div>
+                    y autorizo el tratamiento de mis datos personales para fines de selección, conforme al <strong>Art. 76 de la Constitución de la República</strong> y el derecho de <strong>Hábeas Data</strong>.
+                    <div class="errText" id="consentErr">Debes aceptar los términos legales marcando la casilla para poder enviar la solicitud.</div>
                   </div>
                 </div>
               </div>
@@ -1311,7 +1320,6 @@
     </div>
   </div>
 
-  <!-- MODAL INFO (Quiénes somos / Fin corporativo / Glosario / Privacidad / Calendario) -->
   <div class="modalOverlay info" id="infoOverlay" role="dialog" aria-modal="true" aria-labelledby="infoTitle">
     <div class="modal">
       <div class="modalHeader">
@@ -1361,7 +1369,6 @@
           </div>
         </div>
 
-        <!-- ✅ GLOSARIO (menos técnico, profesional) -->
         <div class="step" id="infoGlossary">
           <div class="infoBlock">
             <h3>Glosario de trabajo (resumen)</h3>
@@ -1385,7 +1392,6 @@
           </div>
         </div>
 
-        <!-- ✅ CALENDARIO SEPTIEMBRE 2026 -->
         <div class="step" id="infoCalendar">
           <div class="calWrap" aria-label="Calendario Septiembre 2026">
             <div class="calHead">
@@ -1401,10 +1407,8 @@
             </div>
 
             <div class="calGrid" role="grid" aria-label="Calendario de septiembre 2026">
-              <!-- DOW -->
               <div class="calDow">Lun</div><div class="calDow">Mar</div><div class="calDow">Mié</div><div class="calDow">Jue</div><div class="calDow">Vie</div><div class="calDow">Sáb</div><div class="calDow">Dom</div>
 
-              <!-- Semana 1 (Sep 2026 inicia martes) -->
               <div class="calCell muted" aria-hidden="true"></div>
               <div class="calCell highlight" aria-label="1 de septiembre 2026 (Inicio previsto)">1</div>
               <div class="calCell">2</div>
@@ -1413,7 +1417,6 @@
               <div class="calCell">5</div>
               <div class="calCell">6</div>
 
-              <!-- Semana 2 -->
               <div class="calCell">7</div>
               <div class="calCell">8</div>
               <div class="calCell">9</div>
@@ -1422,7 +1425,6 @@
               <div class="calCell">12</div>
               <div class="calCell">13</div>
 
-              <!-- Semana 3 -->
               <div class="calCell">14</div>
               <div class="calCell">15</div>
               <div class="calCell">16</div>
@@ -1431,7 +1433,6 @@
               <div class="calCell">19</div>
               <div class="calCell">20</div>
 
-              <!-- Semana 4 -->
               <div class="calCell">21</div>
               <div class="calCell">22</div>
               <div class="calCell">23</div>
@@ -1440,7 +1441,6 @@
               <div class="calCell">26</div>
               <div class="calCell">27</div>
 
-              <!-- Semana 5 -->
               <div class="calCell">28</div>
               <div class="calCell">29</div>
               <div class="calCell">30</div>
@@ -1458,14 +1458,14 @@
             <p>
               <strong>Responsable del tratamiento:</strong> ÈNIGME Official (marca/operación).<br>
               <strong>Finalidad:</strong> gestionar tu candidatura, contactarte y evaluar tu perfil para la vacante seleccionada.<br>
-              <strong>Base legal:</strong> tu consentimiento al enviar la solicitud.<br>
-              <strong>Datos tratados:</strong> nombre, email, teléfono/WhatsApp, ciudad, vacante y el mensaje que envíes.<br>
+              <strong>Base legal:</strong> Tu consentimiento, conforme a la garantía de intimidad del <strong>Art. 76 de la Constitución de la República de Honduras</strong> y la acción de <strong>Hábeas Data</strong>.<br>
+              <strong>Datos tratados:</strong> nombre, email, teléfono/WhatsApp, departamento, municipio, vacante y el mensaje que envíes.<br>
               <strong>Destinatarios:</strong> no se cederán datos a terceros, salvo obligación legal.<br>
               <strong>Conservación:</strong> durante el proceso y, si no resultas seleccionado/a, hasta <strong>12 meses</strong> para futuras vacantes (salvo que solicites eliminación antes).<br>
               <strong>Derechos:</strong> acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a <strong>info@enigmeofficial.com</strong> indicando “Protección de datos”.
             </p>
             <p style="margin-top:10px;">
-              Si consideras que tus derechos no han sido atendidos, puedes presentar una reclamación ante la autoridad de protección de datos competente.
+              Si consideras que tus derechos no han sido atendidos, puedes presentar una reclamación ante la autoridad competente.
             </p>
           </div>
         </div>
@@ -1569,7 +1569,22 @@
 
     const roleInfo = document.getElementById('roleInfo');
     const roleHidden = document.getElementById('roleHidden');
-    const cityHidden = document.getElementById('cityHidden');
+    
+    const deptHidden = document.getElementById('deptHidden');
+    const muniHidden = document.getElementById('muniHidden');
+
+    const municipalitiesData = {
+      "Choluteca": [
+        "Choluteca", "Apacilagua", "Concepción de María", "Duyure",
+        "El Corpus", "El Triunfo", "Marcovia", "Morolica", "Namasigüe",
+        "Orocuina", "Pespire", "San Antonio de Flores", "San Isidro",
+        "San José", "San Marcos de Colón", "Santa Ana de Yusguare"
+      ],
+      "Valle": [
+        "Nacaome", "Alianza", "Amapala", "Aramecina", "Caridad",
+        "Goascorán", "Langue", "San Francisco de Coray", "San Lorenzo"
+      ]
+    };
 
     const roleDetails = {
       "Repartidor / Logística": `
@@ -1662,7 +1677,27 @@
       }
     }
 
-    setupCustomSelect('citySelect','cityBtn','cityList','cityHidden', () => {});
+    setupCustomSelect('deptSelect','deptBtn','deptList','deptHidden', (dept) => {
+      const mList = document.getElementById('muniList');
+      mList.innerHTML = ''; // Limpiar opciones anteriores
+      
+      if(municipalitiesData[dept]) {
+         municipalitiesData[dept].forEach(m => {
+            const li = document.createElement('li');
+            li.className = 'cselectOption';
+            li.setAttribute('role', 'option');
+            li.setAttribute('aria-selected', 'false');
+            li.setAttribute('data-value', m);
+            li.textContent = m;
+            mList.appendChild(li);
+         });
+         setCustomSelectValue('muniSelect', "");
+         document.getElementById('muniBtn').textContent = "Selecciona un municipio";
+      }
+    });
+
+    setupCustomSelect('muniSelect','muniBtn','muniList','muniHidden', () => {});
+
     setupCustomSelect('roleSelect','roleBtn','roleList','roleHidden', (value) => {
       roleInfo.innerHTML = roleDetails[value] || `<strong>Detalle de la vacante:</strong> selecciona una opción para ver una breve descripción.`;
     });
@@ -1707,24 +1742,38 @@
     function showConsentError(show){
       consentErr.classList.toggle('show', !!show);
     }
+
+    // Actualiza el estado visual si marcan o desmarcan la casilla
     function syncConsentButton(){
       const isSending = submitBtn.dataset.sending === "1";
       if(isSending) return;
-      submitBtn.disabled = !consent.checked;
-      showConsentError(false);
+      
+      if(consent.checked) {
+         showConsentError(false);
+         submitBtn.disabled = false;
+      } else {
+         submitBtn.disabled = true;
+      }
     }
     consent.addEventListener('change', syncConsentButton);
-    syncConsentButton();
 
     function resetFormState(){
       form.reset();
-      setCustomSelectValue('citySelect', "");
+      setCustomSelectValue('deptSelect', "");
+      setCustomSelectValue('muniSelect', "");
+      document.getElementById('muniBtn').textContent = "Primero elige departamento";
+      document.getElementById('muniList').innerHTML = "";
       setCustomSelectValue('roleSelect', "");
       roleInfo.innerHTML = `<strong>Detalle de la vacante:</strong> selecciona una opción para ver una breve descripción.`;
       setStatus(null);
       showConsentError(false);
-      syncConsentButton();
+      
+      // Al reiniciar, el botón vuelve a estar bloqueado hasta que se marque el check
+      submitBtn.disabled = true;
     }
+    
+    // Iniciar con el botón desactivado por precaución
+    submitBtn.disabled = true;
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -1733,6 +1782,7 @@
       const hp = form.querySelector('input[name="website"]');
       if(hp && hp.value.trim().length > 0) return;
 
+      // Validación obligatoria del check antes de enviar
       if(!consent.checked){
         showConsentError(true);
         consent.focus();
@@ -1744,11 +1794,13 @@
       const email = document.getElementById('email').value.trim();
       const message = document.getElementById('message').value.trim();
       const role = roleHidden.value.trim();
-      const city = cityHidden.value.trim();
+      const dept = deptHidden.value.trim();
+      const muni = muniHidden.value.trim();
 
       if(!name){ document.getElementById('name').focus(); setStatus("bad"); return; }
       if(!email){ document.getElementById('email').focus(); setStatus("bad"); return; }
-      if(!city){ document.getElementById('cityBtn').focus(); setStatus("bad"); return; }
+      if(!dept){ document.getElementById('deptBtn').focus(); setStatus("bad"); return; }
+      if(!muni){ document.getElementById('muniBtn').focus(); setStatus("bad"); return; }
       if(!role){ document.getElementById('roleBtn').focus(); setStatus("bad"); return; }
       if(!message){ document.getElementById('message').focus(); setStatus("bad"); return; }
 
@@ -1758,7 +1810,8 @@
 
       try{
         const fd = new FormData(form);
-        fd.set('city', city);
+        fd.set('department', dept);
+        fd.set('municipality', muni);
         fd.set('role', role);
         fd.set('consent', consent.checked ? "Sí" : "No");
 
@@ -1782,7 +1835,7 @@
       } finally {
         delete submitBtn.dataset.sending;
         submitBtn.textContent = "Enviar solicitud";
-        syncConsentButton();
+        syncConsentButton(); // Restablece el botón de acuerdo al check
       }
     });
 
@@ -1864,7 +1917,6 @@
 
     document.getElementById('openPrivacyFromForm').addEventListener('click', () => openInfoModal('privacy'));
 
-    /* ✅ CLICK EN "septiembre 2026" => abre calendario premium */
     document.getElementById('openCalendarFromDate').addEventListener('click', () => openInfoModal('calendar'));
   </script>
 </body>
