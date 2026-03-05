@@ -383,6 +383,7 @@
       cursor:pointer;
       font-size: 14px; color: var(--ink);
       box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+      transition: all 0.2s ease;
     }
     .cselectBtn[disabled] { background: var(--marfilOscuro); cursor: not-allowed; color: var(--ink3); }
     .cselectBtn::after{
@@ -523,7 +524,7 @@
 
         <div class="cards">
           <article class="card">
-            <h3 class="cardTitle">Coordinación de Zona</h3>
+            <h3 class="cardTitle">Coordinador de Zona</h3>
             <span class="pill" style="width:max-content; margin-bottom:16px; background:var(--rosaPalo); border:none;">Enfoque Operativo / Administrativo</span>
             <p class="cardP">
               Responsable de la ejecución en campo y la gestión administrativa de primer nivel.
@@ -533,7 +534,7 @@
               <li>Supervisión de personal y resolución de incidencias.</li>
               <li>Aplica para los 16 municipios de Choluteca.</li>
             </ul>
-            <button class="btn btnSmall" type="button" onclick="openFormModal()">Inscribirse a Coordinación</button>
+            <button class="btn btnSmall" type="button" onclick="openFormModal()">Inscribirse a Coordinador</button>
           </article>
 
           <article class="card">
@@ -545,7 +546,7 @@
             <ul class="cardList">
               <li>Elaboración de presupuestos y reportes de KPIs.</li>
               <li>Auditoría de cumplimiento y estandarización de marca.</li>
-              <li>Plazas limitadas a Choluteca Urbano e Interurbano.</li>
+              <li>Posición exclusiva de control territorial.</li>
             </ul>
             <button class="btn btnSmall" type="button" onclick="openFormModal()">Inscribirse a Gerencia</button>
           </article>
@@ -590,7 +591,7 @@
 
             <div class="field">
               <label>Departamento</label>
-              <button type="button" class="cselectBtn" disabled style="background:#fff; color:var(--ink); border-color:var(--line);">Choluteca</button>
+              <button type="button" class="cselectBtn" disabled style="background:#fff; color:var(--ink); border-color:var(--line); pointer-events: none;">Choluteca</button>
               <input type="hidden" name="department" id="deptHidden" value="Choluteca" />
             </div>
 
@@ -599,8 +600,8 @@
               <div class="cselect" id="roleSelect">
                 <button type="button" class="cselectBtn" id="roleBtn">-- Seleccionar Posición --</button>
                 <ul class="cselectList" id="roleList">
-                  <li class="cselectOption" data-value="Coordinación de Zona">Coordinación de Zona (Operativo/Admin)</li>
-                  <li class="cselectOption" data-value="Gerencia de Zona">Gerencia de Zona (Administrativo)</li>
+                  <li class="cselectOption" data-value="Coordinador de Zona">Coordinador de Zona</li>
+                  <li class="cselectOption" data-value="Gerencia de Zona">Gerencia de Zona</li>
                 </ul>
               </div>
               <input type="hidden" name="role" id="roleHidden" />
@@ -704,6 +705,8 @@
       document.getElementById('roleBtn').textContent = "-- Seleccionar Posición --";
       document.getElementById('muniList').innerHTML = "";
       document.getElementById('muniBtn').textContent = "Primero seleccione la posición arriba";
+      document.getElementById('muniBtn').style.pointerEvents = 'auto';
+      document.getElementById('muniBtn').style.background = '#ffffff';
     }
     function closeFormModal(){ formModal.classList.remove('show'); unlock(); }
 
@@ -714,8 +717,7 @@
     document.getElementById('openCalBtn').addEventListener('click', openCalModal);
     document.getElementById('openCalTop').addEventListener('click', openCalModal);
 
-    // Lógica Zonas por Rol
-    const zonesGerencia = ["Choluteca Urbano", "Choluteca Interurbano"];
+    // Lógica Zonas
     const zonesCoord = [
       "Choluteca", "Apacilagua", "Concepción de María", "Duyure",
       "El Corpus", "El Triunfo", "Marcovia", "Morolica", "Namasigüe",
@@ -740,20 +742,32 @@
     function setCustomSelectValue(id, val){ document.querySelector(`#${id} input`).value = val; }
 
     setupSelect('roleSelect', 'roleBtn', 'roleList', 'roleHidden', (roleVal) => {
-      // Cambiar zonas basado en el rol seleccionado
       const mList = document.getElementById('muniList');
+      const mBtn = document.getElementById('muniBtn');
+      const mHidden = document.getElementById('muniHidden');
       mList.innerHTML = '';
-      let arr = roleVal.includes('Gerencia') ? zonesGerencia : zonesCoord;
       
-      arr.forEach(z => {
-        let li = document.createElement('li');
-        li.className = 'cselectOption';
-        li.setAttribute('data-value', z);
-        li.textContent = z;
-        mList.appendChild(li);
-      });
-      setCustomSelectValue('muniSelect', "");
-      document.getElementById('muniBtn').textContent = "Seleccione su Zona/Municipio";
+      if(roleVal === 'Gerencia de Zona') {
+        // Bloquear y setear Choluteca
+        mHidden.value = 'Choluteca';
+        mBtn.textContent = 'Choluteca (Zona Única)';
+        mBtn.style.pointerEvents = 'none';
+        mBtn.style.background = 'var(--marfilOscuro)';
+      } else if(roleVal === 'Coordinador de Zona') {
+        // Desbloquear y mostrar 16 municipios
+        mHidden.value = '';
+        mBtn.textContent = 'Seleccione su Municipio';
+        mBtn.style.pointerEvents = 'auto';
+        mBtn.style.background = '#ffffff';
+
+        zonesCoord.forEach(z => {
+          let li = document.createElement('li');
+          li.className = 'cselectOption';
+          li.setAttribute('data-value', z);
+          li.textContent = z;
+          mList.appendChild(li);
+        });
+      }
     });
 
     setupSelect('muniSelect', 'muniBtn', 'muniList', 'muniHidden');
