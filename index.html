@@ -3,64 +3,73 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#ffffff" />
-  <title>ÈNIGME · Expansión Corporativa Honduras</title>
-  <meta name="description" content="ÈNIGME · Aura · Misterio · Presencia. Estructuración operativa en Zona Sur. Apertura de posiciones de Coordinación y Gerencia." />
+  <meta name="theme-color" content="#FCFBF8" />
+  <title>ÈNIGME</title>
+  <meta name="description" content="ÈNIGME · Lanzamiento en Zona Sur (Septiembre 2026)." />
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      /* Paleta Corporativa Premium */
-      --bg: #ffffff;
-      --bg2: #fcfcfc;
-      --ink: #0a0a0a;
-      --ink2: #4a4a4a;
-      --ink3: #888888;
+      /* Paleta Marfil y Rosa Palo Premium */
+      --marfil: #FCFBF8;
+      --marfilOscuro: #F4F2EC;
+      --rosaPalo: #F2E6E6;
+      --rosaPaloOscuro: #E5D5D5;
+      
+      --ink: #1C1917;
+      --ink2: #44403C;
+      --ink3: #78716C;
 
-      --line: #e5e5e5;
-      --line2: #f0f0f0;
+      --gold: #C2A052;
+      --goldLight: rgba(194, 160, 82, 0.15);
 
-      --goldA: #d4af37;
-      --goldC: #997a00;
-      --goldStroke: rgba(212, 175, 55, 0.4);
-      --goldTint: rgba(212, 175, 55, 0.05);
+      --line: rgba(28, 25, 23, 0.08);
 
-      --shadow: 0 10px 40px rgba(0,0,0,0.04);
-      --shadow2: 0 20px 60px rgba(0,0,0,0.08);
+      --shadowSoft: 0 12px 40px rgba(68, 64, 60, 0.06);
+      --shadowHeavy: 0 24px 60px rgba(68, 64, 60, 0.12);
 
-      --ok: #1a5e3a;
-      --bad: #8b1e1e;
-
-      /* Bordes rectos para un look más serio y arquitectónico */
-      --r: 2px;
+      --ok: #276749;
+      --bad: #9B2C2C;
+      --r: 16px; /* Bordes suaves */
     }
 
     *{ box-sizing:border-box; }
-    html,body{ height:100%; }
-    html{ -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    html,body{ height:100%; scroll-behavior: smooth; }
+    html{ -webkit-text-size-adjust: 100%; }
     body{
       margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, sans-serif;
+      font-family: Inter, system-ui, sans-serif;
       color: var(--ink);
-      background-color: var(--bg);
+      background: linear-gradient(135deg, var(--marfil) 0%, var(--rosaPalo) 100%);
+      background-attachment: fixed;
       overflow-x:hidden;
       line-height: 1.6;
     }
 
-    img, video, svg, canvas{ max-width: 100%; height: auto; display: block; }
+    /* Textura sutil de ruido/papel */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)" opacity="0.03"/></svg>');
+      opacity: 0.6;
+      z-index: 0;
+    }
 
+    img, video, svg, canvas{ max-width: 100%; height: auto; display: block; }
     a{ color:inherit; text-decoration:none; }
     button, input, textarea{ font:inherit; color:inherit; }
 
     .container{
       position:relative;
       z-index:1;
-      width:min(1120px, 100%);
+      width:min(1080px, 100%);
       margin:0 auto;
       padding: 30px 24px 80px;
     }
@@ -70,116 +79,92 @@
       align-items:center;
       justify-content:space-between;
       gap:16px;
-      padding: 10px 0 30px;
-      border-bottom: 1px solid var(--line);
-      margin-bottom: 40px;
+      padding: 10px 0 40px;
       flex-wrap:wrap;
     }
-    .brand{ display:flex; flex-direction:column; gap:4px; }
     .logo{
       font-family:"Playfair Display", serif;
       font-weight:700;
       letter-spacing:0.18em;
-      font-size: 24px;
+      font-size: 26px;
       text-transform: uppercase;
-    }
-    .tagline{
-      font-family:"Inter", sans-serif;
-      letter-spacing:0.12em;
-      text-transform:uppercase;
-      font-size: 10px;
-      color: var(--ink3);
-      font-weight: 500;
+      color: var(--ink);
     }
     .pill{
       display:inline-flex;
       align-items:center;
       gap:8px;
-      padding: 6px 12px;
-      border: 1px solid var(--line);
-      background: var(--bg2);
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.6);
+      border: 1px solid rgba(255,255,255,0.8);
       color: var(--ink2);
-      font-size: 11px;
+      font-size: 12px;
       letter-spacing: 0.05em;
       text-transform: uppercase;
       font-weight: 600;
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadowSoft);
+    }
+    .dot{
+      width:6px; height:6px; border-radius:50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 2px var(--goldLight);
     }
 
     .heroGrid{
       display:grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      gap:30px;
-      align-items:start;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap:40px;
+      align-items:center;
     }
     @media (max-width: 900px){ .heroGrid{ grid-template-columns: 1fr; } }
 
-    .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--goldC);
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-
     .h1{
-      margin: 0 0 16px;
+      margin: 0 0 20px;
       font-family:"Playfair Display", serif;
-      font-weight:500;
+      font-weight:600;
       letter-spacing:0.01em;
-      font-size: clamp(32px, 4vw, 48px);
-      line-height: 1.15;
+      font-size: clamp(36px, 4.5vw, 54px);
+      line-height: 1.1;
+      color: var(--ink);
     }
     .lead{
       margin:0 0 24px;
       color: var(--ink2);
       font-size: 16px;
       line-height: 1.8;
-      max-width: 70ch;
       font-weight: 300;
     }
-    .row{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 20px; }
 
-    .ctaRow{
-      display:flex;
-      flex-wrap:wrap;
-      gap:16px;
-      margin-top: 30px;
-      align-items:center;
-    }
-
-    /* Botones Corporativos */
+    /* Botones vibrantes */
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:10px;
-      padding: 14px 24px;
-      border-radius: var(--r);
-      border: 1px solid var(--ink);
+      padding: 14px 28px;
+      border-radius: 999px;
+      border: none;
       background: var(--ink);
-      color: #ffffff;
+      color: #fff;
       font-weight: 500;
       font-size: 13px;
       letter-spacing: 0.05em;
       text-transform: uppercase;
       cursor:pointer;
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(28, 25, 23, 0.2);
     }
-    .btn:hover{ background: #222; border-color: #222; }
-    .btn:disabled{ opacity: 0.5; cursor: not-allowed; }
-
-    .btnGhost{
-      border: 1px solid var(--line);
-      background: transparent;
-      color: var(--ink);
+    .btn:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(28, 25, 23, 0.3);
+      background: #000;
     }
-    .btnGhost:hover{ background: var(--bg2); border-color: var(--ink3); }
+    .btn:active{ transform: translateY(0); }
+    .btn:disabled{ opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
 
-    .btnSmall{ padding: 10px 18px; font-size: 11px; }
+    .btnSmall{ padding: 12px 20px; font-size: 12px; }
 
     .linkBtn{
       border:0;
@@ -187,155 +172,113 @@
       padding:0;
       cursor:pointer;
       font:inherit;
-      color: var(--ink);
+      color: var(--gold);
+      font-weight: 600;
       text-decoration: underline;
-      text-decoration-color: var(--line);
+      text-decoration-color: var(--goldLight);
       text-underline-offset: 4px;
       transition: text-decoration-color 0.2s ease;
     }
-    .linkBtn:hover{ text-decoration-color: var(--ink); }
+    .linkBtn:hover{ text-decoration-color: var(--gold); }
 
-    .sideCard{
-      border: 1px solid var(--line);
-      background: var(--bg2);
+    .infoCard{
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.9);
       padding: 30px;
-      display:flex;
-      flex-direction:column;
-      gap:24px;
+      border-radius: var(--r);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadowSoft);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
-    .sideTitle{
-      margin:0;
-      font-family:"Playfair Display", serif;
-      font-weight:600;
-      letter-spacing:0.05em;
-      font-size: 18px;
+    .infoCardTitle{
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: 20px;
       color: var(--ink);
       border-bottom: 1px solid var(--line);
-      padding-bottom: 12px;
+      padding-bottom: 15px;
     }
-    .kv{ display:grid; grid-template-columns: 1fr; gap:16px; }
-    .kLabel{
-      font-size: 10px;
-      letter-spacing:0.1em;
-      text-transform:uppercase;
-      color: var(--ink3);
-      margin-bottom:4px;
+    .infoRow{ display: flex; flex-direction: column; gap: 4px; }
+    .infoLabel{ font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink3); font-weight: 600; }
+    .infoValue{ font-size: 15px; color: var(--ink); font-weight: 500; }
+
+    .section{ margin-top: 80px; }
+    .sectionTitle{
+      margin:0 0 10px;
+      font-family:"Playfair Display", serif;
+      font-size: 32px;
       font-weight: 600;
     }
-    .kValue{
-      font-size: 14px;
-      color: var(--ink);
-      line-height:1.5;
-      font-weight: 500;
-    }
+    .sectionSub{ color: var(--ink2); font-size: 15px; font-weight: 300; margin-bottom: 40px; max-width: 600px; }
 
-    .section{
-      margin-top: 60px;
-      border-top: 1px solid var(--line);
-      padding-top: 40px;
-    }
-    .sectionTitle{
-      margin:0 0 12px;
-      font-family:"Playfair Display", serif;
-      font-weight:500;
-      letter-spacing:0.02em;
-      font-size: 26px;
-    }
-    .sectionSub{
-      margin:0 0 30px;
-      color: var(--ink2);
-      font-size: 15px;
-      font-weight: 300;
-      line-height:1.8;
-      max-width: 80ch;
-    }
-
-    .cards{ display:grid; grid-template-columns: repeat(2, 1fr); gap:20px; }
+    .cards{ display:grid; grid-template-columns: repeat(2, 1fr); gap:24px; }
     @media (max-width: 800px){ .cards{ grid-template-columns: 1fr; } }
 
     .card{
-      border: 1px solid var(--line);
-      background: var(--bg);
+      background: #ffffff;
+      border-radius: var(--r);
       padding: 30px;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: var(--shadowSoft);
+      border: 1px solid var(--line);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       display: flex;
       flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before{
+      content: "";
+      position: absolute;
+      top: 0; right: 0; width: 150px; height: 150px;
+      background: radial-gradient(circle at top right, var(--rosaPalo), transparent 70%);
+      opacity: 0.5;
+      pointer-events: none;
     }
     .card:hover{
-      border-color: var(--goldStroke);
-      box-shadow: var(--shadow);
-    }
-    .cardH{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:10px;
-      margin-bottom:16px;
+      transform: translateY(-4px);
+      box-shadow: var(--shadowHeavy);
+      border-color: var(--rosaPaloOscuro);
     }
     .cardTitle{
-      margin:0;
+      margin: 0 0 10px;
       font-family: "Playfair Display", serif;
-      font-weight:600;
-      font-size: 18px;
+      font-size: 22px;
       color: var(--ink);
     }
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      border: 1px solid var(--line);
-      background: var(--bg2);
-      color: var(--ink2);
-      padding: 4px 10px;
-      font-size: 10px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
     .cardP{
-      margin:0;
+      margin: 0 0 20px;
       color: var(--ink2);
       font-size: 14px;
-      line-height:1.7;
-      font-weight: 300;
-    }
-    .ul{
-      margin:16px 0 0;
-      padding:0 0 0 18px;
-      color: var(--ink2);
-      font-size: 13px;
-      line-height:1.8;
+      line-height: 1.7;
       flex-grow: 1;
     }
-    .ul li{ margin:8px 0; }
-    .cardCta{ margin-top: 24px; border-top: 1px solid var(--line); padding-top: 20px;}
+    .cardList{
+      margin: 0 0 24px;
+      padding-left: 20px;
+      color: var(--ink2);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .cardList li{ margin-bottom: 8px; }
 
     footer{
-      margin-top: 60px;
-      padding-top: 30px;
-      border-top: 1px solid var(--line);
-      text-align:center;
+      margin-top: 80px;
+      text-align: center;
+      font-size: 12px;
       color: var(--ink3);
-      font-size: 11px;
-      letter-spacing:0.1em;
-      text-transform:uppercase;
-    }
-    .footerLinks{
-      margin-top: 16px;
-      display:flex;
-      justify-content:center;
-      gap:20px;
-      flex-wrap:wrap;
-      font-weight: 500;
+      letter-spacing: 0.05em;
     }
 
     /* ===========================
-       MODALES CORPORATIVOS
+       MODAL FORMULARIO
        =========================== */
     .modalOverlay{
       position:fixed;
       inset:0;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(5px);
+      background: rgba(28, 25, 23, 0.4);
+      backdrop-filter: blur(8px);
       display:none;
       align-items:center;
       justify-content:center;
@@ -343,24 +286,26 @@
       z-index: 1000;
     }
     .modalOverlay.show{ display:flex; }
+    .modalOverlay.top{ z-index: 2000; }
 
     .modal{
       width:min(900px, 100%);
-      background: var(--bg);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow2);
-      max-height: 90vh;
+      background: var(--marfil);
+      border-radius: 24px;
+      box-shadow: var(--shadowHeavy);
+      max-height: 92vh;
       display:flex;
       flex-direction:column;
+      overflow: hidden;
     }
 
     .modalHeader{
-      padding: 30px;
+      padding: 24px 30px;
       display:flex;
       align-items:flex-start;
       justify-content:space-between;
       border-bottom: 1px solid var(--line);
-      background: var(--bg2);
+      background: #ffffff;
     }
     .modalTitle{
       margin:0;
@@ -370,35 +315,39 @@
       color: var(--ink);
     }
     .modalSub{
-      margin:8px 0 0;
-      color: var(--ink2);
-      font-size: 14px;
-      font-weight: 300;
+      margin:4px 0 0;
+      color: var(--ink3);
+      font-size: 13px;
     }
     .x{
       border:none;
-      background: transparent;
+      background: var(--marfilOscuro);
+      width: 36px; height: 36px;
+      border-radius: 50%;
       color: var(--ink);
-      font-size: 24px;
+      font-size: 18px;
       cursor:pointer;
-      line-height: 1;
+      display: grid; place-items: center;
+      transition: background 0.2s ease;
     }
-    .x:hover{ color: var(--goldC); }
+    .x:hover{ background: var(--rosaPaloOscuro); }
 
     .modalBody{
       padding: 30px;
       overflow:auto;
       -webkit-overflow-scrolling: touch;
+      background: var(--marfil);
     }
 
     .formGrid{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap:24px;
+      gap:20px;
     }
     @media (max-width: 768px){ .formGrid{ grid-template-columns: 1fr; } }
 
     .field{ display:flex; flex-direction:column; gap:8px; }
+    .full{ grid-column: 1 / -1; }
     label{
       font-size: 11px;
       letter-spacing:0.05em;
@@ -408,190 +357,123 @@
     }
     input, textarea{
       border: 1px solid var(--line);
-      background: var(--bg);
-      padding: 14px;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 14px 16px;
       font-size: 14px;
       color: var(--ink);
-      transition: border-color 0.2s ease;
-      border-radius: 0;
+      transition: all 0.2s ease;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
     }
     input:focus, textarea:focus{
       outline:none;
-      border-color: var(--ink);
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px var(--goldLight);
     }
-    textarea{ min-height: 120px; resize: vertical; }
-    .full{ grid-column: 1 / -1; }
-
-    .roleInfo{
-      border-left: 3px solid var(--goldC);
-      background: var(--bg2);
-      padding: 16px;
-      color: var(--ink2);
-      font-size: 13px;
-      line-height:1.7;
-    }
-    .roleInfo strong{ color: var(--ink); font-weight:600; }
-
-    .modalFooter{
-      padding: 20px 30px;
-      border-top: 1px solid var(--line);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      background: var(--bg2);
-      gap: 20px;
-    }
+    textarea{ min-height: 100px; resize: vertical; }
 
     /* Custom Select */
     .cselect{ position:relative; width:100%; }
     .cselectBtn{
-      width:100%;
-      text-align:left;
+      width:100%; text-align:left;
+      background: #ffffff;
       border: 1px solid var(--line);
-      background: var(--bg);
-      padding: 14px 40px 14px 14px;
+      border-radius: 12px;
+      padding: 14px 40px 14px 16px;
       cursor:pointer;
-      color: var(--ink);
-      font-size: 14px;
+      font-size: 14px; color: var(--ink);
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
     }
-    .cselectBtn:focus{ outline:none; border-color: var(--ink); }
+    .cselectBtn[disabled] { background: var(--marfilOscuro); cursor: not-allowed; color: var(--ink3); }
     .cselectBtn::after{
-      content:"▼";
-      position:absolute;
-      right: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 10px;
-      color: var(--ink3);
+      content:"▼"; position:absolute; right: 16px; top: 50%; transform: translateY(-50%);
+      font-size: 10px; color: var(--ink3);
     }
-
     .cselectList{
-      position:absolute;
-      left:0;
-      right:0;
-      top: calc(100% - 1px);
-      background: var(--bg);
-      border: 1px solid var(--ink);
-      list-style:none;
-      margin:0;
-      padding:0;
-      display:none;
-      max-height: 200px;
-      overflow:auto;
-      z-index: 60;
+      position:absolute; left:0; right:0; top: calc(100% + 4px);
+      background: #ffffff; border-radius: 12px;
+      border: 1px solid var(--line);
+      list-style:none; margin:0; padding:6px;
+      display:none; max-height: 220px; overflow:auto;
+      z-index: 60; box-shadow: var(--shadowHeavy);
     }
     .cselect.open .cselectList{ display:block; }
-
     .cselectOption{
-      padding: 12px 14px;
-      cursor:pointer;
-      font-size: 14px;
-      color: var(--ink2);
-      border-bottom: 1px solid var(--line2);
+      padding: 10px 14px; border-radius: 8px;
+      cursor:pointer; font-size: 14px; color: var(--ink2);
     }
-    .cselectOption:hover{ background: var(--bg2); color: var(--ink); }
-    .cselectOption[aria-selected="true"]{
-      background: var(--goldTint);
-      color: var(--goldC);
-      font-weight: 600;
-    }
+    .cselectOption:hover{ background: var(--rosaPalo); color: var(--ink); }
+    .cselectOption[aria-selected="true"]{ background: var(--marfilOscuro); font-weight: 600; color: var(--ink); }
 
-    /* Legal Checkbox */
-    .consentBox{
-      border: 1px solid var(--line);
-      background: var(--bg2);
-      padding: 20px;
-      display:flex;
-      gap:16px;
-      align-items:flex-start;
-      margin-top: 10px;
-    }
-    .consentBox input{
-      width: 20px;
-      height: 20px;
-      margin-top: 2px;
-      cursor: pointer;
-      accent-color: var(--ink);
-    }
-    .consentText{
-      font-size: 12px;
-      line-height: 1.6;
-      color: var(--ink2);
-    }
-    .errText{
-      margin-top: 8px;
-      font-size: 11px;
-      color: var(--bad);
-      display:none;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-    .errText.show{ display:block; }
-
-    /* Overlay de Éxito (Registro Exitoso) */
-    .success-overlay {
-      position: fixed;
-      inset: 0;
-      background: #050505;
-      color: #ffffff;
-      z-index: 9999;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-    .success-overlay.show {
-      display: flex;
-      opacity: 1;
-    }
-    .success-icon {
-      font-size: 60px;
-      color: var(--goldA);
-      margin-bottom: 20px;
-    }
-    .success-title {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(36px, 5vw, 64px);
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      margin: 0 0 16px;
-      text-transform: uppercase;
-    }
-    .success-subtitle {
-      font-size: 18px;
-      color: #cccccc;
-      max-width: 600px;
-      line-height: 1.6;
-      margin: 0 0 40px;
-      font-weight: 300;
-    }
-    .success-detail {
-      font-size: 12px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--goldA);
-      margin-bottom: 60px;
-    }
-    .success-btn {
-      border: 1px solid rgba(255,255,255,0.3);
-      background: transparent;
-      color: #ffffff;
-      padding: 16px 32px;
-      font-size: 12px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .success-btn:hover {
+    /* Consent UI */
+    .consentUI{
       background: #ffffff;
-      color: #000000;
+      border: 1px solid var(--goldLight);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex; gap: 16px; align-items: flex-start;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .consentUI:hover{ background: var(--marfil); }
+    .visualCheck{
+      width: 24px; height: 24px; border-radius: 6px;
+      border: 2px solid var(--line); background: #fff;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: all 0.2s;
+    }
+    .visualCheck.checked{
+      background: var(--ink); border-color: var(--ink);
+    }
+    .visualCheck.checked::after{
+      content: "✓"; color: #fff; font-size: 14px; font-weight: bold;
+    }
+    .consentText{ font-size: 13px; color: var(--ink2); line-height: 1.6; }
+    
+    .modalFooter{
+      padding: 20px 30px; background: #ffffff;
+      border-top: 1px solid var(--line);
+      display:flex; justify-content: space-between; align-items: center;
     }
 
+    /* PANTALLA DE ÉXITO */
+    .success-overlay {
+      position: fixed; inset: 0;
+      background: var(--marfil);
+      z-index: 9999; display: none;
+      flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 40px;
+      opacity: 0; transition: opacity 0.5s ease;
+    }
+    .success-overlay.show { display: flex; opacity: 1; }
+    .success-icon { font-size: 70px; color: var(--gold); margin-bottom: 20px; }
+    .success-title { font-family: "Playfair Display", serif; font-size: 48px; color: var(--ink); margin: 0 0 16px; }
+    .success-subtitle { font-size: 16px; color: var(--ink2); max-width: 500px; margin: 0 0 40px; }
+
+    /* CALENDARIO PRO CSS */
+    .calWrap{
+      background: #fff; border-radius: 16px; padding: 24px;
+      border: 1px solid var(--line); box-shadow: var(--shadowSoft);
+    }
+    .calHead{ display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px; }
+    .calMonth{ font-family:"Playfair Display", serif; font-size: 24px; font-weight: 600; margin:0; }
+    .calGrid{ display:grid; grid-template-columns: repeat(7, 1fr); gap:8px; }
+    .calDow{ font-size: 11px; text-transform:uppercase; color: var(--ink3); text-align:center; font-weight: 600; padding-bottom: 8px;}
+    .calCell{
+      aspect-ratio: 1; border-radius: 10px; background: var(--marfil);
+      display:flex; align-items:center; justify-content:center;
+      font-size: 14px; font-weight: 500; color: var(--ink); position:relative;
+    }
+    .calCell.muted{ opacity: 0.3; background: transparent; }
+    .calCell.highlight{
+      background: var(--rosaPaloOscuro); color: var(--ink); font-weight: 700;
+      box-shadow: inset 0 0 0 2px var(--goldLight);
+    }
+    .calCell.highlight::after{
+      content: "Lanzamiento"; position:absolute; bottom: 4px; font-size: 8px; text-transform:uppercase; letter-spacing: 0.05em; color: var(--ink2);
+    }
+    
     .hp{ position:absolute; left:-10000px; }
   </style>
 </head>
@@ -599,556 +481,405 @@
 <body>
   <div class="container">
     <header class="topbar">
-      <div class="brand">
-        <div class="logo">ÈNIGME</div>
-        <div class="tagline">Dirección de Operaciones</div>
-      </div>
-
-      <div style="display:flex; gap:24px; align-items:center;">
-        <span class="pill">Honduras · Zona Sur</span>
-        <div class="footerLinks" style="margin:0;">
-          <button class="linkBtn" id="openPurposeTop" type="button">Directrices</button>
-          <button class="linkBtn" id="openPrivacyTop" type="button">Privacidad Legal</button>
-        </div>
+      <div class="logo">ÈNIGME</div>
+      <div style="display:flex; gap:16px; align-items:center;">
+        <span class="pill"><span class="dot"></span> Septiembre 2026</span>
+        <button class="pill" id="openCalTop" style="cursor:pointer; background: #fff;">Ver Calendario</button>
       </div>
     </header>
 
     <main>
       <section class="heroGrid">
         <div>
-          <div class="kicker">Expansión Corporativa · Etapa 1</div>
-
-          <h1 class="h1">Estructuración operativa en el sur del país.</h1>
-
+          <h1 class="h1">Estructuración Operativa en el Sur del País.</h1>
           <p class="lead">
-            ÈNIGME se encuentra en fase de integración operativa en Honduras. Este portal institucional gestiona exclusivamente la recepción de candidaturas para posiciones estratégicas territoriales.
+            ÈNIGME se prepara para su despliegue oficial. Apertura de postulaciones para la estructuración del equipo directivo y logístico en la jurisdicción sur.
           </p>
-
-          <div class="row">
-            <span class="pill">Gestión Integral</span>
-            <span class="pill">Supervisión de Procesos</span>
+          <button class="btn" id="openCalBtn">Fechas de Despliegue</button>
+        </div>
+        
+        <div class="infoCard">
+          <h2 class="infoCardTitle">Contexto Territorial</h2>
+          <div class="infoRow">
+            <span class="infoLabel">Lanzamiento</span>
+            <span class="infoValue">Septiembre 2026</span>
           </div>
-
-          <div class="ctaRow">
-            <a class="btn" href="#operaciones">Ver Posiciones Estratégicas</a>
+          <div class="infoRow">
+            <span class="infoLabel">Departamento Único</span>
+            <span class="infoValue">Choluteca</span>
+          </div>
+          <div class="infoRow">
+            <span class="infoLabel">Estado</span>
+            <span class="infoValue">Recepción de candidaturas activa</span>
           </div>
         </div>
-
-        <aside class="sideCard">
-          <h2 class="sideTitle">Contexto Operativo</h2>
-          <div class="kv">
-            <div>
-              <div class="kLabel">Fase Actual</div>
-              <div class="kValue">Lanzamiento e Integración Institucional</div>
-            </div>
-            <div>
-              <div class="kLabel">Territorio Designado</div>
-              <div class="kValue">Departamentos de Choluteca y Valle</div>
-            </div>
-            <div>
-              <div class="kLabel">Despliegue Operativo</div>
-              <div class="kValue">Previsto para Septiembre 2026</div>
-            </div>
-            <div style="margin-top: 10px; font-size: 11px; color: var(--ink3);">
-              <strong>Contacto Oficial:</strong><br>
-              info@enigmeofficial.com
-            </div>
-          </div>
-        </aside>
       </section>
 
-      <section class="section" id="operaciones">
-        <h2 class="sectionTitle">Posiciones Estratégicas</h2>
+      <section class="section">
+        <h2 class="sectionTitle">Posiciones Disponibles</h2>
         <p class="sectionSub">
-          Seleccione la posición que se ajuste a su trayectoria profesional para acceder al formulario de candidatura oficial.
+          Analice los enfoques de cada posición. Al seleccionar una, deberá confirmarla dentro del formulario oficial.
         </p>
 
         <div class="cards">
           <article class="card">
-            <div class="cardH">
-              <h3 class="cardTitle">Coordinación de Zona</h3>
-              <span class="badge">Liderazgo Territorial</span>
-            </div>
+            <h3 class="cardTitle">Coordinación de Zona</h3>
+            <span class="pill" style="width:max-content; margin-bottom:16px; background:var(--rosaPalo); border:none;">Enfoque Operativo / Administrativo</span>
             <p class="cardP">
-              Enlace directo entre la gerencia y la ejecución local. Responsable del control de actividad operativa y soporte táctico.
+              Responsable de la ejecución en campo y la gestión administrativa de primer nivel.
             </p>
-            <ul class="ul">
-              <li>Auditoría de incidencias y reportes centralizados.</li>
-              <li>Acompañamiento e instrucción del equipo local.</li>
-              <li>Certificación y entrenamiento proporcionado por ÈNIGME.</li>
+            <ul class="cardList">
+              <li>Control de inventarios y logística territorial.</li>
+              <li>Supervisión de personal y resolución de incidencias.</li>
+              <li>Aplica para los 16 municipios de Choluteca.</li>
             </ul>
-            <div class="cardCta">
-              <button class="btn btnSmall" type="button" data-pick-role="Coordinador de Zona">Presentar Candidatura</button>
-            </div>
+            <button class="btn btnSmall" type="button" onclick="openFormModal()">Inscribirse a Coordinación</button>
           </article>
 
           <article class="card">
-            <div class="cardH">
-              <h3 class="cardTitle">Gerencia de Zona</h3>
-              <span class="badge">Gestión Ejecutiva</span>
-            </div>
+            <h3 class="cardTitle">Gerencia de Zona</h3>
+            <span class="pill" style="width:max-content; margin-bottom:16px; background:var(--marfilOscuro); border:none;">Enfoque 100% Administrativo</span>
             <p class="cardP">
-              Dirección integral del territorio designado. Planificación estratégica, garantía de consistencia y estandarización corporativa.
+              Dirección ejecutiva centrada en planificación, control y auditoría de procesos.
             </p>
-            <ul class="ul">
-              <li>Supervisión de KPIs y cumplimiento de directrices.</li>
-              <li>Auditoría de calidad operativa a nivel regional.</li>
-              <li>Certificación ejecutiva proporcionada por ÈNIGME.</li>
+            <ul class="cardList">
+              <li>Elaboración de presupuestos y reportes de KPIs.</li>
+              <li>Auditoría de cumplimiento y estandarización de marca.</li>
+              <li>Plazas limitadas a Choluteca Urbano e Interurbano.</li>
             </ul>
-            <div class="cardCta">
-              <button class="btn btnSmall" type="button" data-pick-role="Gerente de Zona">Presentar Candidatura</button>
-            </div>
+            <button class="btn btnSmall" type="button" onclick="openFormModal()">Inscribirse a Gerencia</button>
           </article>
         </div>
       </section>
     </main>
 
     <footer>
-      © <span id="y"></span> ÈNIGME CORPORATE. TODOS LOS DERECHOS RESERVADOS.
+      © <span id="y"></span> ÈNIGME.
     </footer>
   </div>
 
-  <div class="modalOverlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modalOverlay" id="formModal">
     <div class="modal">
       <div class="modalHeader">
         <div>
-          <h2 class="modalTitle" id="modalTitle">Registro de Candidatura</h2>
-          <p class="modalSub">Complete el formulario para formalizar su integración al proceso de selección.</p>
+          <h2 class="modalTitle">Registro de Postulación</h2>
+          <p class="modalSub">Complete la información. Su rol determinará las zonas disponibles.</p>
         </div>
-        <button class="x" id="closeModalBtn" type="button" aria-label="Cerrar">✕</button>
+        <button class="x" onclick="closeFormModal()">✕</button>
       </div>
 
       <div class="modalBody">
         <form id="applyForm" novalidate>
-          <div class="hp" aria-hidden="true">
-            <label>Leave empty</label>
-            <input type="text" name="website" tabindex="-1" autocomplete="off" />
-          </div>
+          <div class="hp"><input type="text" name="website" tabindex="-1" autocomplete="off" /></div>
 
           <div class="formGrid">
             <div class="field">
-              <label for="name">Nombre completo</label>
+              <label>Nombre completo</label>
               <input id="name" name="name" type="text" placeholder="Ej. Abril Armas" required />
             </div>
-
+            
             <div class="field">
-              <label for="dni">Documento de Identidad (DNI)</label>
-              <input id="dni" name="dni" type="text" placeholder="Ej. 0801-1990-12345" required />
+              <label>Identidad (DNI)</label>
+              <input id="dni" name="dni" type="text" placeholder="0801-1990-12345" required />
             </div>
 
             <div class="field">
-              <label for="email">Correo Electrónico Corporativo / Personal</label>
-              <input id="email" name="email" type="email" placeholder="correo@dominio.com" required />
+              <label>Correo Electrónico</label>
+              <input id="email" name="email" type="email" placeholder="correo@ejemplo.com" required />
             </div>
 
             <div class="field">
-              <label for="phone">Teléfono de Contacto Directo</label>
-              <input id="phone" name="phone" type="tel" placeholder="+504 0000-0000" />
-            </div>
-
-            <div class="field">
-              <label>Departamento (Jurisdicción Sur)</label>
-              <div class="cselect" id="deptSelect">
-                <button type="button" class="cselectBtn" id="deptBtn">Seleccionar Departamento</button>
-                <ul class="cselectList" id="deptList">
-                  <li class="cselectOption" data-value="Choluteca">Choluteca</li>
-                  <li class="cselectOption" data-value="Valle">Valle</li>
-                </ul>
-              </div>
-              <input type="hidden" name="department" id="deptHidden" />
-            </div>
-
-            <div class="field">
-              <label>Municipio</label>
-              <div class="cselect" id="muniSelect">
-                <button type="button" class="cselectBtn" id="muniBtn">Requiere selección previa</button>
-                <ul class="cselectList" id="muniList"></ul>
-              </div>
-              <input type="hidden" name="municipality" id="muniHidden" />
+              <label>Departamento</label>
+              <button type="button" class="cselectBtn" disabled style="background:#fff; color:var(--ink); border-color:var(--line);">Choluteca</button>
+              <input type="hidden" name="department" id="deptHidden" value="Choluteca" />
             </div>
 
             <div class="field full">
-              <label>Posición Estratégica Requerida</label>
+              <label>Seleccione Posición a Postular</label>
               <div class="cselect" id="roleSelect">
-                <button type="button" class="cselectBtn" id="roleBtn">Seleccionar Posición</button>
+                <button type="button" class="cselectBtn" id="roleBtn">-- Seleccionar Posición --</button>
                 <ul class="cselectList" id="roleList">
-                  <li class="cselectOption" data-value="Coordinación de Zona">Coordinación de Zona</li>
-                  <li class="cselectOption" data-value="Gerencia de Zona">Gerencia de Zona</li>
+                  <li class="cselectOption" data-value="Coordinación de Zona">Coordinación de Zona (Operativo/Admin)</li>
+                  <li class="cselectOption" data-value="Gerencia de Zona">Gerencia de Zona (Administrativo)</li>
                 </ul>
               </div>
               <input type="hidden" name="role" id="roleHidden" />
             </div>
 
-            <div class="full roleInfo" id="roleInfo">
-              <strong>Especificación de Cargo:</strong> Seleccione una posición para visualizar el mandato ejecutivo.
-            </div>
-
             <div class="field full">
-              <label for="message">Síntesis Ejecutiva</label>
-              <textarea id="message" name="message" placeholder="Proporcione un resumen ejecutivo de su trayectoria profesional y disponibilidad funcional." required></textarea>
+              <label>Municipio / Zona Específica</label>
+              <div class="cselect" id="muniSelect">
+                <button type="button" class="cselectBtn" id="muniBtn">Primero seleccione la posición arriba</button>
+                <ul class="cselectList" id="muniList"></ul>
+              </div>
+              <input type="hidden" name="municipality" id="muniHidden" />
             </div>
 
             <div class="full">
-              <div class="consentBox">
-                <input id="consent" name="consent" type="checkbox" />
+              <div class="consentUI" id="consentTrigger">
+                <div class="visualCheck" id="vCheck"></div>
                 <div class="consentText">
-                  <strong>Acuerdo de Confidencialidad y Tratamiento de Datos:</strong> Confirmo la lectura de las normativas de privacidad y autorizo el uso de mi información para el proceso de integración, amparado en el <strong>Artículo 76 de la Constitución de la República de Honduras</strong> y la garantía constitucional de <strong>Hábeas Data</strong>.
-                  <div class="errText" id="consentErr">Es mandatorio aceptar los términos legales para procesar la candidatura.</div>
+                  <strong>Marco Legal y Privacidad:</strong> He leído las condiciones y autorizo la inscripción de mis datos bajo normativas de confidencialidad. Haz clic aquí para leer y firmar el acuerdo.
                 </div>
               </div>
+              <input type="checkbox" id="realConsent" name="consent" style="display:none;" required />
             </div>
 
-            <input type="hidden" name="_subject" value="Expediente de Candidatura · ÈNIGME Corporate" />
+            <input type="hidden" name="_subject" value="Postulación ÈNIGME" />
           </div>
 
           <div class="modalFooter">
-            <div style="font-size: 11px; color: var(--ink3); max-width: 400px;">
-              Al confirmar el envío, el sistema generará automáticamente un justificante PDF con su número de registro oficial.
-            </div>
-            <button class="btn" id="submitBtn" type="submit">Procesar Candidatura</button>
+            <span style="font-size: 11px; color: var(--ink3);">Se generará su justificante PDF oficial tras enviar.</span>
+            <button class="btn" id="submitBtn" type="submit" disabled>Enviar Postulación</button>
           </div>
         </form>
       </div>
     </div>
   </div>
 
-  <div id="successOverlay" class="success-overlay">
-    <div class="success-icon">✦</div>
-    <h2 class="success-title">Registro Exitoso</h2>
-    <p class="success-subtitle">Su expediente ha sido ingresado correctamente en nuestra base de datos corporativa. El equipo de Selección y Talento analizará su perfil y se pondrá en contacto con usted a la brevedad.</p>
-    <p class="success-detail">Se ha descargado su justificante PDF oficial.</p>
-    <button id="closeSuccessBtn" class="success-btn">Finalizar y volver al inicio</button>
-  </div>
-
-  <div class="modalOverlay" id="infoOverlay">
-    <div class="modal" style="width: 700px;">
-      <div class="modalHeader">
-        <h2 class="modalTitle" id="infoTitle">Marco Normativo</h2>
-        <button class="x" id="closeInfoBtn" type="button">✕</button>
+  <div class="modalOverlay top" id="privacyModal">
+    <div class="modal" style="width: 600px; border-radius: 16px;">
+      <div class="modalHeader" style="background: var(--marfilOscuro);">
+        <h2 class="modalTitle" style="font-size: 20px;">Acuerdo de Privacidad Legal</h2>
       </div>
       <div class="modalBody" style="font-size: 13px; color: var(--ink2); line-height: 1.8;">
-        <p><strong>Responsable Institucional:</strong> ÈNIGME Corporate.</p>
-        <p><strong>Objeto:</strong> Evaluación exhaustiva de perfiles para la asignación de posiciones estratégicas en la demarcación territorial de la Zona Sur.</p>
-        <p><strong>Garantía Constitucional:</strong> La recepción y manejo de expedientes se realiza en estricto cumplimiento al <strong>Art. 76 de la Constitución de la República de Honduras</strong>, garantizando el derecho a la intimidad, y facultando al candidato el ejercicio pleno de <strong>Hábeas Data</strong>.</p>
-        <p><strong>Confidencialidad:</strong> Ningún dato será cedido a entidades externas. Los expedientes no seleccionados serán resguardados por 12 meses para futuras expansiones operativas, salvo solicitud de supresión expresa enviada a <em>info@enigmeofficial.com</em>.</p>
+        <p><strong>Cláusula de Protección Institucional:</strong></p>
+        <p>Al confirmar este documento, usted autoriza formalmente a ÈNIGME al tratamiento de su información para procesos de selección y estructuración en la Zona Sur.</p>
+        <p>Todo tratamiento se realiza en estricto rigor bajo la garantía de intimidad consagrada en el <strong>Artículo 76 de la Constitución de la República de Honduras</strong>. Se garantiza plenamente su derecho constitucional de <strong>Hábeas Data</strong>, permitiéndole acceso, actualización o supresión de su expediente.</p>
+        <p style="margin-top: 20px; text-align: center; color: var(--gold); font-weight: 600;">
+          Su inscripción generará un número de registro único e inmutable.
+        </p>
+      </div>
+      <div class="modalFooter" style="justify-content: flex-end;">
+        <button class="btn btnSmall" id="acceptPrivacyBtn" type="button" style="background: var(--ok);">He leído y Acepto Firmar</button>
       </div>
     </div>
+  </div>
+
+  <div class="modalOverlay" id="calModal">
+    <div class="modal" style="width: 700px; border-radius: 20px; background: transparent; box-shadow: none;">
+      <div class="calWrap">
+        <div class="calHead">
+          <div>
+            <p class="calMonth">Septiembre 2026</p>
+            <span class="pill" style="margin-top:8px; font-size:10px;">Fase Operativa Sur</span>
+          </div>
+          <button class="x" onclick="closeCalModal()">✕</button>
+        </div>
+        <div class="calGrid">
+          <div class="calDow">Lun</div><div class="calDow">Mar</div><div class="calDow">Mié</div><div class="calDow">Jue</div><div class="calDow">Vie</div><div class="calDow">Sáb</div><div class="calDow">Dom</div>
+          <div class="calCell muted"></div>
+          <div class="calCell highlight">1</div>
+          <div class="calCell">2</div><div class="calCell">3</div><div class="calCell">4</div><div class="calCell">5</div><div class="calCell">6</div>
+          <div class="calCell">7</div><div class="calCell">8</div><div class="calCell">9</div><div class="calCell">10</div><div class="calCell">11</div><div class="calCell">12</div><div class="calCell">13</div>
+          <div class="calCell">14</div><div class="calCell">15</div><div class="calCell">16</div><div class="calCell">17</div><div class="calCell">18</div><div class="calCell">19</div><div class="calCell">20</div>
+          <div class="calCell">21</div><div class="calCell">22</div><div class="calCell">23</div><div class="calCell">24</div><div class="calCell">25</div><div class="calCell">26</div><div class="calCell">27</div>
+          <div class="calCell">28</div><div class="calCell">29</div><div class="calCell">30</div>
+          <div class="calCell muted"></div><div class="calCell muted"></div><div class="calCell muted"></div><div class="calCell muted"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="successOverlay" class="success-overlay">
+    <div class="success-icon">✧</div>
+    <h2 class="success-title">Registro Exitoso</h2>
+    <p class="success-subtitle">Su información ha sido encriptada y procesada. Pronto nuestro equipo contactará con usted. Su justificante se ha descargado.</p>
+    <button class="btn" style="background:var(--marfilOscuro); color:var(--ink);" onclick="closeSuccess()">Finalizar</button>
   </div>
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
     const FORMSPREE_ENDPOINT = "https://formspree.io/f/xykdaowe";
 
-    // Modales y Overlays
-    const overlay = document.getElementById('modalOverlay');
-    const closeBtn = document.getElementById('closeModalBtn');
-    const successOverlay = document.getElementById('successOverlay');
-    const closeSuccessBtn = document.getElementById('closeSuccessBtn');
-    const infoOverlay = document.getElementById('infoOverlay');
+    let savedY = 0;
+    function lock(){ savedY = window.scrollY; document.body.style.position='fixed'; document.body.style.top=`-${savedY}px`; document.body.style.width='100%'; }
+    function unlock(){ document.body.style.position=''; document.body.style.top=''; document.body.style.width=''; window.scrollTo(0, savedY); }
 
-    let savedScrollY = 0;
-
-    function lockBody() {
-      savedScrollY = window.scrollY;
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${savedScrollY}px`;
-      document.body.style.width = '100%';
-    }
-    function unlockBody() {
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      window.scrollTo(0, savedScrollY);
-    }
-
-    function openModal() {
-      overlay.classList.add('show');
-      lockBody();
-      closeAllCustomSelects();
-      setTimeout(() => document.getElementById('name')?.focus(), 100);
-    }
-    function closeModal() {
-      overlay.classList.remove('show');
-      unlockBody();
-    }
-
-    closeBtn.addEventListener('click', closeModal);
-    
-    // Botones de las tarjetas para abrir formulario
-    document.querySelectorAll('[data-pick-role]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const role = btn.getAttribute('data-pick-role');
-        setCustomSelectValue('roleSelect', role);
-        roleInfo.innerHTML = roleDetails[role] || "Seleccione una posición para visualizar el mandato ejecutivo.";
-        openModal();
-      });
-    });
-
-    // Modal de Info Legal
-    document.getElementById('openPrivacyTop').addEventListener('click', () => {
-      infoOverlay.classList.add('show');
-      lockBody();
-    });
-    document.getElementById('openPurposeTop').addEventListener('click', () => {
-      infoOverlay.classList.add('show');
-      lockBody();
-    });
-    document.getElementById('closeInfoBtn').addEventListener('click', () => {
-      infoOverlay.classList.remove('show');
-      unlockBody();
-    });
-
-    // Cerrar Success Screen
-    closeSuccessBtn.addEventListener('click', () => {
-      successOverlay.classList.remove('show');
-      window.scrollTo(0, 0); // Vuelve al inicio del index
-    });
-
-    // Municipios Data
-    const municipalitiesData = {
-      "Choluteca": [
-        "Choluteca", "Apacilagua", "Concepción de María", "Duyure",
-        "El Corpus", "El Triunfo", "Marcovia", "Morolica", "Namasigüe",
-        "Orocuina", "Pespire", "San Antonio de Flores", "San Isidro",
-        "San José", "San Marcos de Colón", "Santa Ana de Yusguare"
-      ],
-      "Valle": [
-        "Nacaome", "Alianza", "Amapala", "Aramecina", "Caridad",
-        "Goascorán", "Langue", "San Francisco de Coray", "San Lorenzo"
-      ]
-    };
-
-    const roleDetails = {
-      "Coordinación de Zona": `<strong>Mandato:</strong> Enlace territorial. Gestión de incidencias operativas y soporte al personal logístico. Se requiere capacidad de análisis e instrucción.`,
-      "Gerencia de Zona": `<strong>Mandato:</strong> Dirección ejecutiva regional. Aseguramiento de KPIs, control de calidad y estandarización corporativa total.`
-    };
-
-    // Custom Select Logic
-    function closeAllCustomSelects(exceptId=null){
-      document.querySelectorAll('.cselect').forEach(cs => {
-        if(exceptId && cs.id === exceptId) return;
-        cs.classList.remove('open');
-      });
-    }
-
-    function setupCustomSelect(selectId, btnId, listId, hiddenId, onChange){
-      const cs = document.getElementById(selectId);
-      const btn = document.getElementById(btnId);
-      const list = document.getElementById(listId);
-      const hidden = document.getElementById(hiddenId);
-
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isOpen = cs.classList.contains('open');
-        closeAllCustomSelects(selectId);
-        cs.classList.toggle('open', !isOpen);
-      });
-
-      list.addEventListener('click', (e) => {
-        const opt = e.target.closest('.cselectOption');
-        if(!opt) return;
-        const value = opt.getAttribute('data-value');
-        hidden.value = value;
-        btn.textContent = value;
-        list.querySelectorAll('.cselectOption').forEach(o => o.setAttribute('aria-selected','false'));
-        opt.setAttribute('aria-selected','true');
-        cs.classList.remove('open');
-        if(typeof onChange === 'function') onChange(value);
-      });
-    }
-
-    function setCustomSelectValue(selectId, value){
-      const cs = document.getElementById(selectId);
-      const btn = cs.querySelector('.cselectBtn');
-      const hidden = cs.querySelector('input[type="hidden"]');
-      if(hidden) hidden.value = value;
-      if(btn) btn.textContent = value || "Seleccionar opción";
-    }
-
-    setupCustomSelect('deptSelect','deptBtn','deptList','deptHidden', (dept) => {
-      const mList = document.getElementById('muniList');
-      mList.innerHTML = ''; 
-      if(municipalitiesData[dept]) {
-         municipalitiesData[dept].forEach(m => {
-            const li = document.createElement('li');
-            li.className = 'cselectOption';
-            li.setAttribute('data-value', m);
-            li.textContent = m;
-            mList.appendChild(li);
-         });
-         setCustomSelectValue('muniSelect', "");
-         document.getElementById('muniBtn').textContent = "Seleccionar Municipio";
-      }
-    });
-
-    setupCustomSelect('muniSelect','muniBtn','muniList','muniHidden', () => {});
-
-    setupCustomSelect('roleSelect','roleBtn','roleList','roleHidden', (value) => {
-      document.getElementById('roleInfo').innerHTML = roleDetails[value];
-    });
-
-    document.addEventListener('click', () => closeAllCustomSelects());
-
-    // Generador de PDF usando jsPDF
-    function generateReceiptPDF(name, dni, role) {
-      if (!window.jspdf) {
-         console.error("jsPDF no ha cargado.");
-         return;
-      }
-      const { jsPDF } = window.jspdf;
-      const doc = new jsPDF();
-
-      // Configuración de estilo
-      doc.setFont("helvetica", "bold");
-      
-      // Título
-      doc.setFontSize(24);
-      doc.text("ÈNIGME", 105, 30, { align: "center" });
-      
-      doc.setFontSize(10);
-      doc.setTextColor(100);
-      doc.text("CORPORATE OPERATIONS", 105, 36, { align: "center" });
-
-      // Línea divisoria
-      doc.setDrawColor(0);
-      doc.setLineWidth(0.5);
-      doc.line(20, 45, 190, 45);
-
-      // Subtítulo
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(14);
-      doc.setTextColor(0);
-      doc.text("JUSTIFICANTE OFICIAL DE CANDIDATURA", 105, 60, { align: "center" });
-
-      // Datos
-      doc.setFontSize(12);
-      doc.setFont("helvetica", "bold");
-      doc.text(`NÚMERO DE REGISTRO:`, 20, 85);
-      doc.setFont("helvetica", "normal");
-      doc.text(`300898 - ${dni}`, 75, 85);
-
-      doc.setFont("helvetica", "bold");
-      doc.text(`CANDIDATO/A:`, 20, 95);
-      doc.setFont("helvetica", "normal");
-      doc.text(name.toUpperCase(), 55, 95);
-
-      doc.setFont("helvetica", "bold");
-      doc.text(`POSICIÓN ESTRATÉGICA:`, 20, 105);
-      doc.setFont("helvetica", "normal");
-      doc.text(role.toUpperCase(), 75, 105);
-
-      const today = new Date().toLocaleDateString('es-ES');
-      doc.setFont("helvetica", "bold");
-      doc.text(`FECHA DE INGRESO:`, 20, 115);
-      doc.setFont("helvetica", "normal");
-      doc.text(today, 65, 115);
-
-      // Pie de página legal
-      doc.setLineDash([2, 2], 0);
-      doc.line(20, 140, 190, 140);
-      
-      doc.setFontSize(9);
-      doc.setTextColor(120);
-      doc.text("Este documento certifica la correcta recepción de su expediente en nuestra base de datos.", 105, 155, { align: "center" });
-      doc.text("El equipo de Selección y Talento auditará su perfil acorde a las normativas de ÈNIGME Corporate.", 105, 161, { align: "center" });
-
-      // Guardar
-      doc.save(`Enigme_Registro_${dni}.pdf`);
-    }
-
-    // Lógica del Formulario
-    const form = document.getElementById('applyForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const consent = document.getElementById('consent');
-    const consentErr = document.getElementById('consentErr');
-    const roleHidden = document.getElementById('roleHidden');
-    const deptHidden = document.getElementById('deptHidden');
-    const muniHidden = document.getElementById('muniHidden');
-
-    submitBtn.disabled = true;
-
-    consent.addEventListener('change', () => {
-      if(consent.checked){
-        consentErr.classList.remove('show');
-        submitBtn.disabled = false;
-      } else {
-        submitBtn.disabled = true;
-      }
-    });
-
-    function resetForm(){
-      form.reset();
-      setCustomSelectValue('deptSelect', "");
-      setCustomSelectValue('muniSelect', "");
-      document.getElementById('muniBtn').textContent = "Requiere selección previa";
+    const formModal = document.getElementById('formModal');
+    function openFormModal(){ 
+      formModal.classList.add('show'); lock(); 
+      // Resetear visuales de selects al abrir
+      setCustomSelectValue('roleSelect', ""); 
+      document.getElementById('roleBtn').textContent = "-- Seleccionar Posición --";
       document.getElementById('muniList').innerHTML = "";
-      setCustomSelectValue('roleSelect', "");
-      document.getElementById('roleInfo').innerHTML = "<strong>Especificación de Cargo:</strong> Seleccione una posición para visualizar el mandato ejecutivo.";
-      consentErr.classList.remove('show');
-      submitBtn.disabled = true;
+      document.getElementById('muniBtn').textContent = "Primero seleccione la posición arriba";
+    }
+    function closeFormModal(){ formModal.classList.remove('show'); unlock(); }
+
+    const calModal = document.getElementById('calModal');
+    function openCalModal(){ calModal.classList.add('show'); lock(); }
+    function closeCalModal(){ calModal.classList.remove('show'); unlock(); }
+
+    document.getElementById('openCalBtn').addEventListener('click', openCalModal);
+    document.getElementById('openCalTop').addEventListener('click', openCalModal);
+
+    // Lógica Zonas por Rol
+    const zonesGerencia = ["Choluteca Urbano", "Choluteca Interurbano"];
+    const zonesCoord = [
+      "Choluteca", "Apacilagua", "Concepción de María", "Duyure",
+      "El Corpus", "El Triunfo", "Marcovia", "Morolica", "Namasigüe",
+      "Orocuina", "Pespire", "San Antonio de Flores", "San Isidro",
+      "San José", "San Marcos de Colón", "Santa Ana de Yusguare"
+    ];
+
+    function closeAllSelects(){ document.querySelectorAll('.cselect').forEach(c => c.classList.remove('open')); }
+    
+    function setupSelect(idSelect, idBtn, idList, idHidden, onChange){
+      const cs = document.getElementById(idSelect), btn = document.getElementById(idBtn), lst = document.getElementById(idList), hid = document.getElementById(idHidden);
+      btn.addEventListener('click', e => { e.stopPropagation(); const o = cs.classList.contains('open'); closeAllSelects(); cs.classList.toggle('open', !o); });
+      lst.addEventListener('click', e => {
+        const opt = e.target.closest('.cselectOption'); if(!opt) return;
+        const val = opt.getAttribute('data-value'); hid.value = val; btn.textContent = opt.textContent;
+        lst.querySelectorAll('.cselectOption').forEach(o => o.setAttribute('aria-selected','false'));
+        opt.setAttribute('aria-selected','true'); cs.classList.remove('open');
+        if(onChange) onChange(val);
+      });
+    }
+
+    function setCustomSelectValue(id, val){ document.querySelector(`#${id} input`).value = val; }
+
+    setupSelect('roleSelect', 'roleBtn', 'roleList', 'roleHidden', (roleVal) => {
+      // Cambiar zonas basado en el rol seleccionado
+      const mList = document.getElementById('muniList');
+      mList.innerHTML = '';
+      let arr = roleVal.includes('Gerencia') ? zonesGerencia : zonesCoord;
+      
+      arr.forEach(z => {
+        let li = document.createElement('li');
+        li.className = 'cselectOption';
+        li.setAttribute('data-value', z);
+        li.textContent = z;
+        mList.appendChild(li);
+      });
+      setCustomSelectValue('muniSelect', "");
+      document.getElementById('muniBtn').textContent = "Seleccione su Zona/Municipio";
+    });
+
+    setupSelect('muniSelect', 'muniBtn', 'muniList', 'muniHidden');
+    document.addEventListener('click', closeAllSelects);
+
+    // Lógica de Privacidad PRO
+    const privacyModal = document.getElementById('privacyModal');
+    const consentTrigger = document.getElementById('consentTrigger');
+    const vCheck = document.getElementById('vCheck');
+    const realConsent = document.getElementById('realConsent');
+    const btnSubmit = document.getElementById('submitBtn');
+
+    consentTrigger.addEventListener('click', () => {
+      if(!realConsent.checked){
+        privacyModal.classList.add('show');
+      } else {
+        // Permitir desmarcar directamente
+        realConsent.checked = false;
+        vCheck.classList.remove('checked');
+        btnSubmit.disabled = true;
+      }
+    });
+
+    document.getElementById('acceptPrivacyBtn').addEventListener('click', () => {
+      privacyModal.classList.remove('show');
+      realConsent.checked = true;
+      vCheck.classList.add('checked');
+      btnSubmit.disabled = false;
+    });
+
+    // Enviar y Generar PDF
+    const form = document.getElementById('applyForm');
+    
+    function generatePDF(name, dni, role, zone){
+      if(!window.jspdf) return;
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({ format: 'a5' }); // A5 más elegante para un justificante
+
+      doc.setFillColor(252, 251, 248); // Marfil background
+      doc.rect(0, 0, 148, 210, 'F');
+      
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(22);
+      doc.setTextColor(28, 25, 23);
+      doc.text("ÈNIGME", 74, 30, { align: "center" });
+
+      doc.setDrawColor(194, 160, 82); // Línea dorada
+      doc.setLineWidth(0.5);
+      doc.line(20, 40, 128, 40);
+
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(10);
+      doc.text("CERTIFICADO DE INSCRIPCIÓN OFICIAL", 74, 50, { align: "center" });
+
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(12);
+      
+      doc.text(`REGISTRO:`, 20, 70);
+      doc.setFont("helvetica", "normal");
+      doc.text(`300898 - ${dni}`, 50, 70);
+
+      doc.setFont("helvetica", "bold");
+      doc.text(`CANDIDATO:`, 20, 85);
+      doc.setFont("helvetica", "normal");
+      doc.text(name.toUpperCase(), 50, 85);
+
+      doc.setFont("helvetica", "bold");
+      doc.text(`POSICIÓN:`, 20, 100);
+      doc.setFont("helvetica", "normal");
+      doc.text(role.toUpperCase(), 45, 100);
+
+      doc.setFont("helvetica", "bold");
+      doc.text(`TERRITORIO:`, 20, 115);
+      doc.setFont("helvetica", "normal");
+      doc.text(`CHOLUTECA (${zone.toUpperCase()})`, 50, 115);
+
+      doc.setFontSize(8);
+      doc.setTextColor(100);
+      doc.text("Documento amparado bajo la Ley de Hábeas Data (Honduras).", 74, 180, { align: "center" });
+
+      doc.save(`Enigme_Registro_${dni}.pdf`);
     }
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      
+      const role = document.getElementById('roleHidden').value;
+      const muni = document.getElementById('muniHidden').value;
+      const name = document.getElementById('name').value;
+      const dni = document.getElementById('dni').value;
 
-      const hp = form.querySelector('input[name="website"]');
-      if(hp && hp.value.trim().length > 0) return;
-
-      if(!consent.checked){
-        consentErr.classList.add('show');
+      if(!role || !muni || !name || !dni){
+        alert("Asegúrese de seleccionar posición, zona y llenar todos los datos.");
         return;
       }
 
-      const name = document.getElementById('name').value.trim();
-      const dni = document.getElementById('dni').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-      const role = roleHidden.value.trim();
-      const dept = deptHidden.value.trim();
-      const muni = muniHidden.value.trim();
-
-      if(!name || !dni || !email || !dept || !muni || !role || !message){
-        alert("Por favor, complete todos los campos requeridos y seleccione su territorio.");
-        return;
-      }
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = "PROCESANDO...";
+      btnSubmit.disabled = true;
+      btnSubmit.textContent = "Procesando...";
 
       try{
         const fd = new FormData(form);
-        fd.set('department', dept);
-        fd.set('municipality', muni);
-        fd.set('role', role);
-        fd.set('consent', "Autorizado (Art. 76 / Hábeas Data)");
-
-        const res = await fetch(FORMSPREE_ENDPOINT, {
-          method: "POST",
-          headers: { "Accept": "application/json" },
-          body: fd
-        });
-
+        fd.set('consent', "Firmado - Art. 76");
+        
+        const res = await fetch(FORMSPREE_ENDPOINT, { method: "POST", headers: { "Accept": "application/json" }, body: fd });
+        
         if(res.ok){
-          // 1. Generar el PDF
-          generateReceiptPDF(name, dni, role);
-          
-          // 2. Ocultar modal y resetear
-          closeModal();
-          resetForm();
-          
-          // 3. Mostrar Pantalla de Éxito Premium
-          successOverlay.classList.add('show');
-
+          generatePDF(name, dni, role, muni);
+          closeFormModal();
+          document.getElementById('successOverlay').classList.add('show');
+          form.reset();
+          realConsent.checked = false;
+          vCheck.classList.remove('checked');
         } else {
-          alert("Ha ocurrido un error en el servidor. Por favor, intente de nuevo.");
+          alert("Error de servidor. Intente más tarde.");
         }
       } catch (err){
-        alert("Error de conexión. Verifique su red.");
+        alert("Error de red.");
       } finally {
-        submitBtn.textContent = "PROCESAR CANDIDATURA";
-        submitBtn.disabled = false;
+        btnSubmit.textContent = "Enviar Postulación";
       }
     });
+
+    function closeSuccess(){
+      document.getElementById('successOverlay').classList.remove('show');
+      window.scrollTo(0,0);
+    }
   </script>
 </body>
 </html>
