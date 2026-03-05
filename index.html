@@ -3,79 +3,56 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#f6efe6" />
-  <title>ÈNIGME · Lanzamiento Honduras</title>
-  <meta name="description" content="ÈNIGME · Aura · Misterio · Presencia. Lanzamiento en Honduras (Zona Sur). Vacantes: Logística, Coordinación y Gerencia de Zona." />
+  <meta name="theme-color" content="#ffffff" />
+  <title>ÈNIGME · Expansión Corporativa Honduras</title>
+  <meta name="description" content="ÈNIGME · Aura · Misterio · Presencia. Estructuración operativa en Zona Sur. Apertura de posiciones de Coordinación y Gerencia." />
 
-  <meta property="og:title" content="ÈNIGME · Lanzamiento Honduras" />
-  <meta property="og:description" content="Aura · Misterio · Presencia. Operación inicial en el sur del país." />
-  <meta property="og:type" content="website" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-    :root{
-      --bg:#f6efe6;
-      --bg2:#efe5d9;
-      --paper: rgba(255,255,255,.72);
+    :root {
+      /* Paleta Corporativa Premium */
+      --bg: #ffffff;
+      --bg2: #fcfcfc;
+      --ink: #0a0a0a;
+      --ink2: #4a4a4a;
+      --ink3: #888888;
 
-      --ink:#0f1115;
-      --ink2: rgba(15,17,21,.78);
-      --ink3: rgba(15,17,21,.62);
+      --line: #e5e5e5;
+      --line2: #f0f0f0;
 
-      --line: rgba(15,17,21,.10);
-      --line2: rgba(15,17,21,.08);
+      --goldA: #d4af37;
+      --goldC: #997a00;
+      --goldStroke: rgba(212, 175, 55, 0.4);
+      --goldTint: rgba(212, 175, 55, 0.05);
 
-      --goldA:#ead6a3;
-      --goldC:#b88a3a;
-      --goldStroke: rgba(184,138,58,.42);
-      --goldTint: rgba(184,138,58,.12);
+      --shadow: 0 10px 40px rgba(0,0,0,0.04);
+      --shadow2: 0 20px 60px rgba(0,0,0,0.08);
 
-      --shadow: 0 18px 60px rgba(15,17,21,.12);
-      --shadow2: 0 24px 80px rgba(15,17,21,.18);
+      --ok: #1a5e3a;
+      --bad: #8b1e1e;
 
-      --ok: rgba(15,120,70,.92);
-      --bad: rgba(170,40,40,.92);
-
-      --r: 22px;
+      /* Bordes rectos para un look más serio y arquitectónico */
+      --r: 2px;
     }
 
     *{ box-sizing:border-box; }
     html,body{ height:100%; }
-    html{ -webkit-text-size-adjust: 100%; }
+    html{ -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
     body{
       margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, sans-serif;
       color: var(--ink);
-      background:
-        radial-gradient(1200px 560px at 12% 8%, rgba(184,138,58,.10), transparent 62%),
-        radial-gradient(1000px 560px at 86% 24%, rgba(15,17,21,.05), transparent 58%),
-        linear-gradient(180deg, var(--bg2), var(--bg));
+      background-color: var(--bg);
       overflow-x:hidden;
+      line-height: 1.6;
     }
 
-    img, video, svg, canvas{
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      background:
-        radial-gradient(circle at 20% 10%, rgba(0,0,0,.03), transparent 55%),
-        radial-gradient(circle at 78% 30%, rgba(184,138,58,.05), transparent 55%),
-        linear-gradient(to right, rgba(0,0,0,.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0,0,0,.03) 1px, transparent 1px);
-      background-size: auto, auto, 64px 64px, 64px 64px;
-      opacity:.45;
-      z-index:0;
-    }
+    img, video, svg, canvas{ max-width: 100%; height: auto; display: block; }
 
     a{ color:inherit; text-decoration:none; }
     button, input, textarea{ font:inherit; color:inherit; }
@@ -85,35 +62,7 @@
       z-index:1;
       width:min(1120px, 100%);
       margin:0 auto;
-      padding: 26px 20px 60px;
-    }
-
-    .floatApply{
-      position: fixed;
-      right: 18px;
-      top: 118px;
-      z-index: 999;
-      border-radius: 999px;
-      border: 1px solid var(--goldStroke);
-      background: linear-gradient(180deg, rgba(15,17,21,.92), rgba(15,17,21,.86));
-      box-shadow: 0 18px 55px rgba(15,17,21,.25);
-      padding: 12px 14px;
-      display:flex;
-      align-items:center;
-      gap:10px;
-      cursor:pointer;
-      user-select:none;
-      color: rgba(255,255,255,.96);
-      font-weight: 700;
-      letter-spacing: .02em;
-      transform: translateZ(0);
-    }
-    .floatApply:hover{ filter: brightness(1.04); transform: translateY(-1px); }
-    .floatApply:active{ transform: translateY(0px); filter: brightness(0.98); }
-    .floatDot{
-      width:8px;height:8px;border-radius:999px;
-      background: linear-gradient(180deg, var(--goldA), var(--goldC));
-      box-shadow: 0 0 0 3px rgba(184,138,58,.18);
+      padding: 30px 24px 80px;
     }
 
     .topbar{
@@ -121,67 +70,46 @@
       align-items:center;
       justify-content:space-between;
       gap:16px;
-      padding: 14px 0 22px;
+      padding: 10px 0 30px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 40px;
       flex-wrap:wrap;
     }
-    .brand{ display:flex; flex-direction:column; gap:6px; }
+    .brand{ display:flex; flex-direction:column; gap:4px; }
     .logo{
       font-family:"Playfair Display", serif;
       font-weight:700;
-      letter-spacing:.14em;
-      font-size: 22px;
+      letter-spacing:0.18em;
+      font-size: 24px;
+      text-transform: uppercase;
     }
     .tagline{
-      font-family:"Playfair Display", serif;
-      letter-spacing:.10em;
+      font-family:"Inter", sans-serif;
+      letter-spacing:0.12em;
       text-transform:uppercase;
-      font-size: 12px;
-      color: var(--ink2);
+      font-size: 10px;
+      color: var(--ink3);
+      font-weight: 500;
     }
     .pill{
       display:inline-flex;
       align-items:center;
-      gap:10px;
-      padding: 10px 12px;
-      border-radius: 999px;
+      gap:8px;
+      padding: 6px 12px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.55);
+      background: var(--bg2);
       color: var(--ink2);
-      font-size: 13px;
-      white-space:nowrap;
-      backdrop-filter: blur(10px);
-    }
-    .dot{
-      width:7px; height:7px; border-radius:999px;
-      background: linear-gradient(180deg, var(--goldA), var(--goldC));
-      box-shadow: 0 0 0 3px rgba(184,138,58,.18);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 600;
     }
 
-    .hero{
-      border:1px solid var(--line);
-      background: var(--paper);
-      border-radius: var(--r);
-      padding: 26px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(12px);
-      overflow:hidden;
-      position:relative;
-    }
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:-160px -160px auto auto;
-      width: 420px;
-      height: 420px;
-      background: radial-gradient(circle at 30% 30%, rgba(184,138,58,.14), transparent 62%);
-      transform: rotate(18deg);
-      pointer-events:none;
-    }
     .heroGrid{
       display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap:18px;
-      align-items:stretch;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap:30px;
+      align-items:start;
     }
     @media (max-width: 900px){ .heroGrid{ grid-template-columns: 1fr; } }
 
@@ -189,78 +117,69 @@
       display:inline-flex;
       align-items:center;
       gap:10px;
-      max-width: 100%;
-      border-radius:999px;
-      padding: 10px 12px;
-      border: 1px solid var(--goldStroke);
-      background: rgba(184,138,58,.08);
-      color: var(--ink2);
-      font-size: 13px;
-      white-space: normal;
-      overflow-wrap: anywhere;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--goldC);
+      font-weight: 600;
+      margin-bottom: 20px;
     }
 
     .h1{
-      margin: 10px 0 10px;
+      margin: 0 0 16px;
       font-family:"Playfair Display", serif;
-      font-weight:650;
-      letter-spacing:.02em;
-      font-size: clamp(30px, 4.4vw, 46px);
-      line-height: 1.12;
+      font-weight:500;
+      letter-spacing:0.01em;
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.15;
     }
     .lead{
-      margin:0;
+      margin:0 0 24px;
       color: var(--ink2);
-      font-size: 15px;
-      line-height: 1.9;
-      max-width: 74ch;
+      font-size: 16px;
+      line-height: 1.8;
+      max-width: 70ch;
+      font-weight: 300;
     }
-    .row{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 16px; }
-    .mini{
-      font-size:12px;
-      color: var(--ink3);
-      margin-top: 14px;
-      line-height:1.75;
-      max-width: 84ch;
-    }
+    .row{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 20px; }
 
     .ctaRow{
       display:flex;
       flex-wrap:wrap;
-      gap:12px;
-      margin-top: 18px;
+      gap:16px;
+      margin-top: 30px;
       align-items:center;
     }
 
+    /* Botones Corporativos */
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:10px;
-      padding: 12px 14px;
-      border-radius: 16px;
-      border: 1px solid var(--goldStroke);
-      background: linear-gradient(180deg, rgba(15,17,21,.92), rgba(15,17,21,.84));
-      color: rgba(255,255,255,.96);
-      font-weight: 650;
-      font-size: 14px;
+      padding: 14px 24px;
+      border-radius: var(--r);
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
       cursor:pointer;
-      transition: transform .12s ease, filter .12s ease;
-      user-select:none;
-      transform: translateZ(0);
+      transition: all 0.2s ease;
     }
-    .btn:hover{ transform: translateY(-1px); filter: brightness(1.04); }
-    .btn:active{ transform: translateY(0px); filter: brightness(0.98); }
-    .btn:disabled{ opacity: 0.7; cursor: not-allowed; transform: none; filter: none; }
+    .btn:hover{ background: #222; border-color: #222; }
+    .btn:disabled{ opacity: 0.5; cursor: not-allowed; }
 
     .btnGhost{
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.55);
-      color: var(--ink2);
+      background: transparent;
+      color: var(--ink);
     }
-    .btnGhost:hover{ filter: brightness(1.02); }
+    .btnGhost:hover{ background: var(--bg2); border-color: var(--ink3); }
 
-    .btnSmall{ padding: 10px 12px; border-radius: 14px; font-size: 13px; }
+    .btnSmall{ padding: 10px 18px; font-size: 11px; }
 
     .linkBtn{
       border:0;
@@ -270,418 +189,257 @@
       font:inherit;
       color: var(--ink);
       text-decoration: underline;
-      text-decoration-color: rgba(184,138,58,.60);
+      text-decoration-color: var(--line);
       text-underline-offset: 4px;
-      text-decoration-thickness: 1px;
+      transition: text-decoration-color 0.2s ease;
     }
-    .linkBtn:hover{ text-decoration-color: rgba(184,138,58,.90); }
+    .linkBtn:hover{ text-decoration-color: var(--ink); }
 
     .sideCard{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.62);
-      border-radius: var(--r);
-      padding: 18px;
-      height:100%;
+      border: 1px solid var(--line);
+      background: var(--bg2);
+      padding: 30px;
       display:flex;
       flex-direction:column;
-      justify-content:space-between;
-      gap:14px;
-      box-shadow: 0 14px 45px rgba(15,17,21,.08);
-      backdrop-filter: blur(10px);
+      gap:24px;
     }
     .sideTitle{
       margin:0;
-      font-weight:750;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      font-size: 12px;
-      color: var(--ink2);
+      font-family:"Playfair Display", serif;
+      font-weight:600;
+      letter-spacing:0.05em;
+      font-size: 18px;
+      color: var(--ink);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 12px;
     }
-    .kv{ display:grid; grid-template-columns: 1fr; gap:10px; margin-top:8px; }
-    .k{
-      border:1px solid var(--line2);
-      border-radius: 16px;
-      padding: 12px;
-      background: rgba(255,255,255,.55);
-    }
+    .kv{ display:grid; grid-template-columns: 1fr; gap:16px; }
     .kLabel{
-      font-size: 11px;
-      letter-spacing:.10em;
+      font-size: 10px;
+      letter-spacing:0.1em;
       text-transform:uppercase;
       color: var(--ink3);
-      margin-bottom:6px;
+      margin-bottom:4px;
+      font-weight: 600;
     }
     .kValue{
       font-size: 14px;
       color: var(--ink);
-      line-height:1.4;
-      font-weight: 650;
-    }
-    .kSub{
-      margin-top: 4px;
-      font-size: 13px;
-      color: var(--ink2);
-      line-height:1.4;
+      line-height:1.5;
       font-weight: 500;
     }
 
     .section{
-      margin-top: 18px;
-      border: 1px solid var(--line2);
-      background: rgba(255,255,255,.58);
-      border-radius: var(--r);
-      padding: 18px;
-      position:relative;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
+      margin-top: 60px;
+      border-top: 1px solid var(--line);
+      padding-top: 40px;
     }
     .sectionTitle{
-      margin:0 0 10px;
+      margin:0 0 12px;
       font-family:"Playfair Display", serif;
-      font-weight:650;
-      letter-spacing:.02em;
-      font-size: 20px;
+      font-weight:500;
+      letter-spacing:0.02em;
+      font-size: 26px;
     }
     .sectionSub{
-      margin:0 0 14px;
+      margin:0 0 30px;
       color: var(--ink2);
-      font-size: 13px;
-      line-height:1.85;
-      max-width: 96ch;
-    }
-    .sectionTopRow{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-bottom: 8px;
+      font-size: 15px;
+      font-weight: 300;
+      line-height:1.8;
+      max-width: 80ch;
     }
 
-    .cards{ display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; }
-    @media (max-width: 980px){ .cards{ grid-template-columns: 1fr; } }
+    .cards{ display:grid; grid-template-columns: repeat(2, 1fr); gap:20px; }
+    @media (max-width: 800px){ .cards{ grid-template-columns: 1fr; } }
 
     .card{
-      border:1px solid var(--line2);
-      background: rgba(255,255,255,.62);
-      border-radius: 18px;
-      padding: 14px;
-      overflow:hidden;
-      position:relative;
-      box-shadow: 0 12px 38px rgba(15,17,21,.08);
+      border: 1px solid var(--line);
+      background: var(--bg);
+      padding: 30px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
-    .card::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: radial-gradient(540px 220px at 18% 0%, rgba(184,138,58,.10), transparent 70%);
-      pointer-events:none;
-      opacity:.95;
+    .card:hover{
+      border-color: var(--goldStroke);
+      box-shadow: var(--shadow);
     }
-    .card > *{ position:relative; }
-
     .cardH{
       display:flex;
       align-items:flex-start;
       justify-content:space-between;
       gap:10px;
-      margin-bottom:8px;
+      margin-bottom:16px;
     }
     .cardTitle{
       margin:0;
-      font-weight:800;
-      letter-spacing:.04em;
-      text-transform:uppercase;
-      font-size: 12px;
+      font-family: "Playfair Display", serif;
+      font-weight:600;
+      font-size: 18px;
       color: var(--ink);
     }
     .badge{
       display:inline-flex;
       align-items:center;
-      gap:8px;
-      border: 1px solid var(--goldStroke);
-      background: rgba(184,138,58,.08);
+      border: 1px solid var(--line);
+      background: var(--bg2);
       color: var(--ink2);
-      padding: 8px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      white-space:nowrap;
-      font-weight: 700;
+      padding: 4px 10px;
+      font-size: 10px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 600;
     }
     .cardP{
       margin:0;
       color: var(--ink2);
-      font-size: 13px;
-      line-height:1.85;
+      font-size: 14px;
+      line-height:1.7;
+      font-weight: 300;
     }
     .ul{
-      margin:10px 0 0;
+      margin:16px 0 0;
       padding:0 0 0 18px;
       color: var(--ink2);
       font-size: 13px;
-      line-height:1.85;
+      line-height:1.8;
+      flex-grow: 1;
     }
-    .ul li{ margin:6px 0; }
-    .cardCta{ margin-top: 12px; display:flex; gap:10px; flex-wrap:wrap; }
+    .ul li{ margin:8px 0; }
+    .cardCta{ margin-top: 24px; border-top: 1px solid var(--line); padding-top: 20px;}
 
     footer{
-      margin-top: 18px;
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid var(--line);
       text-align:center;
-      color: rgba(15,17,21,.55);
-      font-size: 12px;
-      letter-spacing:.08em;
+      color: var(--ink3);
+      font-size: 11px;
+      letter-spacing:0.1em;
       text-transform:uppercase;
     }
     .footerLinks{
-      margin-top: 10px;
+      margin-top: 16px;
       display:flex;
       justify-content:center;
-      gap:12px;
+      gap:20px;
       flex-wrap:wrap;
-      text-transform:none;
-      letter-spacing:0;
+      font-weight: 500;
     }
 
     /* ===========================
-       MODALES
+       MODALES CORPORATIVOS
        =========================== */
     .modalOverlay{
       position:fixed;
       inset:0;
-      background: rgba(0,0,0,.45);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(5px);
       display:none;
       align-items:center;
       justify-content:center;
-      padding: calc(18px + env(safe-area-inset-top)) calc(18px + env(safe-area-inset-right)) calc(18px + env(safe-area-inset-bottom)) calc(18px + env(safe-area-inset-left));
+      padding: 20px;
       z-index: 1000;
-      overscroll-behavior: contain;
     }
     .modalOverlay.show{ display:flex; }
-    .modalOverlay.info{ z-index: 1105; }
 
     .modal{
-      width:min(940px, 100%);
-      border-radius: 24px;
-      border:1px solid rgba(255,255,255,.55);
-      background: rgba(246,239,230,.96);
+      width:min(900px, 100%);
+      background: var(--bg);
+      border: 1px solid var(--line);
       box-shadow: var(--shadow2);
-      overflow:hidden;
-      position:relative;
-      backdrop-filter: blur(10px);
-      max-height: 92dvh;
+      max-height: 90vh;
       display:flex;
       flex-direction:column;
     }
 
     .modalHeader{
-      padding: 18px 18px 14px;
+      padding: 30px;
       display:flex;
       align-items:flex-start;
       justify-content:space-between;
-      gap:12px;
-      border-bottom: 1px solid rgba(15,17,21,.10);
-      background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.0));
+      border-bottom: 1px solid var(--line);
+      background: var(--bg2);
     }
     .modalTitle{
       margin:0;
       font-family:"Playfair Display", serif;
-      font-weight:650;
-      letter-spacing:.02em;
-      font-size: 22px;
+      font-weight:600;
+      font-size: 24px;
       color: var(--ink);
     }
     .modalSub{
-      margin:6px 0 0;
+      margin:8px 0 0;
       color: var(--ink2);
-      font-size: 13px;
-      line-height:1.8;
-      max-width: 86ch;
+      font-size: 14px;
+      font-weight: 300;
     }
     .x{
-      border:1px solid rgba(15,17,21,.12);
-      background: rgba(255,255,255,.55);
+      border:none;
+      background: transparent;
       color: var(--ink);
-      width: 40px;
-      height: 40px;
-      border-radius: 14px;
+      font-size: 24px;
       cursor:pointer;
-      display:grid;
-      place-items:center;
-      flex: 0 0 auto;
+      line-height: 1;
     }
-    .x:hover{ filter: brightness(1.02); }
+    .x:hover{ color: var(--goldC); }
 
     .modalBody{
-      padding: 16px 18px 18px;
+      padding: 30px;
       overflow:auto;
       -webkit-overflow-scrolling: touch;
-      overscroll-behavior: contain;
-      flex: 1 1 auto;
     }
-
-    .step{ display:none; }
-    .step.show{ display:block; }
-
-    .navRow{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-bottom: 12px;
-    }
-    .ghostLink{
-      border: 1px solid rgba(15,17,21,.14);
-      background: rgba(255,255,255,.55);
-      padding: 10px 12px;
-      border-radius: 14px;
-      color: var(--ink2);
-      cursor:pointer;
-      font-weight: 650;
-      white-space: nowrap;
-    }
-    .ghostLink:hover{ filter: brightness(1.02); }
-
-    .mGrid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; }
-    @media (max-width: 980px){ .mGrid{ grid-template-columns: 1fr; } }
-
-    .mCard{
-      border:1px solid rgba(15,17,21,.10);
-      background: rgba(255,255,255,.60);
-      border-radius: 18px;
-      padding: 14px;
-      position:relative;
-      overflow:hidden;
-      box-shadow: 0 10px 30px rgba(15,17,21,.08);
-    }
-    .mCard::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: radial-gradient(520px 220px at 15% 0%, rgba(184,138,58,.10), transparent 70%);
-      pointer-events:none;
-      opacity:.95;
-    }
-    .mCard > *{ position:relative; }
-    .mTitle{
-      margin:0 0 8px;
-      font-weight:850;
-      letter-spacing:.04em;
-      text-transform:uppercase;
-      font-size: 12px;
-      color: var(--ink);
-    }
-    .mText{
-      margin:0;
-      color: var(--ink2);
-      font-size: 13px;
-      line-height:1.85;
-    }
-    .mList{
-      margin:10px 0 0;
-      padding:0 0 0 18px;
-      color: var(--ink2);
-      font-size: 13px;
-      line-height:1.85;
-    }
-    .mList li{ margin:6px 0; }
-    .mPick{ margin-top: 12px; display:flex; }
 
     .formGrid{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap:14px;
+      gap:24px;
     }
-    @media (max-width: 860px){ .formGrid{ grid-template-columns: 1fr; } }
+    @media (max-width: 768px){ .formGrid{ grid-template-columns: 1fr; } }
 
     .field{ display:flex; flex-direction:column; gap:8px; }
     label{
-      font-size: 12px;
-      letter-spacing:.08em;
+      font-size: 11px;
+      letter-spacing:0.05em;
       text-transform:uppercase;
-      color: rgba(15,17,21,.70);
-      font-weight: 750;
+      color: var(--ink2);
+      font-weight: 600;
     }
     input, textarea{
-      border: 1px solid rgba(15,17,21,.14);
-      background: rgba(255,255,255,.70);
-      border-radius: 16px;
-      padding: 12px 12px;
-      outline:none;
+      border: 1px solid var(--line);
+      background: var(--bg);
+      padding: 14px;
+      font-size: 14px;
       color: var(--ink);
-      box-shadow: 0 10px 24px rgba(15,17,21,.06);
+      transition: border-color 0.2s ease;
+      border-radius: 0;
     }
     input:focus, textarea:focus{
-      border-color: var(--goldStroke);
-      box-shadow: 0 10px 24px rgba(15,17,21,.06), 0 0 0 4px rgba(184,138,58,.10);
+      outline:none;
+      border-color: var(--ink);
     }
     textarea{ min-height: 120px; resize: vertical; }
     .full{ grid-column: 1 / -1; }
 
     .roleInfo{
-      border: 1px solid rgba(15,17,21,.10);
-      background: rgba(255,255,255,.60);
-      border-radius: 16px;
-      padding: 12px;
+      border-left: 3px solid var(--goldC);
+      background: var(--bg2);
+      padding: 16px;
       color: var(--ink2);
       font-size: 13px;
-      line-height:1.85;
-      margin-top: 10px;
+      line-height:1.7;
     }
-    .roleInfo strong{ color: var(--ink); font-weight:800; }
+    .roleInfo strong{ color: var(--ink); font-weight:600; }
 
     .modalFooter{
-      padding: 14px 18px 18px;
-      border-top: 1px solid rgba(15,17,21,.10);
+      padding: 20px 30px;
+      border-top: 1px solid var(--line);
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      background: linear-gradient(0deg, rgba(255,255,255,.55), rgba(255,255,255,0));
-      position: sticky;
-      bottom: 0;
-    }
-    .hint{
-      font-size: 12px;
-      color: rgba(15,17,21,.62);
-      line-height:1.75;
-      max-width: 76ch;
-    }
-
-    .status{
-      display:none;
-      padding: 10px 12px;
-      border-radius: 16px;
-      border: 1px solid rgba(15,17,21,.10);
-      background: rgba(255,255,255,.70);
-      font-size: 13px;
-      color: var(--ink2);
-      max-width: 520px;
-      box-shadow: 0 10px 24px rgba(15,17,21,.06);
-    }
-    .status.ok{
-      display:inline-flex;
-      border-color: rgba(15,120,70,.22);
-      background: rgba(15,120,70,.08);
-      color: var(--ok);
-      font-weight: 700;
-    }
-    .status.bad{
-      display:inline-flex;
-      border-color: rgba(170,40,40,.22);
-      background: rgba(170,40,40,.08);
-      color: var(--bad);
-      font-weight: 700;
-    }
-
-    .hp{
-      position:absolute !important;
-      left:-10000px !important;
-      top:auto !important;
-      width:1px !important;
-      height:1px !important;
-      overflow:hidden !important;
+      background: var(--bg2);
+      gap: 20px;
     }
 
     /* Custom Select */
@@ -689,464 +447,264 @@
     .cselectBtn{
       width:100%;
       text-align:left;
-      border-radius: 16px;
-      border: 1px solid rgba(15,17,21,.14);
-      padding: 12px 44px 12px 12px;
+      border: 1px solid var(--line);
+      background: var(--bg);
+      padding: 14px 40px 14px 14px;
       cursor:pointer;
       color: var(--ink);
-      background: linear-gradient(180deg, rgba(255,255,255,.80), rgba(255,255,255,.64));
-      box-shadow: 0 10px 24px rgba(15,17,21,.06);
-      position:relative;
-      font-weight: 600;
+      font-size: 14px;
     }
-    .cselectBtn:hover{ filter: brightness(1.01); }
-    .cselectBtn:focus{
-      outline:none;
-      border-color: var(--goldStroke);
-      box-shadow: 0 10px 24px rgba(15,17,21,.06), 0 0 0 4px rgba(184,138,58,.10);
-    }
+    .cselectBtn:focus{ outline:none; border-color: var(--ink); }
     .cselectBtn::after{
-      content:"";
+      content:"▼";
       position:absolute;
-      right: 12px;
+      right: 14px;
       top: 50%;
-      width: 14px;
-      height: 14px;
       transform: translateY(-50%);
-      background: linear-gradient(180deg, rgba(15,17,21,.65), rgba(15,17,21,.92));
-      clip-path: polygon(15% 35%, 50% 70%, 85% 35%, 95% 45%, 50% 90%, 5% 45%);
-      opacity:.9;
+      font-size: 10px;
+      color: var(--ink3);
     }
 
     .cselectList{
       position:absolute;
       left:0;
       right:0;
-      top: calc(100% + 8px);
-      background: rgba(246,239,230,.98);
-      border: 1px solid var(--goldStroke);
-      border-radius: 16px;
-      padding: 6px;
+      top: calc(100% - 1px);
+      background: var(--bg);
+      border: 1px solid var(--ink);
       list-style:none;
       margin:0;
-      box-shadow: 0 18px 55px rgba(15,17,21,.18);
+      padding:0;
       display:none;
-      max-height: min(240px, 40vh);
+      max-height: 200px;
       overflow:auto;
       z-index: 60;
-      backdrop-filter: blur(10px);
     }
     .cselect.open .cselectList{ display:block; }
-    .cselect.up .cselectList{ top:auto; bottom: calc(100% + 8px); }
 
     .cselectOption{
-      border-radius: 12px;
-      padding: 10px 10px;
+      padding: 12px 14px;
       cursor:pointer;
-      color: var(--ink);
-      font-weight: 650;
-      user-select:none;
+      font-size: 14px;
+      color: var(--ink2);
+      border-bottom: 1px solid var(--line2);
     }
-    .cselectOption:hover{ background: var(--goldTint); }
+    .cselectOption:hover{ background: var(--bg2); color: var(--ink); }
     .cselectOption[aria-selected="true"]{
-      background: rgba(184,138,58,.16);
-      border: 1px solid rgba(184,138,58,.22);
+      background: var(--goldTint);
+      color: var(--goldC);
+      font-weight: 600;
     }
 
-    /* Consent */
+    /* Legal Checkbox */
     .consentBox{
-      border: 1px solid rgba(15,17,21,.10);
-      background: rgba(255,255,255,.60);
-      border-radius: 16px;
-      padding: 12px;
+      border: 1px solid var(--line);
+      background: var(--bg2);
+      padding: 20px;
       display:flex;
-      gap:10px;
+      gap:16px;
       align-items:flex-start;
       margin-top: 10px;
-      box-shadow: 0 10px 24px rgba(15,17,21,.05);
     }
     .consentBox input{
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       margin-top: 2px;
-      box-shadow:none;
       cursor: pointer;
+      accent-color: var(--ink);
     }
     .consentText{
-      font-size: 13px;
-      line-height: 1.75;
+      font-size: 12px;
+      line-height: 1.6;
       color: var(--ink2);
     }
     .errText{
       margin-top: 8px;
-      font-size: 12px;
+      font-size: 11px;
       color: var(--bad);
       display:none;
-      font-weight: 650;
+      font-weight: 600;
+      text-transform: uppercase;
     }
     .errText.show{ display:block; }
 
-    /* Info blocks */
-    .infoBlock{
-      border:1px solid rgba(15,17,21,.10);
-      background: rgba(255,255,255,.60);
-      border-radius: 18px;
-      padding: 14px;
-      box-shadow: 0 10px 30px rgba(15,17,21,.06);
+    /* Overlay de Éxito (Registro Exitoso) */
+    .success-overlay {
+      position: fixed;
+      inset: 0;
+      background: #050505;
+      color: #ffffff;
+      z-index: 9999;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
     }
-    .infoBlock h3{
-      margin:0 0 8px;
-      font-weight:850;
-      letter-spacing:.04em;
-      text-transform:uppercase;
+    .success-overlay.show {
+      display: flex;
+      opacity: 1;
+    }
+    .success-icon {
+      font-size: 60px;
+      color: var(--goldA);
+      margin-bottom: 20px;
+    }
+    .success-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin: 0 0 16px;
+      text-transform: uppercase;
+    }
+    .success-subtitle {
+      font-size: 18px;
+      color: #cccccc;
+      max-width: 600px;
+      line-height: 1.6;
+      margin: 0 0 40px;
+      font-weight: 300;
+    }
+    .success-detail {
       font-size: 12px;
-      color: var(--ink);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--goldA);
+      margin-bottom: 60px;
     }
-    .infoBlock p{
-      margin:0;
-      color: var(--ink2);
-      font-size: 13px;
-      line-height:1.9;
-    }
-    .infoBlock ul{
-      margin:10px 0 0;
-      padding:0 0 0 18px;
-      color: var(--ink2);
-      font-size: 13px;
-      line-height:1.85;
-    }
-    .infoBlock li{ margin:6px 0; }
-
-    /* ===========================
-       CALENDARIO (premium)
-       =========================== */
-    .calWrap{
-      border:1px solid rgba(15,17,21,.10);
-      background: rgba(255,255,255,.62);
-      border-radius: 18px;
-      padding: 14px;
-      position:relative;
-      overflow:hidden;
-      box-shadow: 0 10px 30px rgba(15,17,21,.06);
-    }
-    .calWrap::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: radial-gradient(620px 260px at 18% 0%, rgba(184,138,58,.12), transparent 70%);
-      pointer-events:none;
-      opacity:.95;
-    }
-    .calWrap > *{ position:relative; }
-
-    .calHead{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom: 10px;
-      flex-wrap:wrap;
-    }
-    .calMonth{
-      font-family:"Playfair Display", serif;
-      font-weight:700;
-      letter-spacing:.02em;
-      font-size: 20px;
-      margin:0;
-    }
-    .calMeta{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .calChip{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      border: 1px solid var(--goldStroke);
-      background: rgba(184,138,58,.08);
-      color: var(--ink2);
-      padding: 8px 10px;
-      border-radius: 999px;
+    .success-btn {
+      border: 1px solid rgba(255,255,255,0.3);
+      background: transparent;
+      color: #ffffff;
+      padding: 16px 32px;
       font-size: 12px;
-      font-weight: 700;
-      white-space:nowrap;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .success-btn:hover {
+      background: #ffffff;
+      color: #000000;
     }
 
-    .calGrid{
-      display:grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap:8px;
-    }
-    .calDow{
-      font-size: 11px;
-      letter-spacing:.10em;
-      text-transform:uppercase;
-      color: var(--ink3);
-      font-weight: 750;
-      padding: 10px 10px;
-      border: 1px solid rgba(15,17,21,.08);
-      border-radius: 14px;
-      background: rgba(255,255,255,.55);
-      text-align:center;
-    }
-    .calCell{
-      border: 1px solid rgba(15,17,21,.08);
-      border-radius: 14px;
-      background: rgba(255,255,255,.55);
-      min-height: 48px;
-      padding: 10px;
-      display:flex;
-      align-items:flex-start;
-      justify-content:flex-end;
-      font-weight: 700;
-      color: rgba(15,17,21,.84);
-      position:relative;
-      overflow:hidden;
-    }
-    .calCell.muted{
-      opacity:.35;
-      background: rgba(255,255,255,.40);
-    }
-    .calCell.highlight{
-      border-color: rgba(184,138,58,.28);
-      background: rgba(184,138,58,.12);
-      box-shadow: 0 0 0 4px rgba(184,138,58,.08);
-    }
-    .calCell.highlight::before{
-      content:"Inicio previsto";
-      position:absolute;
-      left:10px;
-      bottom:10px;
-      font-size: 10px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      color: rgba(15,17,21,.62);
-      font-weight: 750;
-    }
-
-    /* ===========================
-       Mobile
-       =========================== */
-    @media (max-width: 520px){
-      body::before{
-        opacity:.22;
-        background:
-          radial-gradient(circle at 20% 10%, rgba(0,0,0,.03), transparent 55%),
-          radial-gradient(circle at 78% 30%, rgba(184,138,58,.05), transparent 55%);
-        background-size:auto,auto;
-      }
-
-      .container{ padding: 18px 14px 88px; }
-
-      .topbar{
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px 0 16px;
-      }
-
-      .hero{ padding: 18px; }
-
-      .ctaRow .btn,
-      .ctaRow a.btn{ width: 100%; }
-
-      .floatApply{
-        left: 14px;
-        right: 14px;
-        bottom: calc(14px + env(safe-area-inset-bottom));
-        top: auto;
-        justify-content: center;
-      }
-
-      .modalOverlay{
-        align-items: flex-end;
-        padding: 12px 12px calc(12px + env(safe-area-inset-bottom)) 12px;
-      }
-      .modal{
-        width: 100%;
-        border-radius: 22px 22px 16px 16px;
-        max-height: 92dvh;
-      }
-      .modalHeader{ padding: 14px 14px 12px; }
-      .modalBody{ padding: 12px 14px 14px; }
-
-      .hero, .sideCard, .section, .modal, .pill, .cselectList{
-        backdrop-filter: none !important;
-      }
-
-      .calCell{ min-height: 42px; padding: 9px; }
-      .calDow{ padding: 9px; }
-    }
-
-    @media (max-width: 380px){
-      .logo{ font-size: 20px; }
-      .pill{ font-size: 12px; padding: 8px 10px; }
-      .btn{ padding: 12px; border-radius: 14px; }
-      .calGrid{ gap:6px; }
-      .calCell{ min-height: 40px; padding: 8px; }
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      *{ scroll-behavior: auto !important; }
-      .btn, .floatApply{ transition: none !important; }
-    }
+    .hp{ position:absolute; left:-10000px; }
   </style>
 </head>
 
 <body>
-  <button class="floatApply" id="floatingApplyBtn" type="button" aria-label="Postúlate aquí">
-    <span class="floatDot"></span> Postúlate aquí
-  </button>
-
   <div class="container">
-    <div class="topbar">
+    <header class="topbar">
       <div class="brand">
         <div class="logo">ÈNIGME</div>
-        <div class="tagline">Aura · Misterio · Presencia</div>
+        <div class="tagline">Dirección de Operaciones</div>
       </div>
 
-      <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
-        <div class="pill"><span class="dot"></span> Honduras · Zona Sur</div>
-        <button class="btn btnGhost btnSmall" id="openAboutTop" type="button">Quiénes somos</button>
-        <button class="btn btnGhost btnSmall" id="openPurposeTop" type="button">Fin corporativo</button>
-        <button class="btn btnGhost btnSmall" id="openGlossaryTop" type="button">Glosario de trabajo</button>
-        <button class="btn btnGhost btnSmall" id="openPrivacyTop" type="button">Protección de datos</button>
+      <div style="display:flex; gap:24px; align-items:center;">
+        <span class="pill">Honduras · Zona Sur</span>
+        <div class="footerLinks" style="margin:0;">
+          <button class="linkBtn" id="openPurposeTop" type="button">Directrices</button>
+          <button class="linkBtn" id="openPrivacyTop" type="button">Privacidad Legal</button>
+        </div>
       </div>
-    </div>
+    </header>
 
-    <section class="hero">
-      <div class="heroGrid">
+    <main>
+      <section class="heroGrid">
         <div>
-          <div class="kicker">Fase de lanzamiento · Operación inicial en el sur del país</div>
+          <div class="kicker">Expansión Corporativa · Etapa 1</div>
 
-          <h1 class="h1">Somos ÈNIGME.</h1>
+          <h1 class="h1">Estructuración operativa en el sur del país.</h1>
 
           <p class="lead">
-            ÈNIGME es una firma de joyería y estética editorial. Este portal gestiona el lanzamiento y la selección del equipo operativo en Honduras.
+            ÈNIGME se encuentra en fase de integración operativa en Honduras. Este portal institucional gestiona exclusivamente la recepción de candidaturas para posiciones estratégicas territoriales.
           </p>
 
-          <div class="row" aria-label="Áreas">
-            <span class="pill">Joyería</span>
-            <span class="pill">Operaciones</span>
+          <div class="row">
+            <span class="pill">Gestión Integral</span>
+            <span class="pill">Supervisión de Procesos</span>
           </div>
 
           <div class="ctaRow">
-            <button class="btn" id="viewVacanciesBtn" type="button">Ver vacantes</button>
-            <a class="btn btnGhost" href="#operaciones">Inicio de operaciones</a>
-          </div>
-
-          <div class="mini">
-            <strong>Inicio de operaciones:</strong>
-            <button class="linkBtn" id="openCalendarFromDate" type="button" aria-label="Ver calendario de septiembre 2026">septiembre 2026</button>.
-            Operación inicial en el sur del país. Formación previa para coordinación y gerencia.
+            <a class="btn" href="#operaciones">Ver Posiciones Estratégicas</a>
           </div>
         </div>
 
         <aside class="sideCard">
-          <div>
-            <p class="sideTitle">Información</p>
-            <div class="kv">
-              <div class="k">
-                <div class="kLabel">Estado</div>
-                <div class="kValue">Fase de lanzamiento</div>
-                <div class="kSub">Proceso de selección interno</div>
-              </div>
-              <div class="k">
-                <div class="kLabel">Región inicial</div>
-                <div class="kValue">Zona Sur de Honduras</div>
-              </div>
+          <h2 class="sideTitle">Contexto Operativo</h2>
+          <div class="kv">
+            <div>
+              <div class="kLabel">Fase Actual</div>
+              <div class="kValue">Lanzamiento e Integración Institucional</div>
+            </div>
+            <div>
+              <div class="kLabel">Territorio Designado</div>
+              <div class="kValue">Departamentos de Choluteca y Valle</div>
+            </div>
+            <div>
+              <div class="kLabel">Despliegue Operativo</div>
+              <div class="kValue">Previsto para Septiembre 2026</div>
+            </div>
+            <div style="margin-top: 10px; font-size: 11px; color: var(--ink3);">
+              <strong>Contacto Oficial:</strong><br>
+              info@enigmeofficial.com
             </div>
           </div>
-          <div class="hint" id="contacto">
-            <strong>Contacto:</strong>
-            <span> info@enigmeofficial.com</span><br/>
-            <span>Para aplicar a una vacante, usa “Postúlate aquí”.</span>
-          </div>
         </aside>
-      </div>
-    </section>
+      </section>
 
-    <section class="section" id="operaciones" aria-label="Inicio de operaciones">
-      <div class="sectionTopRow">
-        <div>
-          <h2 class="sectionTitle">Inicio de operaciones · Septiembre 2026</h2>
-          <p class="sectionSub">
-            Estamos estructurando el equipo operativo para el inicio de actividades en Honduras, comenzando en el <strong>sur del país</strong>.
-            Revisa la descripción de cada vacante y, cuando estés listo, continúa con tu solicitud.
-          </p>
+      <section class="section" id="operaciones">
+        <h2 class="sectionTitle">Posiciones Estratégicas</h2>
+        <p class="sectionSub">
+          Seleccione la posición que se ajuste a su trayectoria profesional para acceder al formulario de candidatura oficial.
+        </p>
+
+        <div class="cards">
+          <article class="card">
+            <div class="cardH">
+              <h3 class="cardTitle">Coordinación de Zona</h3>
+              <span class="badge">Liderazgo Territorial</span>
+            </div>
+            <p class="cardP">
+              Enlace directo entre la gerencia y la ejecución local. Responsable del control de actividad operativa y soporte táctico.
+            </p>
+            <ul class="ul">
+              <li>Auditoría de incidencias y reportes centralizados.</li>
+              <li>Acompañamiento e instrucción del equipo local.</li>
+              <li>Certificación y entrenamiento proporcionado por ÈNIGME.</li>
+            </ul>
+            <div class="cardCta">
+              <button class="btn btnSmall" type="button" data-pick-role="Coordinador de Zona">Presentar Candidatura</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="cardH">
+              <h3 class="cardTitle">Gerencia de Zona</h3>
+              <span class="badge">Gestión Ejecutiva</span>
+            </div>
+            <p class="cardP">
+              Dirección integral del territorio designado. Planificación estratégica, garantía de consistencia y estandarización corporativa.
+            </p>
+            <ul class="ul">
+              <li>Supervisión de KPIs y cumplimiento de directrices.</li>
+              <li>Auditoría de calidad operativa a nivel regional.</li>
+              <li>Certificación ejecutiva proporcionada por ÈNIGME.</li>
+            </ul>
+            <div class="cardCta">
+              <button class="btn btnSmall" type="button" data-pick-role="Gerente de Zona">Presentar Candidatura</button>
+            </div>
+          </article>
         </div>
-        <button class="btn" id="applyFromSectionBtn" type="button">Postúlate aquí</button>
-      </div>
-
-      <div class="cards" aria-label="Vacantes">
-        <article class="card" id="card-logistica">
-          <div class="cardH">
-            <p class="cardTitle">Repartidor / Logística</p>
-            <span class="badge">Operación</span>
-          </div>
-          <p class="cardP">
-            Distribución y entregas según rutas planificadas, cuidando el producto y el control de entrega.
-          </p>
-          <ul class="ul">
-            <li>Rutas programadas y confirmación de entrega.</li>
-            <li>Orden, puntualidad y comunicación operativa.</li>
-            <li><strong>Requisito:</strong> furgoneta y licencia de conducir vigente.</li>
-          </ul>
-          <div class="cardCta">
-            <button class="btn btnSmall" type="button" data-pick-role="Repartidor / Logística">Postularme a este puesto</button>
-          </div>
-        </article>
-
-        <article class="card" id="card-coordinador">
-          <div class="cardH">
-            <p class="cardTitle">Coordinador de Zona</p>
-            <span class="badge">Liderazgo</span>
-          </div>
-          <p class="cardP">
-            Coordinación territorial y seguimiento operativo del equipo, con control de actividad y soporte continuo.
-          </p>
-          <ul class="ul">
-            <li>Organización de incidencias y reportes internos.</li>
-            <li>Soporte y acompañamiento al equipo local.</li>
-            <li><strong>Incluye formación</strong> proporcionada por ÈNIGME.</li>
-          </ul>
-          <div class="cardCta">
-            <button class="btn btnSmall" type="button" data-pick-role="Coordinador de Zona">Postularme a este puesto</button>
-          </div>
-        </article>
-
-        <article class="card" id="card-gerente">
-          <div class="cardH">
-            <p class="cardTitle">Gerente de Zona</p>
-            <span class="badge">Gestión</span>
-          </div>
-          <p class="cardP">
-            Gestión integral de la zona: planificación, supervisión y estándares operativos, garantizando consistencia y cumplimiento.
-          </p>
-          <ul class="ul">
-            <li>Supervisión territorial y control de procesos.</li>
-            <li>Calidad operativa y cumplimiento de directrices.</li>
-            <li><strong>Incluye formación</strong> proporcionada por ÈNIGME.</li>
-          </ul>
-          <div class="cardCta">
-            <button class="btn btnSmall" type="button" data-pick-role="Gerente de Zona">Postularme a este puesto</button>
-          </div>
-        </article>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <footer>
-      © <span id="y"></span> ÈNIGME
-      <div class="footerLinks">
-        <button class="linkBtn" id="openAboutFooter" type="button">Quiénes somos</button>
-        <span style="opacity:.55;">·</span>
-        <button class="linkBtn" id="openPurposeFooter" type="button">Fin corporativo</button>
-        <span style="opacity:.55;">·</span>
-        <button class="linkBtn" id="openGlossaryFooter" type="button">Glosario de trabajo</button>
-        <span style="opacity:.55;">·</span>
-        <button class="linkBtn" id="openPrivacyFooter" type="button">Protección de datos</button>
-      </div>
+      © <span id="y"></span> ÈNIGME CORPORATE. TODOS LOS DERECHOS RESERVADOS.
     </footer>
   </div>
 
@@ -1154,425 +712,199 @@
     <div class="modal">
       <div class="modalHeader">
         <div>
-          <h2 class="modalTitle" id="modalTitle">Postulación · ÈNIGME Honduras</h2>
-          <p class="modalSub">
-            Primero revisa las vacantes disponibles. Luego podrás completar el formulario en menos de un minuto.
-          </p>
+          <h2 class="modalTitle" id="modalTitle">Registro de Candidatura</h2>
+          <p class="modalSub">Complete el formulario para formalizar su integración al proceso de selección.</p>
         </div>
         <button class="x" id="closeModalBtn" type="button" aria-label="Cerrar">✕</button>
       </div>
 
-      <div class="modalBody" id="modalBody">
-        <div class="step show" id="stepVacantes">
-          <div class="navRow">
-            <div style="color:rgba(15,17,21,.72);font-size:13px;line-height:1.8;">
-              <strong>Operación inicial:</strong> sur del país · <strong>inicio:</strong> septiembre 2026
-            </div>
-            <button class="ghostLink" id="goToFormBtn" type="button">Continuar al formulario</button>
+      <div class="modalBody">
+        <form id="applyForm" novalidate>
+          <div class="hp" aria-hidden="true">
+            <label>Leave empty</label>
+            <input type="text" name="website" tabindex="-1" autocomplete="off" />
           </div>
 
-          <div class="mGrid" aria-label="Vacantes en modal">
-            <div class="mCard">
-              <p class="mTitle">Repartidor / Logística</p>
-              <p class="mText">Distribución y entregas según rutas planificadas, cuidando el producto y el control de entrega.</p>
-              <ul class="mList">
-                <li>Rutas programadas y confirmación de entrega.</li>
-                <li>Orden, puntualidad y comunicación operativa.</li>
-                <li><strong>Requisito:</strong> furgoneta y licencia vigente.</li>
-              </ul>
-              <div class="mPick">
-                <button class="btn btnSmall" type="button" data-pick-role="Repartidor / Logística">Elegir esta vacante</button>
+          <div class="formGrid">
+            <div class="field">
+              <label for="name">Nombre completo</label>
+              <input id="name" name="name" type="text" placeholder="Ej. Abril Armas" required />
+            </div>
+
+            <div class="field">
+              <label for="dni">Documento de Identidad (DNI)</label>
+              <input id="dni" name="dni" type="text" placeholder="Ej. 0801-1990-12345" required />
+            </div>
+
+            <div class="field">
+              <label for="email">Correo Electrónico Corporativo / Personal</label>
+              <input id="email" name="email" type="email" placeholder="correo@dominio.com" required />
+            </div>
+
+            <div class="field">
+              <label for="phone">Teléfono de Contacto Directo</label>
+              <input id="phone" name="phone" type="tel" placeholder="+504 0000-0000" />
+            </div>
+
+            <div class="field">
+              <label>Departamento (Jurisdicción Sur)</label>
+              <div class="cselect" id="deptSelect">
+                <button type="button" class="cselectBtn" id="deptBtn">Seleccionar Departamento</button>
+                <ul class="cselectList" id="deptList">
+                  <li class="cselectOption" data-value="Choluteca">Choluteca</li>
+                  <li class="cselectOption" data-value="Valle">Valle</li>
+                </ul>
+              </div>
+              <input type="hidden" name="department" id="deptHidden" />
+            </div>
+
+            <div class="field">
+              <label>Municipio</label>
+              <div class="cselect" id="muniSelect">
+                <button type="button" class="cselectBtn" id="muniBtn">Requiere selección previa</button>
+                <ul class="cselectList" id="muniList"></ul>
+              </div>
+              <input type="hidden" name="municipality" id="muniHidden" />
+            </div>
+
+            <div class="field full">
+              <label>Posición Estratégica Requerida</label>
+              <div class="cselect" id="roleSelect">
+                <button type="button" class="cselectBtn" id="roleBtn">Seleccionar Posición</button>
+                <ul class="cselectList" id="roleList">
+                  <li class="cselectOption" data-value="Coordinación de Zona">Coordinación de Zona</li>
+                  <li class="cselectOption" data-value="Gerencia de Zona">Gerencia de Zona</li>
+                </ul>
+              </div>
+              <input type="hidden" name="role" id="roleHidden" />
+            </div>
+
+            <div class="full roleInfo" id="roleInfo">
+              <strong>Especificación de Cargo:</strong> Seleccione una posición para visualizar el mandato ejecutivo.
+            </div>
+
+            <div class="field full">
+              <label for="message">Síntesis Ejecutiva</label>
+              <textarea id="message" name="message" placeholder="Proporcione un resumen ejecutivo de su trayectoria profesional y disponibilidad funcional." required></textarea>
+            </div>
+
+            <div class="full">
+              <div class="consentBox">
+                <input id="consent" name="consent" type="checkbox" />
+                <div class="consentText">
+                  <strong>Acuerdo de Confidencialidad y Tratamiento de Datos:</strong> Confirmo la lectura de las normativas de privacidad y autorizo el uso de mi información para el proceso de integración, amparado en el <strong>Artículo 76 de la Constitución de la República de Honduras</strong> y la garantía constitucional de <strong>Hábeas Data</strong>.
+                  <div class="errText" id="consentErr">Es mandatorio aceptar los términos legales para procesar la candidatura.</div>
+                </div>
               </div>
             </div>
 
-            <div class="mCard">
-              <p class="mTitle">Coordinador de Zona</p>
-              <p class="mText">Coordinación territorial: seguimiento operativo, soporte al equipo y cumplimiento de lineamientos.</p>
-              <ul class="mList">
-                <li>Control de actividad y soporte continuo.</li>
-                <li>Gestión de incidencias y reportes internos.</li>
-                <li><strong>Incluye formación</strong> por ÈNIGME.</li>
-              </ul>
-              <div class="mPick">
-                <button class="btn btnSmall" type="button" data-pick-role="Coordinador de Zona">Elegir esta vacante</button>
-              </div>
-            </div>
-
-            <div class="mCard">
-              <p class="mTitle">Gerente de Zona</p>
-              <p class="mText">Gestión integral: planificación, supervisión y estándares operativos para asegurar consistencia.</p>
-              <ul class="mList">
-                <li>Supervisión territorial y control de procesos.</li>
-                <li>Calidad operativa y cumplimiento de directrices.</li>
-                <li><strong>Incluye formación</strong> por ÈNIGME.</li>
-              </ul>
-              <div class="mPick">
-                <button class="btn btnSmall" type="button" data-pick-role="Gerente de Zona">Elegir esta vacante</button>
-              </div>
-            </div>
+            <input type="hidden" name="_subject" value="Expediente de Candidatura · ÈNIGME Corporate" />
           </div>
-        </div>
 
-        <div class="step" id="stepForm">
-          <div class="navRow">
-            <button class="ghostLink" id="backToVacanciesBtn" type="button">← Volver a vacantes</button>
-            <div style="color:rgba(15,17,21,.68);font-size:13px;line-height:1.8;">
-              Al enviar verás la confirmación en pantalla.
+          <div class="modalFooter">
+            <div style="font-size: 11px; color: var(--ink3); max-width: 400px;">
+              Al confirmar el envío, el sistema generará automáticamente un justificante PDF con su número de registro oficial.
             </div>
+            <button class="btn" id="submitBtn" type="submit">Procesar Candidatura</button>
           </div>
-
-          <form id="applyForm" novalidate>
-            <div class="hp" aria-hidden="true">
-              <label>Deja este campo vacío</label>
-              <input type="text" name="website" tabindex="-1" autocomplete="off" />
-            </div>
-
-            <div class="formGrid">
-              <div class="field">
-                <label for="name">Nombre completo</label>
-                <input id="name" name="name" type="text" placeholder="Ej. Abril Armas" required />
-              </div>
-
-              <div class="field">
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="tucorreo@ejemplo.com" required />
-              </div>
-
-              <div class="field">
-                <label for="phone">Teléfono / WhatsApp</label>
-                <input id="phone" name="phone" type="tel" placeholder="+504 0000-0000" />
-              </div>
-
-              <div class="field">
-                <label>Departamento (Zona Sur)</label>
-                <div class="cselect" id="deptSelect">
-                  <button type="button" class="cselectBtn" id="deptBtn" aria-haspopup="listbox" aria-expanded="false">Selecciona una opción</button>
-                  <ul class="cselectList" id="deptList" role="listbox" aria-label="Departamento">
-                    <li class="cselectOption" role="option" aria-selected="false" data-value="Choluteca">Choluteca</li>
-                    <li class="cselectOption" role="option" aria-selected="false" data-value="Valle">Valle</li>
-                  </ul>
-                </div>
-                <input type="hidden" name="department" id="deptHidden" />
-              </div>
-
-              <div class="field">
-                <label>Municipio</label>
-                <div class="cselect" id="muniSelect">
-                  <button type="button" class="cselectBtn" id="muniBtn" aria-haspopup="listbox" aria-expanded="false">Primero elige departamento</button>
-                  <ul class="cselectList" id="muniList" role="listbox" aria-label="Municipio">
-                    </ul>
-                </div>
-                <input type="hidden" name="municipality" id="muniHidden" />
-              </div>
-
-              <div class="field">
-                <label>Vacante</label>
-                <div class="cselect" id="roleSelect">
-                  <button type="button" class="cselectBtn" id="roleBtn" aria-haspopup="listbox" aria-expanded="false">Selecciona una opción</button>
-                  <ul class="cselectList" id="roleList" role="listbox" aria-label="Vacante">
-                    <li class="cselectOption" role="option" aria-selected="false" data-value="Repartidor / Logística">Repartidor / Logística</li>
-                    <li class="cselectOption" role="option" aria-selected="false" data-value="Coordinador de Zona">Coordinador de Zona</li>
-                    <li class="cselectOption" role="option" aria-selected="false" data-value="Gerente de Zona">Gerente de Zona</li>
-                  </ul>
-                </div>
-                <input type="hidden" name="role" id="roleHidden" />
-              </div>
-
-              <div class="full roleInfo" id="roleInfo" aria-live="polite">
-                <strong>Detalle de la vacante:</strong> selecciona una opción para ver una breve descripción.
-              </div>
-
-              <div class="field full">
-                <label for="message">Mensaje</label>
-                <textarea id="message" name="message" placeholder="Cuéntanos brevemente tu experiencia y disponibilidad." required></textarea>
-              </div>
-
-              <div class="full">
-                <div class="consentBox">
-                  <input id="consent" name="consent" type="checkbox" />
-                  <div class="consentText">
-                    <strong>Protección de datos (Honduras):</strong> He leído y acepto la
-                    <button class="linkBtn" id="openPrivacyFromForm" type="button">Política de privacidad</button>
-                    y autorizo el tratamiento de mis datos personales para fines de selección, conforme al <strong>Art. 76 de la Constitución de la República</strong> y el derecho de <strong>Hábeas Data</strong>.
-                    <div class="errText" id="consentErr">Debes aceptar los términos legales marcando la casilla para poder enviar la solicitud.</div>
-                  </div>
-                </div>
-              </div>
-
-              <input type="hidden" name="_subject" value="Nueva postulación · ÈNIGME Honduras" />
-            </div>
-
-            <div class="modalFooter">
-              <div class="hint">
-                Inicio estimado: <strong>septiembre 2026</strong> (zona sur). Formación previa para coordinación y gerencia.
-              </div>
-
-              <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
-                <span class="status" id="statusOk">✓ Solicitud recibida. Pronto nos pondremos en contacto contigo.</span>
-                <span class="status" id="statusBad">✕ No se pudo enviar. Revisa los datos e intenta de nuevo.</span>
-                <button class="btn" id="submitBtn" type="submit">Enviar solicitud</button>
-              </div>
-            </div>
-          </form>
-        </div>
+        </form>
       </div>
-
     </div>
   </div>
 
-  <div class="modalOverlay info" id="infoOverlay" role="dialog" aria-modal="true" aria-labelledby="infoTitle">
-    <div class="modal">
+  <div id="successOverlay" class="success-overlay">
+    <div class="success-icon">✦</div>
+    <h2 class="success-title">Registro Exitoso</h2>
+    <p class="success-subtitle">Su expediente ha sido ingresado correctamente en nuestra base de datos corporativa. El equipo de Selección y Talento analizará su perfil y se pondrá en contacto con usted a la brevedad.</p>
+    <p class="success-detail">Se ha descargado su justificante PDF oficial.</p>
+    <button id="closeSuccessBtn" class="success-btn">Finalizar y volver al inicio</button>
+  </div>
+
+  <div class="modalOverlay" id="infoOverlay">
+    <div class="modal" style="width: 700px;">
       <div class="modalHeader">
-        <div>
-          <h2 class="modalTitle" id="infoTitle">ÈNIGME · Información</h2>
-          <p class="modalSub" id="infoSub">Contenido corporativo y legal.</p>
-        </div>
-        <button class="x" id="closeInfoBtn" type="button" aria-label="Cerrar">✕</button>
+        <h2 class="modalTitle" id="infoTitle">Marco Normativo</h2>
+        <button class="x" id="closeInfoBtn" type="button">✕</button>
       </div>
-
-      <div class="modalBody" id="infoBody">
-        <div class="navRow">
-          <button class="ghostLink" id="tabAbout" type="button">Quiénes somos</button>
-          <button class="ghostLink" id="tabPurpose" type="button">Fin corporativo</button>
-          <button class="ghostLink" id="tabGlossary" type="button">Glosario de trabajo</button>
-          <button class="ghostLink" id="tabCalendar" type="button">Calendario</button>
-          <button class="ghostLink" id="tabPrivacy" type="button">Protección de datos</button>
-        </div>
-
-        <div class="step show" id="infoAbout">
-          <div class="infoBlock">
-            <h3>Quiénes somos</h3>
-            <p>
-              ÈNIGME es una firma en fase de lanzamiento, construida desde una visión de estética, disciplina y presencia.
-              Nacemos con un estándar corporativo claro: operación organizada, imagen cuidada y cultura de equipo basada en respeto, claridad y resultados.
-            </p>
-          </div>
-        </div>
-
-        <div class="step" id="infoPurpose">
-          <div class="infoBlock">
-            <h3>Fin corporativo · Zona Sur (Honduras)</h3>
-            <p>
-              En esta fase, la prioridad es establecer una operación sólida en la Zona Sur: estructura interna, coordinación de equipos y procesos de servicio.
-              Buscamos una red organizada con roles claros, seguimiento de actividad y comunicación directa, cuidando la experiencia de marca.
-              <br><br>
-              <strong>Inicio operativo previsto:</strong> septiembre 2026 (sujeto a planificación).
-            </p>
-            <ul>
-              <li>Orden operativo y control de procesos.</li>
-              <li>Estándares de servicio y cumplimiento interno.</li>
-              <li>Formación previa para coordinación y gerencia.</li>
-            </ul>
-            <p style="margin-top:10px;">
-              <strong>Nota:</strong> La postulación no constituye contrato ni compromiso de contratación. Las posiciones se asignan tras evaluación y disponibilidad.
-            </p>
-          </div>
-        </div>
-
-        <div class="step" id="infoGlossary">
-          <div class="infoBlock">
-            <h3>Glosario de trabajo (resumen)</h3>
-            <p style="margin-bottom:10px;">
-              Para que todo el mundo entienda claramente qué se hace en cada rol, aquí va una explicación simple (sin tecnicismos, pero profesional).
-            </p>
-            <ul>
-              <li>
-                <strong>Logística / Repartidor:</strong> recoge y entrega pedidos, confirma cada entrega, cuida el producto y avisa si hay incidencias (faltantes, retrasos, devoluciones).
-              </li>
-              <li>
-                <strong>Coordinación de Zona:</strong> es el punto de apoyo del equipo: organiza pedidos, resuelve dudas, da seguimiento a la actividad y mantiene comunicación directa con la gerencia.
-              </li>
-              <li>
-                <strong>Gerencia de Zona:</strong> dirige la operación del territorio: planifica, supervisa a coordinadores, revisa que se cumplan estándares y toma decisiones para que todo funcione con orden.
-              </li>
-            </ul>
-            <p style="margin-top:10px;">
-              <strong>Objetivo común:</strong> orden, servicio impecable y una experiencia coherente con la marca.
-            </p>
-          </div>
-        </div>
-
-        <div class="step" id="infoCalendar">
-          <div class="calWrap" aria-label="Calendario Septiembre 2026">
-            <div class="calHead">
-              <div>
-                <p class="calMonth">Septiembre 2026</p>
-                <p style="margin:6px 0 0; color:rgba(15,17,21,.70); font-size:13px; line-height:1.75;">
-                  Vista mensual para referencia del inicio operativo previsto. Fechas sujetas a planificación final.
-                </p>
-              </div>
-              <div class="calMeta">
-                <span class="calChip"><span class="dot"></span> Inicio previsto</span>
-              </div>
-            </div>
-
-            <div class="calGrid" role="grid" aria-label="Calendario de septiembre 2026">
-              <div class="calDow">Lun</div><div class="calDow">Mar</div><div class="calDow">Mié</div><div class="calDow">Jue</div><div class="calDow">Vie</div><div class="calDow">Sáb</div><div class="calDow">Dom</div>
-
-              <div class="calCell muted" aria-hidden="true"></div>
-              <div class="calCell highlight" aria-label="1 de septiembre 2026 (Inicio previsto)">1</div>
-              <div class="calCell">2</div>
-              <div class="calCell">3</div>
-              <div class="calCell">4</div>
-              <div class="calCell">5</div>
-              <div class="calCell">6</div>
-
-              <div class="calCell">7</div>
-              <div class="calCell">8</div>
-              <div class="calCell">9</div>
-              <div class="calCell">10</div>
-              <div class="calCell">11</div>
-              <div class="calCell">12</div>
-              <div class="calCell">13</div>
-
-              <div class="calCell">14</div>
-              <div class="calCell">15</div>
-              <div class="calCell">16</div>
-              <div class="calCell">17</div>
-              <div class="calCell">18</div>
-              <div class="calCell">19</div>
-              <div class="calCell">20</div>
-
-              <div class="calCell">21</div>
-              <div class="calCell">22</div>
-              <div class="calCell">23</div>
-              <div class="calCell">24</div>
-              <div class="calCell">25</div>
-              <div class="calCell">26</div>
-              <div class="calCell">27</div>
-
-              <div class="calCell">28</div>
-              <div class="calCell">29</div>
-              <div class="calCell">30</div>
-              <div class="calCell muted" aria-hidden="true"></div>
-              <div class="calCell muted" aria-hidden="true"></div>
-              <div class="calCell muted" aria-hidden="true"></div>
-              <div class="calCell muted" aria-hidden="true"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="step" id="infoPrivacy">
-          <div class="infoBlock">
-            <h3>Protección de datos · Selección</h3>
-            <p>
-              <strong>Responsable del tratamiento:</strong> ÈNIGME Official (marca/operación).<br>
-              <strong>Finalidad:</strong> gestionar tu candidatura, contactarte y evaluar tu perfil para la vacante seleccionada.<br>
-              <strong>Base legal:</strong> Tu consentimiento, conforme a la garantía de intimidad del <strong>Art. 76 de la Constitución de la República de Honduras</strong> y la acción de <strong>Hábeas Data</strong>.<br>
-              <strong>Datos tratados:</strong> nombre, email, teléfono/WhatsApp, departamento, municipio, vacante y el mensaje que envíes.<br>
-              <strong>Destinatarios:</strong> no se cederán datos a terceros, salvo obligación legal.<br>
-              <strong>Conservación:</strong> durante el proceso y, si no resultas seleccionado/a, hasta <strong>12 meses</strong> para futuras vacantes (salvo que solicites eliminación antes).<br>
-              <strong>Derechos:</strong> acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a <strong>info@enigmeofficial.com</strong> indicando “Protección de datos”.
-            </p>
-            <p style="margin-top:10px;">
-              Si consideras que tus derechos no han sido atendidos, puedes presentar una reclamación ante la autoridad competente.
-            </p>
-          </div>
-        </div>
+      <div class="modalBody" style="font-size: 13px; color: var(--ink2); line-height: 1.8;">
+        <p><strong>Responsable Institucional:</strong> ÈNIGME Corporate.</p>
+        <p><strong>Objeto:</strong> Evaluación exhaustiva de perfiles para la asignación de posiciones estratégicas en la demarcación territorial de la Zona Sur.</p>
+        <p><strong>Garantía Constitucional:</strong> La recepción y manejo de expedientes se realiza en estricto cumplimiento al <strong>Art. 76 de la Constitución de la República de Honduras</strong>, garantizando el derecho a la intimidad, y facultando al candidato el ejercicio pleno de <strong>Hábeas Data</strong>.</p>
+        <p><strong>Confidencialidad:</strong> Ningún dato será cedido a entidades externas. Los expedientes no seleccionados serán resguardados por 12 meses para futuras expansiones operativas, salvo solicitud de supresión expresa enviada a <em>info@enigmeofficial.com</em>.</p>
       </div>
     </div>
   </div>
 
   <script>
-    const FORMSPREE_ENDPOINT = "https://formspree.io/f/xykdaowe";
     document.getElementById('y').textContent = new Date().getFullYear();
+    const FORMSPREE_ENDPOINT = "https://formspree.io/f/xykdaowe";
 
+    // Modales y Overlays
     const overlay = document.getElementById('modalOverlay');
-    const modalBody = document.getElementById('modalBody');
     const closeBtn = document.getElementById('closeModalBtn');
+    const successOverlay = document.getElementById('successOverlay');
+    const closeSuccessBtn = document.getElementById('closeSuccessBtn');
+    const infoOverlay = document.getElementById('infoOverlay');
 
-    const stepVac = document.getElementById('stepVacantes');
-    const stepForm = document.getElementById('stepForm');
-
-    const floatingApplyBtn = document.getElementById('floatingApplyBtn');
-    const applyFromSectionBtn = document.getElementById('applyFromSectionBtn');
-    const viewVacanciesBtn = document.getElementById('viewVacanciesBtn');
-
-    const goToFormBtn = document.getElementById('goToFormBtn');
-    const backToVacanciesBtn = document.getElementById('backToVacanciesBtn');
-
-    let bodyLockCount = 0;
     let savedScrollY = 0;
 
-    function lockBody(){
-      if(bodyLockCount === 0){
-        savedScrollY = window.scrollY || 0;
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${savedScrollY}px`;
-        document.body.style.left = '0';
-        document.body.style.right = '0';
-        document.body.style.width = '100%';
-      }
-      bodyLockCount++;
+    function lockBody() {
+      savedScrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${savedScrollY}px`;
+      document.body.style.width = '100%';
     }
-    function unlockBody(){
-      bodyLockCount = Math.max(0, bodyLockCount - 1);
-      if(bodyLockCount === 0){
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.left = '';
-        document.body.style.right = '';
-        document.body.style.width = '';
-        window.scrollTo(0, savedScrollY);
-      }
+    function unlockBody() {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, savedScrollY);
     }
 
-    function scrollToOperaciones(){
-      const el = document.getElementById('operaciones');
-      if(!el) return;
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    function showStepVacantes(){
-      stepVac.classList.add('show');
-      stepForm.classList.remove('show');
-      requestAnimationFrame(() => { if(modalBody) modalBody.scrollTop = 0; });
-    }
-    function showStepForm(){
-      stepVac.classList.remove('show');
-      stepForm.classList.add('show');
-      requestAnimationFrame(() => { if(modalBody) modalBody.scrollTop = 0; });
-      setTimeout(() => document.getElementById('name')?.focus(), 80);
-    }
-
-    function openModal(){
+    function openModal() {
       overlay.classList.add('show');
       lockBody();
-      showStepVacantes();
       closeAllCustomSelects();
-      setStatus(null);
-      setTimeout(() => closeBtn?.focus(), 50);
+      setTimeout(() => document.getElementById('name')?.focus(), 100);
     }
-    function closeModal(){
+    function closeModal() {
       overlay.classList.remove('show');
-      closeAllCustomSelects();
       unlockBody();
     }
 
     closeBtn.addEventListener('click', closeModal);
-    overlay.addEventListener('click', (e) => { if(e.target === overlay) closeModal(); });
-
-    const infoOverlay = document.getElementById('infoOverlay');
-    const closeInfoBtn = document.getElementById('closeInfoBtn');
-
-    window.addEventListener('keydown', (e) => {
-      if(e.key !== 'Escape') return;
-      if(infoOverlay.classList.contains('show')) closeInfoModal();
-      else if(overlay.classList.contains('show')) closeModal();
+    
+    // Botones de las tarjetas para abrir formulario
+    document.querySelectorAll('[data-pick-role]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const role = btn.getAttribute('data-pick-role');
+        setCustomSelectValue('roleSelect', role);
+        roleInfo.innerHTML = roleDetails[role] || "Seleccione una posición para visualizar el mandato ejecutivo.";
+        openModal();
+      });
     });
 
-    floatingApplyBtn.addEventListener('click', openModal);
-    applyFromSectionBtn.addEventListener('click', openModal);
-    viewVacanciesBtn.addEventListener('click', scrollToOperaciones);
-    goToFormBtn.addEventListener('click', showStepForm);
-    backToVacanciesBtn.addEventListener('click', showStepVacantes);
+    // Modal de Info Legal
+    document.getElementById('openPrivacyTop').addEventListener('click', () => {
+      infoOverlay.classList.add('show');
+      lockBody();
+    });
+    document.getElementById('openPurposeTop').addEventListener('click', () => {
+      infoOverlay.classList.add('show');
+      lockBody();
+    });
+    document.getElementById('closeInfoBtn').addEventListener('click', () => {
+      infoOverlay.classList.remove('show');
+      unlockBody();
+    });
 
-    const roleInfo = document.getElementById('roleInfo');
-    const roleHidden = document.getElementById('roleHidden');
-    
-    const deptHidden = document.getElementById('deptHidden');
-    const muniHidden = document.getElementById('muniHidden');
+    // Cerrar Success Screen
+    closeSuccessBtn.addEventListener('click', () => {
+      successOverlay.classList.remove('show');
+      window.scrollTo(0, 0); // Vuelve al inicio del index
+    });
 
+    // Municipios Data
     const municipalitiesData = {
       "Choluteca": [
         "Choluteca", "Apacilagua", "Concepción de María", "Duyure",
@@ -1587,42 +919,16 @@
     };
 
     const roleDetails = {
-      "Repartidor / Logística": `
-        <strong>Detalle de la vacante:</strong> distribución y entregas según rutas planificadas, con control de entrega y cuidado del producto.
-        <br><br><strong>Requisitos:</strong> furgoneta y licencia de conducir vigente.
-      `,
-      "Coordinador de Zona": `
-        <strong>Detalle de la vacante:</strong> coordinación territorial y seguimiento operativo del equipo, con control de actividad y soporte continuo.
-        <br><br><strong>Formación:</strong> proporcionada por ÈNIGME antes del inicio de operaciones.
-      `,
-      "Gerente de Zona": `
-        <strong>Detalle de la vacante:</strong> gestión integral de zona: planificación, supervisión y estándares operativos, garantizando consistencia y cumplimiento.
-        <br><br><strong>Formación:</strong> proporcionada por ÈNIGME antes del inicio de operaciones.
-      `
+      "Coordinación de Zona": `<strong>Mandato:</strong> Enlace territorial. Gestión de incidencias operativas y soporte al personal logístico. Se requiere capacidad de análisis e instrucción.`,
+      "Gerencia de Zona": `<strong>Mandato:</strong> Dirección ejecutiva regional. Aseguramiento de KPIs, control de calidad y estandarización corporativa total.`
     };
 
+    // Custom Select Logic
     function closeAllCustomSelects(exceptId=null){
       document.querySelectorAll('.cselect').forEach(cs => {
         if(exceptId && cs.id === exceptId) return;
         cs.classList.remove('open');
-        cs.classList.remove('up');
-        const btn = cs.querySelector('.cselectBtn');
-        if(btn) btn.setAttribute('aria-expanded', 'false');
       });
-    }
-
-    function decideDropDirection(cs, btn){
-      try{
-        cs.classList.remove('up');
-        const r = btn.getBoundingClientRect();
-        const viewportH = window.innerHeight || document.documentElement.clientHeight;
-        const spaceBelow = viewportH - r.bottom;
-        const spaceAbove = r.top;
-        const desired = Math.min(260, viewportH * 0.4);
-        if(spaceBelow < desired && spaceAbove > spaceBelow){
-          cs.classList.add('up');
-        }
-      } catch(_){}
     }
 
     function setupCustomSelect(selectId, btnId, listId, hiddenId, onChange){
@@ -1631,31 +937,22 @@
       const list = document.getElementById(listId);
       const hidden = document.getElementById(hiddenId);
 
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
         const isOpen = cs.classList.contains('open');
         closeAllCustomSelects(selectId);
-
-        const willOpen = !isOpen;
-        cs.classList.toggle('open', willOpen);
-        btn.setAttribute('aria-expanded', willOpen.toString());
-        if(willOpen) decideDropDirection(cs, btn);
-        else cs.classList.remove('up');
+        cs.classList.toggle('open', !isOpen);
       });
 
       list.addEventListener('click', (e) => {
         const opt = e.target.closest('.cselectOption');
         if(!opt) return;
-
-        const value = opt.getAttribute('data-value') || opt.textContent.trim();
+        const value = opt.getAttribute('data-value');
         hidden.value = value;
         btn.textContent = value;
-
         list.querySelectorAll('.cselectOption').forEach(o => o.setAttribute('aria-selected','false'));
         opt.setAttribute('aria-selected','true');
-
         cs.classList.remove('open');
-        cs.classList.remove('up');
-        btn.setAttribute('aria-expanded', 'false');
         if(typeof onChange === 'function') onChange(value);
       });
     }
@@ -1663,157 +960,167 @@
     function setCustomSelectValue(selectId, value){
       const cs = document.getElementById(selectId);
       const btn = cs.querySelector('.cselectBtn');
-      const list = cs.querySelector('.cselectList');
       const hidden = cs.querySelector('input[type="hidden"]');
-
-      if(hidden) hidden.value = value || "";
-      if(btn) btn.textContent = value || "Selecciona una opción";
-
-      if(list){
-        list.querySelectorAll('.cselectOption').forEach(o => {
-          const v = o.getAttribute('data-value') || o.textContent.trim();
-          o.setAttribute('aria-selected', v === value ? 'true' : 'false');
-        });
-      }
+      if(hidden) hidden.value = value;
+      if(btn) btn.textContent = value || "Seleccionar opción";
     }
 
     setupCustomSelect('deptSelect','deptBtn','deptList','deptHidden', (dept) => {
       const mList = document.getElementById('muniList');
-      mList.innerHTML = ''; // Limpiar opciones anteriores
-      
+      mList.innerHTML = ''; 
       if(municipalitiesData[dept]) {
          municipalitiesData[dept].forEach(m => {
             const li = document.createElement('li');
             li.className = 'cselectOption';
-            li.setAttribute('role', 'option');
-            li.setAttribute('aria-selected', 'false');
             li.setAttribute('data-value', m);
             li.textContent = m;
             mList.appendChild(li);
          });
          setCustomSelectValue('muniSelect', "");
-         document.getElementById('muniBtn').textContent = "Selecciona un municipio";
+         document.getElementById('muniBtn').textContent = "Seleccionar Municipio";
       }
     });
 
     setupCustomSelect('muniSelect','muniBtn','muniList','muniHidden', () => {});
 
     setupCustomSelect('roleSelect','roleBtn','roleList','roleHidden', (value) => {
-      roleInfo.innerHTML = roleDetails[value] || `<strong>Detalle de la vacante:</strong> selecciona una opción para ver una breve descripción.`;
+      document.getElementById('roleInfo').innerHTML = roleDetails[value];
     });
 
-    document.addEventListener('click', (e) => {
-      if(!overlay.classList.contains('show')) return;
-      const inside = e.target.closest('.cselect');
-      if(!inside) closeAllCustomSelects();
-    });
+    document.addEventListener('click', () => closeAllCustomSelects());
 
-    modalBody?.addEventListener('scroll', () => closeAllCustomSelects(), { passive: true });
+    // Generador de PDF usando jsPDF
+    function generateReceiptPDF(name, dni, role) {
+      if (!window.jspdf) {
+         console.error("jsPDF no ha cargado.");
+         return;
+      }
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
 
-    function pickRoleAndGoForm(role){
-      showStepForm();
-      setCustomSelectValue('roleSelect', role);
-      roleInfo.innerHTML = roleDetails[role] || `<strong>Detalle de la vacante:</strong> selecciona una opción para ver una breve descripción.`;
+      // Configuración de estilo
+      doc.setFont("helvetica", "bold");
+      
+      // Título
+      doc.setFontSize(24);
+      doc.text("ÈNIGME", 105, 30, { align: "center" });
+      
+      doc.setFontSize(10);
+      doc.setTextColor(100);
+      doc.text("CORPORATE OPERATIONS", 105, 36, { align: "center" });
+
+      // Línea divisoria
+      doc.setDrawColor(0);
+      doc.setLineWidth(0.5);
+      doc.line(20, 45, 190, 45);
+
+      // Subtítulo
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(14);
+      doc.setTextColor(0);
+      doc.text("JUSTIFICANTE OFICIAL DE CANDIDATURA", 105, 60, { align: "center" });
+
+      // Datos
+      doc.setFontSize(12);
+      doc.setFont("helvetica", "bold");
+      doc.text(`NÚMERO DE REGISTRO:`, 20, 85);
+      doc.setFont("helvetica", "normal");
+      doc.text(`300898 - ${dni}`, 75, 85);
+
+      doc.setFont("helvetica", "bold");
+      doc.text(`CANDIDATO/A:`, 20, 95);
+      doc.setFont("helvetica", "normal");
+      doc.text(name.toUpperCase(), 55, 95);
+
+      doc.setFont("helvetica", "bold");
+      doc.text(`POSICIÓN ESTRATÉGICA:`, 20, 105);
+      doc.setFont("helvetica", "normal");
+      doc.text(role.toUpperCase(), 75, 105);
+
+      const today = new Date().toLocaleDateString('es-ES');
+      doc.setFont("helvetica", "bold");
+      doc.text(`FECHA DE INGRESO:`, 20, 115);
+      doc.setFont("helvetica", "normal");
+      doc.text(today, 65, 115);
+
+      // Pie de página legal
+      doc.setLineDash([2, 2], 0);
+      doc.line(20, 140, 190, 140);
+      
+      doc.setFontSize(9);
+      doc.setTextColor(120);
+      doc.text("Este documento certifica la correcta recepción de su expediente en nuestra base de datos.", 105, 155, { align: "center" });
+      doc.text("El equipo de Selección y Talento auditará su perfil acorde a las normativas de ÈNIGME Corporate.", 105, 161, { align: "center" });
+
+      // Guardar
+      doc.save(`Enigme_Registro_${dni}.pdf`);
     }
 
-    document.querySelectorAll('[data-pick-role]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const role = btn.getAttribute('data-pick-role');
-        openModal();
-        setTimeout(() => pickRoleAndGoForm(role), 120);
-      });
-    });
-
+    // Lógica del Formulario
     const form = document.getElementById('applyForm');
     const submitBtn = document.getElementById('submitBtn');
-    const ok = document.getElementById('statusOk');
-    const bad = document.getElementById('statusBad');
-
-    function setStatus(type){
-      ok.className = "status";
-      bad.className = "status";
-      if(type === "ok") ok.className = "status ok";
-      if(type === "bad") bad.className = "status bad";
-    }
-
     const consent = document.getElementById('consent');
     const consentErr = document.getElementById('consentErr');
+    const roleHidden = document.getElementById('roleHidden');
+    const deptHidden = document.getElementById('deptHidden');
+    const muniHidden = document.getElementById('muniHidden');
 
-    function showConsentError(show){
-      consentErr.classList.toggle('show', !!show);
-    }
+    submitBtn.disabled = true;
 
-    // Actualiza el estado visual si marcan o desmarcan la casilla
-    function syncConsentButton(){
-      const isSending = submitBtn.dataset.sending === "1";
-      if(isSending) return;
-      
-      if(consent.checked) {
-         showConsentError(false);
-         submitBtn.disabled = false;
+    consent.addEventListener('change', () => {
+      if(consent.checked){
+        consentErr.classList.remove('show');
+        submitBtn.disabled = false;
       } else {
-         submitBtn.disabled = true;
+        submitBtn.disabled = true;
       }
-    }
-    consent.addEventListener('change', syncConsentButton);
+    });
 
-    function resetFormState(){
+    function resetForm(){
       form.reset();
       setCustomSelectValue('deptSelect', "");
       setCustomSelectValue('muniSelect', "");
-      document.getElementById('muniBtn').textContent = "Primero elige departamento";
+      document.getElementById('muniBtn').textContent = "Requiere selección previa";
       document.getElementById('muniList').innerHTML = "";
       setCustomSelectValue('roleSelect', "");
-      roleInfo.innerHTML = `<strong>Detalle de la vacante:</strong> selecciona una opción para ver una breve descripción.`;
-      setStatus(null);
-      showConsentError(false);
-      
-      // Al reiniciar, el botón vuelve a estar bloqueado hasta que se marque el check
+      document.getElementById('roleInfo').innerHTML = "<strong>Especificación de Cargo:</strong> Seleccione una posición para visualizar el mandato ejecutivo.";
+      consentErr.classList.remove('show');
       submitBtn.disabled = true;
     }
-    
-    // Iniciar con el botón desactivado por precaución
-    submitBtn.disabled = true;
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      setStatus(null);
 
       const hp = form.querySelector('input[name="website"]');
       if(hp && hp.value.trim().length > 0) return;
 
-      // Validación obligatoria del check antes de enviar
       if(!consent.checked){
-        showConsentError(true);
-        consent.focus();
-        setStatus("bad");
+        consentErr.classList.add('show');
         return;
       }
 
       const name = document.getElementById('name').value.trim();
+      const dni = document.getElementById('dni').value.trim();
       const email = document.getElementById('email').value.trim();
       const message = document.getElementById('message').value.trim();
       const role = roleHidden.value.trim();
       const dept = deptHidden.value.trim();
       const muni = muniHidden.value.trim();
 
-      if(!name){ document.getElementById('name').focus(); setStatus("bad"); return; }
-      if(!email){ document.getElementById('email').focus(); setStatus("bad"); return; }
-      if(!dept){ document.getElementById('deptBtn').focus(); setStatus("bad"); return; }
-      if(!muni){ document.getElementById('muniBtn').focus(); setStatus("bad"); return; }
-      if(!role){ document.getElementById('roleBtn').focus(); setStatus("bad"); return; }
-      if(!message){ document.getElementById('message').focus(); setStatus("bad"); return; }
+      if(!name || !dni || !email || !dept || !muni || !role || !message){
+        alert("Por favor, complete todos los campos requeridos y seleccione su territorio.");
+        return;
+      }
 
-      submitBtn.dataset.sending = "1";
       submitBtn.disabled = true;
-      submitBtn.textContent = "Enviando...";
+      submitBtn.textContent = "PROCESANDO...";
 
       try{
         const fd = new FormData(form);
         fd.set('department', dept);
         fd.set('municipality', muni);
         fd.set('role', role);
-        fd.set('consent', consent.checked ? "Sí" : "No");
+        fd.set('consent', "Autorizado (Art. 76 / Hábeas Data)");
 
         const res = await fetch(FORMSPREE_ENDPOINT, {
           method: "POST",
@@ -1822,102 +1129,26 @@
         });
 
         if(res.ok){
-          setStatus("ok");
-          setTimeout(() => {
-            resetFormState();
-            closeModal();
-          }, 1500);
+          // 1. Generar el PDF
+          generateReceiptPDF(name, dni, role);
+          
+          // 2. Ocultar modal y resetear
+          closeModal();
+          resetForm();
+          
+          // 3. Mostrar Pantalla de Éxito Premium
+          successOverlay.classList.add('show');
+
         } else {
-          setStatus("bad");
+          alert("Ha ocurrido un error en el servidor. Por favor, intente de nuevo.");
         }
       } catch (err){
-        setStatus("bad");
+        alert("Error de conexión. Verifique su red.");
       } finally {
-        delete submitBtn.dataset.sending;
-        submitBtn.textContent = "Enviar solicitud";
-        syncConsentButton(); // Restablece el botón de acuerdo al check
+        submitBtn.textContent = "PROCESAR CANDIDATURA";
+        submitBtn.disabled = false;
       }
     });
-
-    /* ===========================
-       INFO MODAL (tabs)
-       =========================== */
-    const infoTitle = document.getElementById('infoTitle');
-    const infoSub = document.getElementById('infoSub');
-    const infoBody = document.getElementById('infoBody');
-
-    const tabAbout = document.getElementById('tabAbout');
-    const tabPurpose = document.getElementById('tabPurpose');
-    const tabGlossary = document.getElementById('tabGlossary');
-    const tabCalendar = document.getElementById('tabCalendar');
-    const tabPrivacy = document.getElementById('tabPrivacy');
-
-    const infoAbout = document.getElementById('infoAbout');
-    const infoPurpose = document.getElementById('infoPurpose');
-    const infoGlossary = document.getElementById('infoGlossary');
-    const infoCalendar = document.getElementById('infoCalendar');
-    const infoPrivacy = document.getElementById('infoPrivacy');
-
-    function showInfoTab(tab){
-      infoAbout.classList.toggle('show', tab === 'about');
-      infoPurpose.classList.toggle('show', tab === 'purpose');
-      infoGlossary.classList.toggle('show', tab === 'glossary');
-      infoCalendar.classList.toggle('show', tab === 'calendar');
-      infoPrivacy.classList.toggle('show', tab === 'privacy');
-
-      if(tab === 'about'){
-        infoTitle.textContent = "ÈNIGME · Quiénes somos";
-        infoSub.textContent = "Identidad, cultura y estándar operativo.";
-      } else if(tab === 'purpose'){
-        infoTitle.textContent = "ÈNIGME · Fin corporativo";
-        infoSub.textContent = "Objetivo operativo en Zona Sur (Honduras).";
-      } else if(tab === 'glossary'){
-        infoTitle.textContent = "ÈNIGME · Glosario de trabajo";
-        infoSub.textContent = "Qué hace cada rol, de forma simple.";
-      } else if(tab === 'calendar'){
-        infoTitle.textContent = "ÈNIGME · Calendario";
-        infoSub.textContent = "Septiembre 2026 (referencia operativa).";
-      } else {
-        infoTitle.textContent = "ÈNIGME · Protección de datos";
-        infoSub.textContent = "Tratamiento de datos para procesos de selección.";
-      }
-
-      requestAnimationFrame(() => { if(infoBody) infoBody.scrollTop = 0; });
-    }
-
-    function openInfoModal(tab){
-      infoOverlay.classList.add('show');
-      lockBody();
-      showInfoTab(tab || 'about');
-      setTimeout(() => closeInfoBtn?.focus(), 30);
-    }
-    function closeInfoModal(){
-      infoOverlay.classList.remove('show');
-      unlockBody();
-    }
-
-    closeInfoBtn.addEventListener('click', closeInfoModal);
-    infoOverlay.addEventListener('click', (e) => { if(e.target === infoOverlay) closeInfoModal(); });
-
-    tabAbout.addEventListener('click', () => showInfoTab('about'));
-    tabPurpose.addEventListener('click', () => showInfoTab('purpose'));
-    tabGlossary.addEventListener('click', () => showInfoTab('glossary'));
-    tabCalendar.addEventListener('click', () => showInfoTab('calendar'));
-    tabPrivacy.addEventListener('click', () => showInfoTab('privacy'));
-
-    document.getElementById('openAboutTop').addEventListener('click', () => openInfoModal('about'));
-    document.getElementById('openPurposeTop').addEventListener('click', () => openInfoModal('purpose'));
-    document.getElementById('openGlossaryTop').addEventListener('click', () => openInfoModal('glossary'));
-    document.getElementById('openPrivacyTop').addEventListener('click', () => openInfoModal('privacy'));
-
-    document.getElementById('openAboutFooter').addEventListener('click', () => openInfoModal('about'));
-    document.getElementById('openPurposeFooter').addEventListener('click', () => openInfoModal('purpose'));
-    document.getElementById('openGlossaryFooter').addEventListener('click', () => openInfoModal('glossary'));
-    document.getElementById('openPrivacyFooter').addEventListener('click', () => openInfoModal('privacy'));
-
-    document.getElementById('openPrivacyFromForm').addEventListener('click', () => openInfoModal('privacy'));
-
-    document.getElementById('openCalendarFromDate').addEventListener('click', () => openInfoModal('calendar'));
   </script>
 </body>
 </html>
