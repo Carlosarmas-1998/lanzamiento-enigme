@@ -137,6 +137,14 @@
       font-weight: 300;
     }
 
+    .ctaRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+      margin-top: 24px;
+      align-items:center;
+    }
+
     /* Botones vibrantes */
     .btn{
       display:inline-flex;
@@ -163,6 +171,18 @@
     }
     .btn:active{ transform: translateY(0); }
     .btn:disabled{ opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+
+    .btnGhost{
+      background: transparent;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      box-shadow: none;
+    }
+    .btnGhost:hover{
+      background: rgba(28, 25, 23, 0.05);
+      color: var(--ink);
+      box-shadow: none;
+    }
 
     .btnSmall{ padding: 12px 20px; font-size: 12px; }
 
@@ -272,7 +292,7 @@
     }
 
     /* ===========================
-       MODAL FORMULARIO
+       MODALES (Global)
        =========================== */
     .modalOverlay{
       position:fixed;
@@ -476,6 +496,18 @@
     }
     
     .hp{ position:absolute; left:-10000px; }
+
+    /* Estilos extra para el Manifiesto */
+    .manifesto-body p { margin-top: 0; margin-bottom: 16px; }
+    .manifesto-body h3 { 
+      font-family: "Playfair Display", serif; 
+      font-size: 20px; 
+      color: var(--ink); 
+      margin: 24px 0 12px;
+      border-bottom: 1px solid var(--goldLight);
+      padding-bottom: 8px;
+    }
+    .manifesto-body strong { color: var(--ink); font-weight: 600; }
   </style>
 </head>
 
@@ -496,7 +528,10 @@
           <p class="lead">
             ÈNIGME se prepara para su despliegue oficial. Apertura de postulaciones para la estructuración del equipo directivo y logístico en la jurisdicción sur.
           </p>
-          <button class="btn" id="openCalBtn">Fechas de Despliegue</button>
+          <div class="ctaRow">
+            <button class="btn" id="openCalBtn">Fechas de Despliegue</button>
+            <button class="btn btnGhost" id="openManifestoBtn">Manifiesto Corporativo</button>
+          </div>
         </div>
         
         <div class="infoCard">
@@ -638,6 +673,39 @@
     </div>
   </div>
 
+  <div class="modalOverlay" id="manifestoModal">
+    <div class="modal" style="width: 750px; border-radius: 20px;">
+      <div class="modalHeader" style="background: var(--marfil);">
+        <div>
+          <h2 class="modalTitle" style="font-size: 32px; color: var(--ink);">Soy ÈNIGME</h2>
+          <p class="modalSub" style="color: var(--gold); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;">Aura · Misterio · Presencia</p>
+        </div>
+        <button class="x" onclick="closeManifestoModal()">✕</button>
+      </div>
+      <div class="modalBody manifesto-body" style="font-size: 15px; color: var(--ink2); line-height: 1.8; padding: 40px;">
+        <p>
+          <strong>ÈNIGME no es solo una firma de joyería premium; es una declaración de intenciones.</strong> Nacemos con la convicción absoluta de fusionar la estética editorial y el lujo silencioso con una ingeniería operativa impecable y milimétrica. Cada pieza que entregamos y cada proceso que estructuramos está diseñado para crear un aura inconfundible, mantener el misterio de la exclusividad y proyectar una presencia imponente en el mercado.
+        </p>
+
+        <h3>Crecimiento Estructural y Orgánico</h3>
+        <p>
+          No ofrecemos simples puestos de trabajo; <strong>construimos élites corporativas</strong>. ÈNIGME es una plataforma de meritocracia y ambición pura. Nuestro despliegue en la jurisdicción sur de Honduras no es una prueba, es el <em>"Punto Cero"</em> de una expansión monumental.
+        </p>
+        <p>
+          Quienes se integren en esta fase fundacional como Coordinadores o Gerentes, son la piedra angular de nuestra marca. Aquellos que demuestren excelencia y disciplina operativa tienen un camino trazado y garantizado hacia las futuras <strong>Direcciones Regionales y Nacionales</strong>. Creemos fervientemente en el ascenso interno, recompensando de manera agresiva a quienes elevan nuestros estándares.
+        </p>
+
+        <h3>La Cultura de la Excelencia</h3>
+        <p>
+          Rechazamos la mediocridad. Buscamos mentes profundamente analíticas, perfiles resolutivos con una disciplina arquitectónica, y profesionales apasionados por hacer las cosas con una precisión deslumbrante. 
+        </p>
+        <p>
+          Si tienes la visión para estructurar el mañana, la autoridad para liderar desde el ejemplo y la exigencia para jamás conformarte con el estándar de hoy, entonces tu lugar está aquí. <strong>Únete a la redefinición del lujo y la excelencia corporativa. Esto es ÈNIGME.</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+
   <div class="modalOverlay top" id="privacyModal">
     <div class="modal" style="width: 600px; border-radius: 16px;">
       <div class="modalHeader" style="background: var(--marfilOscuro);">
@@ -714,8 +782,13 @@
     function openCalModal(){ calModal.classList.add('show'); lock(); }
     function closeCalModal(){ calModal.classList.remove('show'); unlock(); }
 
+    const manifestoModal = document.getElementById('manifestoModal');
+    function openManifestoModal(){ manifestoModal.classList.add('show'); lock(); }
+    function closeManifestoModal(){ manifestoModal.classList.remove('show'); unlock(); }
+
     document.getElementById('openCalBtn').addEventListener('click', openCalModal);
     document.getElementById('openCalTop').addEventListener('click', openCalModal);
+    document.getElementById('openManifestoBtn').addEventListener('click', openManifestoModal);
 
     // Lógica Zonas
     const zonesCoord = [
