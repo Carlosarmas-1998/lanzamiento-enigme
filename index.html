@@ -1,999 +1,1020 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="es-HN">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#FCFBF8" />
-  <title>ÈNIGME</title>
-  <meta name="description" content="ÈNIGME · Lanzamiento en Zona Sur (Septiembre 2026)." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>ÈNIGME Honduras | Joyería, bolsos, carteras boutique y accesorios</title>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <meta name="description" content="ÈNIGME Honduras inicia operaciones en Choluteca con envíos a Tegucigalpa. Joyería, bolsos, carteras boutique, accesorios y relojes con estética elegante y atención exclusiva." />
+  <meta name="keywords" content="ÈNIGME Honduras, joyería en Honduras, bolsos en Honduras, carteras boutique Honduras, relojes Honduras, accesorios elegantes, Choluteca, Tegucigalpa, tienda online Honduras" />
+  <meta name="author" content="Carlos Armas" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  <link rel="canonical" href="https://enigmeofficial.com/" />
+
+  <meta name="geo.region" content="HN" />
+  <meta name="geo.placename" content="Choluteca, Honduras" />
+  <meta name="geo.position" content="13.3000;-87.1900" />
+  <meta name="ICBM" content="13.3000, -87.1900" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ÈNIGME Honduras" />
+  <meta property="og:title" content="ÈNIGME Honduras | Lanzamiento elegante en Honduras" />
+  <meta property="og:description" content="Joyería, bolsos, carteras boutique, accesorios y relojes. Inicio de operaciones en Choluteca, Honduras, con envíos a Tegucigalpa." />
+  <meta property="og:url" content="https://enigmeofficial.com/" />
+  <meta property="og:locale" content="es_HN" />
+  <meta property="og:image" content="https://enigmeofficial.com/A1.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ÈNIGME Honduras" />
+  <meta name="twitter:description" content="Firma elegante de joyería, bolsos, carteras boutique, accesorios y relojes en Honduras." />
+  <meta name="twitter:image" content="https://enigmeofficial.com/A1.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ÈNIGME Honduras",
+    "url": "https://enigmeofficial.com/",
+    "logo": "https://enigmeofficial.com/logo.png",
+    "email": "info@enigmeofficial.com",
+    "sameAs": [
+      "https://www.instagram.com/enigmehonduras"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+34602149162",
+      "contactType": "customer service",
+      "areaServed": "HN",
+      "availableLanguage": ["Spanish"]
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Choluteca",
+      "addressRegion": "Choluteca",
+      "addressCountry": "HN"
+    },
+    "areaServed": [
+      {
+        "@type": "Country",
+        "name": "Honduras"
+      },
+      {
+        "@type": "City",
+        "name": "Choluteca"
+      },
+      {
+        "@type": "City",
+        "name": "Tegucigalpa"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "ÈNIGME Honduras",
+    "image": "https://enigmeofficial.com/A1.jpg",
+    "url": "https://enigmeofficial.com/",
+    "telephone": "+34602149162",
+    "email": "info@enigmeofficial.com",
+    "priceRange": "L",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Choluteca",
+      "addressCountry": "HN"
+    },
+    "areaServed": "Honduras",
+    "makesOffer": [
+      {"@type":"Offer", "itemOffered":{"@type":"Product", "name":"Joyería"}},
+      {"@type":"Offer", "itemOffered":{"@type":"Product", "name":"Bolsos"}},
+      {"@type":"Offer", "itemOffered":{"@type":"Product", "name":"Carteras boutique"}},
+      {"@type":"Offer", "itemOffered":{"@type":"Product", "name":"Accesorios"}},
+      {"@type":"Offer", "itemOffered":{"@type":"Product", "name":"Relojes"}}
+    ]
+  }
+  </script>
 
   <style>
     :root {
-      /* Paleta Marfil y Rosa Palo Premium */
-      --marfil: #FCFBF8;
-      --marfilOscuro: #F4F2EC;
-      --rosaPalo: #F2E6E6;
-      --rosaPaloOscuro: #E5D5D5;
-      
-      --ink: #1C1917;
-      --ink2: #44403C;
-      --ink3: #78716C;
-
-      --gold: #C2A052;
-      --goldLight: rgba(194, 160, 82, 0.15);
-
-      --line: rgba(28, 25, 23, 0.08);
-
-      --shadowSoft: 0 12px 40px rgba(68, 64, 60, 0.06);
-      --shadowHeavy: 0 24px 60px rgba(68, 64, 60, 0.12);
-
-      --ok: #276749;
-      --bad: #9B2C2C;
-      --r: 16px; /* Bordes suaves */
+      --bg: #f6f0e8;
+      --bg-soft: #fbf8f3;
+      --card: rgba(255,255,255,0.82);
+      --card-strong: rgba(255,255,255,0.92);
+      --text: #261d16;
+      --muted: #766454;
+      --line: rgba(81, 57, 33, 0.14);
+      --gold: #b7925d;
+      --gold-deep: #927246;
+      --shadow: 0 20px 60px rgba(95, 71, 45, 0.12);
+      --shadow-soft: 0 14px 38px rgba(95, 71, 45, 0.08);
+      --radius-xl: 34px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max: 1240px;
     }
 
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; scroll-behavior: smooth; }
-    html{ -webkit-text-size-adjust: 100%; }
-    body{
-      margin:0;
-      font-family: Inter, system-ui, sans-serif;
-      color: var(--ink);
-      background: linear-gradient(135deg, var(--marfil) 0%, var(--rosaPalo) 100%);
-      background-attachment: fixed;
-      overflow-x:hidden;
-      line-height: 1.6;
-    }
-
-    /* Textura sutil de ruido/papel */
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)" opacity="0.03"/></svg>');
-      opacity: 0.6;
-      z-index: 0;
-    }
-
-    img, video, svg, canvas{ max-width: 100%; height: auto; display: block; }
-    a{ color:inherit; text-decoration:none; }
-    button, input, textarea{ font:inherit; color:inherit; }
-
-    .container{
-      position:relative;
-      z-index:1;
-      width:min(1080px, 100%);
-      margin:0 auto;
-      padding: 30px 24px 80px;
-    }
-
-    .topbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      padding: 10px 0 40px;
-      flex-wrap:wrap;
-    }
-    .logo{
-      font-family:"Playfair Display", serif;
-      font-weight:700;
-      letter-spacing:0.18em;
-      font-size: 26px;
-      text-transform: uppercase;
-      color: var(--ink);
-    }
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.6);
-      border: 1px solid rgba(255,255,255,0.8);
-      color: var(--ink2);
-      font-size: 12px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      font-weight: 600;
-      backdrop-filter: blur(10px);
-      box-shadow: var(--shadowSoft);
-    }
-    .dot{
-      width:6px; height:6px; border-radius:50%;
-      background: var(--gold);
-      box-shadow: 0 0 0 2px var(--goldLight);
-    }
-
-    .heroGrid{
-      display:grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap:40px;
-      align-items:center;
-    }
-    @media (max-width: 900px){ .heroGrid{ grid-template-columns: 1fr; } }
-
-    .h1{
-      margin: 0 0 20px;
-      font-family:"Playfair Display", serif;
-      font-weight:600;
-      letter-spacing:0.01em;
-      font-size: clamp(36px, 4.5vw, 54px);
-      line-height: 1.1;
-      color: var(--ink);
-    }
-    .lead{
-      margin:0 0 24px;
-      color: var(--ink2);
-      font-size: 16px;
-      line-height: 1.8;
-      font-weight: 300;
-    }
-
-    .ctaRow{
-      display:flex;
-      flex-wrap:wrap;
-      gap:16px;
-      margin-top: 24px;
-      align-items:center;
-    }
-
-    /* Botones vibrantes */
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding: 14px 28px;
-      border-radius: 999px;
-      border: none;
-      background: var(--ink);
-      color: #fff;
-      font-weight: 500;
-      font-size: 13px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      cursor:pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 20px rgba(28, 25, 23, 0.2);
-    }
-    .btn:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 12px 25px rgba(28, 25, 23, 0.3);
-      background: #000;
-    }
-    .btn:active{ transform: translateY(0); }
-    .btn:disabled{ opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
-
-    /* Botón Manifiesto con Animación Misteriosa */
-    .manifesto-btn {
-      position: relative;
-      overflow: hidden;
-      animation: auraMystery 4s infinite ease-in-out;
-      border: 1px solid rgba(194, 160, 82, 0.3);
-    }
-    
-    .manifesto-btn::after {
-      content: "";
-      position: absolute;
-      top: 0; left: -100%;
-      width: 50%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(194, 160, 82, 0.4), transparent);
-      transform: skewX(-20deg);
-      animation: shimmerMystery 4s infinite linear;
-    }
-
-    @keyframes auraMystery {
-      0% { 
-        box-shadow: 0 4px 15px rgba(28,25,23,0.3); 
-        transform: translateY(0); 
-      }
-      50% { 
-        box-shadow: 0 0 25px rgba(194,160,82,0.5), 0 10px 25px rgba(28,25,23,0.4); 
-        transform: translateY(-3px); 
-      }
-      100% { 
-        box-shadow: 0 4px 15px rgba(28,25,23,0.3); 
-        transform: translateY(0); 
-      }
-    }
-
-    @keyframes shimmerMystery {
-      0% { left: -100%; }
-      20% { left: 200%; }
-      100% { left: 200%; }
-    }
-
-    .btnSmall{ padding: 12px 20px; font-size: 12px; }
-
-    .linkBtn{
-      border:0;
-      background:transparent;
-      padding:0;
-      cursor:pointer;
-      font:inherit;
-      color: var(--gold);
-      font-weight: 600;
-      text-decoration: underline;
-      text-decoration-color: var(--goldLight);
-      text-underline-offset: 4px;
-      transition: text-decoration-color 0.2s ease;
-    }
-    .linkBtn:hover{ text-decoration-color: var(--gold); }
-
-    .infoCard{
-      background: rgba(255,255,255,0.7);
-      border: 1px solid rgba(255,255,255,0.9);
-      padding: 30px;
-      border-radius: var(--r);
-      backdrop-filter: blur(12px);
-      box-shadow: var(--shadowSoft);
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .infoCardTitle{
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
       margin: 0;
-      font-family: "Playfair Display", serif;
-      font-size: 20px;
-      color: var(--ink);
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 15px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(183,146,93,0.12), transparent 18%),
+        radial-gradient(circle at left center, rgba(215,192,160,0.18), transparent 25%),
+        linear-gradient(180deg, #f9f5ef 0%, #f3ece2 100%);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
-    .infoRow{ display: flex; flex-direction: column; gap: 4px; }
-    .infoLabel{ font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink3); font-weight: 600; }
-    .infoValue{ font-size: 15px; color: var(--ink); font-weight: 500; }
 
-    .section{ margin-top: 80px; }
-    .sectionTitle{
-      margin:0 0 10px;
-      font-family:"Playfair Display", serif;
-      font-size: 32px;
-      font-weight: 600;
+    img { display: block; width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(calc(100% - 28px), var(--max)); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 80;
+      background: rgba(249,245,239,0.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(129, 99, 65, 0.08);
     }
-    .sectionSub{ color: var(--ink2); font-size: 15px; font-weight: 300; margin-bottom: 40px; max-width: 600px; }
 
-    .cards{ display:grid; grid-template-columns: repeat(2, 1fr); gap:24px; }
-    @media (max-width: 800px){ .cards{ grid-template-columns: 1fr; } }
+    .nav {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
 
-    .card{
-      background: #ffffff;
-      border-radius: var(--r);
-      padding: 30px;
-      box-shadow: var(--shadowSoft);
-      border: 1px solid var(--line);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .brand {
       display: flex;
       flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      letter-spacing: 0.18em;
+      font-weight: 700;
+      color: #2a1c11;
+    }
+
+    .brand-sub {
+      font-size: 0.73rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      color: #584838;
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus { color: var(--gold-deep); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(183,146,93,0.55);
+      background: rgba(255,255,255,0.58);
+      color: #3b2a1c;
+      font-weight: 600;
+      transition: 0.25s ease;
+      box-shadow: var(--shadow-soft);
+      text-align: center;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-solid {
+      background: linear-gradient(135deg, #dbc08d, #b7925d);
+      color: #fffdfa;
+      border-color: transparent;
+    }
+
+    .hero {
+      padding: 88px 0 64px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(183,146,93,0.10);
+      color: var(--gold-deep);
+      border: 1px solid rgba(183,146,93,0.18);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.8rem;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 0.98;
+      margin: 0;
+      font-weight: 700;
+      color: #24170f;
+    }
+
+    h1 {
+      font-size: clamp(3.1rem, 6vw, 5.8rem);
+      max-width: 760px;
+    }
+
+    .hero-copy {
+      margin-top: 22px;
+      max-width: 690px;
+      font-size: 1.05rem;
+      color: #614f40;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 680px;
+      border-radius: 36px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(128,95,58,0.12);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(76,53,34,0.22)),
+        url('A1.jpg') center/cover no-repeat;
+    }
+
+    .hero-card-content {
+      position: absolute;
+      left: 26px;
+      right: 26px;
+      bottom: 26px;
+      background: rgba(255,248,240,0.78);
+      border: 1px solid rgba(129, 99, 65, 0.10);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-card-content h3 { font-size: 2rem; margin-bottom: 8px; }
+    .hero-card-content p { margin: 0; color: #5f4e3f; }
+
+    section { padding: 34px 0 92px; }
+
+    .section-head {
+      display: grid;
+      gap: 12px;
+      max-width: 820px;
+      margin-bottom: 34px;
+    }
+
+    .label {
+      color: var(--gold-deep);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.79rem;
+      font-weight: 600;
+    }
+
+    .section-head h2 { font-size: clamp(2.3rem, 4vw, 3.7rem); }
+    .section-head p { margin: 0; color: var(--muted); }
+
+    .cards-3, .cards-4, .gallery-grid, .legal-grid, .contact-grid, .categories-grid, .testimonials-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .cards-3 { grid-template-columns: repeat(3, 1fr); }
+    .cards-4 { grid-template-columns: repeat(4, 1fr); }
+    .categories-grid { grid-template-columns: repeat(5, 1fr); }
+    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    .testimonials-grid { grid-template-columns: repeat(3, 1fr); }
+    .legal-grid, .contact-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .card, .glass-card {
+      border-radius: var(--radius-xl);
+      background: var(--card);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-soft);
+      padding: 28px;
+    }
+
+    .glass-card { background: var(--card-strong); }
+
+    .card-number {
+      color: var(--gold-deep);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .card h3, .glass-card h3 { font-size: 1.8rem; margin-bottom: 10px; }
+    .card p, .glass-card p { margin: 0; color: #6f5d4d; }
+
+    .category-card {
+      min-height: 230px;
+      padding: 24px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.78), rgba(255,255,255,0.92));
+      border: 1px solid rgba(129, 99, 65, 0.10);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
       position: relative;
       overflow: hidden;
     }
-    .card::before{
+
+    .category-card::before {
       content: "";
       position: absolute;
-      top: 0; right: 0; width: 150px; height: 150px;
-      background: radial-gradient(circle at top right, var(--rosaPalo), transparent 70%);
-      opacity: 0.5;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(110,80,50,0.08));
       pointer-events: none;
     }
-    .card:hover{
-      transform: translateY(-4px);
-      box-shadow: var(--shadowHeavy);
-      border-color: var(--rosaPaloOscuro);
-    }
-    .cardTitle{
-      margin: 0 0 10px;
-      font-family: "Playfair Display", serif;
-      font-size: 22px;
-      color: var(--ink);
-    }
-    .cardP{
-      margin: 0 0 20px;
-      color: var(--ink2);
-      font-size: 14px;
-      line-height: 1.7;
-      flex-grow: 1;
-    }
-    .cardList{
-      margin: 0 0 24px;
-      padding-left: 20px;
-      color: var(--ink2);
-      font-size: 13px;
-      line-height: 1.8;
-    }
-    .cardList li{ margin-bottom: 8px; }
 
-    footer{
-      margin-top: 80px;
+    .category-card h3 { font-size: 1.7rem; position: relative; z-index: 1; }
+    .category-card p { position: relative; z-index: 1; color: #6c5b4c; }
+
+    .launch-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .launch-date {
+      font-size: clamp(3rem, 7vw, 5.2rem);
+      margin: 10px 0 16px;
+      color: #2d1d12;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .count-box {
+      border-radius: 18px;
+      padding: 18px 12px;
+      background: rgba(255,255,255,0.70);
+      border: 1px solid rgba(129, 99, 65, 0.10);
       text-align: center;
-      font-size: 12px;
-      color: var(--ink3);
-      letter-spacing: 0.05em;
     }
 
-    /* ===========================
-       MODALES (Global)
-       =========================== */
-    .modalOverlay{
-      position:fixed;
-      inset:0;
-      background: rgba(28, 25, 23, 0.4);
-      backdrop-filter: blur(8px);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding: 20px;
-      z-index: 1000;
+    .count-box strong {
+      display: block;
+      font-size: 1.8rem;
+      color: #2d1f13;
+      font-family: 'Cormorant Garamond', serif;
     }
-    .modalOverlay.show{ display:flex; }
-    .modalOverlay.top{ z-index: 2000; }
 
-    .modal{
-      width:min(900px, 100%);
-      background: var(--marfil);
-      border-radius: 24px;
-      box-shadow: var(--shadowHeavy);
-      max-height: 92vh;
-      display:flex;
-      flex-direction:column;
+    .count-box span {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .gallery-item {
+      border-radius: 28px;
       overflow: hidden;
+      border: 1px solid rgba(129, 99, 65, 0.10);
+      box-shadow: var(--shadow-soft);
+      background: white;
     }
 
-    .modalHeader{
-      padding: 24px 30px;
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      border-bottom: 1px solid var(--line);
-      background: #ffffff;
-    }
-    .modalTitle{
-      margin:0;
-      font-family:"Playfair Display", serif;
-      font-weight:600;
-      font-size: 24px;
-      color: var(--ink);
-    }
-    .modalSub{
-      margin:4px 0 0;
-      color: var(--ink3);
-      font-size: 13px;
-    }
-    .x{
-      border:none;
-      background: var(--marfilOscuro);
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      color: var(--ink);
-      font-size: 18px;
-      cursor:pointer;
-      display: grid; place-items: center;
-      transition: background 0.2s ease;
-    }
-    .x:hover{ background: var(--rosaPaloOscuro); }
-
-    .modalBody{
-      padding: 30px;
-      overflow:auto;
-      -webkit-overflow-scrolling: touch;
-      background: var(--marfil);
+    .gallery-item img {
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
     }
 
-    .formGrid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:20px;
+    .gallery-caption {
+      padding: 16px 18px;
+      color: #6c5b4c;
+      font-size: 0.95rem;
+      background: rgba(255,255,255,0.92);
     }
-    @media (max-width: 768px){ .formGrid{ grid-template-columns: 1fr; } }
 
-    .field{ display:flex; flex-direction:column; gap:8px; }
-    .full{ grid-column: 1 / -1; }
-    label{
-      font-size: 11px;
-      letter-spacing:0.05em;
-      text-transform:uppercase;
-      color: var(--ink2);
+    .form-wrap {
+      border-radius: 32px;
+      padding: 28px;
+      background: var(--card-strong);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field.full { grid-column: 1 / -1; }
+
+    label {
+      font-size: 0.89rem;
+      color: #5d4b3e;
       font-weight: 600;
     }
-    input, textarea{
-      border: 1px solid var(--line);
-      background: #ffffff;
-      border-radius: 12px;
+
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid rgba(129, 99, 65, 0.12);
+      background: rgba(255,255,255,0.9);
+      border-radius: 16px;
       padding: 14px 16px;
-      font-size: 14px;
-      color: var(--ink);
-      transition: all 0.2s ease;
-      box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
-    }
-    input:focus, textarea:focus{
-      outline:none;
-      border-color: var(--gold);
-      box-shadow: 0 0 0 3px var(--goldLight);
-    }
-    textarea{ min-height: 100px; resize: vertical; }
-
-    /* Custom Select */
-    .cselect{ position:relative; width:100%; }
-    .cselectBtn{
-      width:100%; text-align:left;
-      background: #ffffff;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 14px 40px 14px 16px;
-      cursor:pointer;
-      font-size: 14px; color: var(--ink);
-      box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
-      transition: all 0.2s ease;
-    }
-    .cselectBtn[disabled] { background: var(--marfilOscuro); cursor: not-allowed; color: var(--ink3); }
-    .cselectBtn::after{
-      content:"▼"; position:absolute; right: 16px; top: 50%; transform: translateY(-50%);
-      font-size: 10px; color: var(--ink3);
-    }
-    .cselectList{
-      position:absolute; left:0; right:0; top: calc(100% + 4px);
-      background: #ffffff; border-radius: 12px;
-      border: 1px solid var(--line);
-      list-style:none; margin:0; padding:6px;
-      display:none; max-height: 220px; overflow:auto;
-      z-index: 60; box-shadow: var(--shadowHeavy);
-    }
-    .cselect.open .cselectList{ display:block; }
-    .cselectOption{
-      padding: 10px 14px; border-radius: 8px;
-      cursor:pointer; font-size: 14px; color: var(--ink2);
-    }
-    .cselectOption:hover{ background: var(--rosaPalo); color: var(--ink); }
-    .cselectOption[aria-selected="true"]{ background: var(--marfilOscuro); font-weight: 600; color: var(--ink); }
-
-    /* Consent UI */
-    .consentUI{
-      background: #ffffff;
-      border: 1px solid var(--goldLight);
-      border-radius: 12px;
-      padding: 20px;
-      display: flex; gap: 16px; align-items: flex-start;
-      margin-top: 10px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .consentUI:hover{ background: var(--marfil); }
-    .visualCheck{
-      width: 24px; height: 24px; border-radius: 6px;
-      border: 2px solid var(--line); background: #fff;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; transition: all 0.2s;
-    }
-    .visualCheck.checked{
-      background: var(--ink); border-color: var(--ink);
-    }
-    .visualCheck.checked::after{
-      content: "✓"; color: #fff; font-size: 14px; font-weight: bold;
-    }
-    .consentText{ font-size: 13px; color: var(--ink2); line-height: 1.6; }
-    
-    .modalFooter{
-      padding: 20px 30px; background: #ffffff;
-      border-top: 1px solid var(--line);
-      display:flex; justify-content: space-between; align-items: center;
+      font: inherit;
+      color: #2d2016;
+      outline: none;
     }
 
-    /* PANTALLA DE ÉXITO */
-    .success-overlay {
-      position: fixed; inset: 0;
-      background: var(--marfil);
-      z-index: 9999; display: none;
-      flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; padding: 40px;
-      opacity: 0; transition: opacity 0.5s ease;
-    }
-    .success-overlay.show { display: flex; opacity: 1; }
-    .success-icon { font-size: 70px; color: var(--gold); margin-bottom: 20px; }
-    .success-title { font-family: "Playfair Display", serif; font-size: 48px; color: var(--ink); margin: 0 0 16px; }
-    .success-subtitle { font-size: 16px; color: var(--ink2); max-width: 500px; margin: 0 0 40px; }
+    textarea { resize: vertical; min-height: 124px; }
+    input::placeholder, textarea::placeholder { color: #9d8b78; }
 
-    /* CALENDARIO PRO CSS */
-    .calWrap{
-      background: #fff; border-radius: 16px; padding: 24px;
-      border: 1px solid var(--line); box-shadow: var(--shadowSoft);
+    .mini-note {
+      color: #7d6b5b;
+      font-size: 0.88rem;
+      margin-top: 12px;
     }
-    .calHead{ display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px; }
-    .calMonth{ font-family:"Playfair Display", serif; font-size: 24px; font-weight: 600; margin:0; }
-    .calGrid{ display:grid; grid-template-columns: repeat(7, 1fr); gap:8px; }
-    .calDow{ font-size: 11px; text-transform:uppercase; color: var(--ink3); text-align:center; font-weight: 600; padding-bottom: 8px;}
-    .calCell{
-      aspect-ratio: 1; border-radius: 10px; background: var(--marfil);
-      display:flex; align-items:center; justify-content:center;
-      font-size: 14px; font-weight: 500; color: var(--ink); position:relative;
-    }
-    .calCell.muted{ opacity: 0.3; background: transparent; }
-    .calCell.highlight{
-      background: var(--rosaPaloOscuro); color: var(--ink); font-weight: 700;
-      box-shadow: inset 0 0 0 2px var(--goldLight);
-    }
-    .calCell.highlight::after{
-      content: "Lanzamiento"; position:absolute; bottom: 4px; font-size: 8px; text-transform:uppercase; letter-spacing: 0.05em; color: var(--ink2);
-    }
-    
-    .hp{ position:absolute; left:-10000px; }
 
-    /* Estilos extra para el Manifiesto */
-    .manifesto-body p { margin-top: 0; margin-bottom: 16px; }
-    .manifesto-body h3 { 
-      font-family: "Playfair Display", serif; 
-      font-size: 20px; 
-      color: var(--ink); 
-      margin: 24px 0 12px;
-      border-bottom: 1px solid var(--goldLight);
-      padding-bottom: 8px;
+    .success-message {
+      display: none;
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #f2eadf;
+      border: 1px solid rgba(129, 99, 65, 0.12);
+      color: #5a4a3d;
+      font-weight: 500;
     }
-    .manifesto-body strong { color: var(--ink); font-weight: 600; }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 120;
+      padding: 14px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #dbc08d, #b7925d);
+      color: white;
+      box-shadow: var(--shadow);
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,0.35);
+    }
+
+    .private-catalog {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .feature-item {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.66);
+      border: 1px solid rgba(129, 99, 65, 0.10);
+      color: #645243;
+    }
+
+    .footer {
+      padding: 38px 0 48px;
+      border-top: 1px solid rgba(129, 99, 65, 0.10);
+      background: rgba(255,255,255,0.42);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+    }
+
+    .footer h3 { font-size: 2.2rem; margin-bottom: 10px; }
+    .footer p, .footer li { color: #6e5d4d; margin: 0; }
+    .footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+
+    .tiny-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 16px;
+      font-size: 0.92rem;
+      color: #7d6a59;
+    }
+
+    .accent-line {
+      width: 86px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 18px 0;
+    }
+
+    @media (max-width: 1160px) {
+      .hero-grid,
+      .launch-grid,
+      .private-catalog,
+      .legal-grid,
+      .contact-grid,
+      .footer-grid,
+      .categories-grid,
+      .cards-4,
+      .testimonials-grid { grid-template-columns: 1fr 1fr; }
+
+      .cards-3 { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 780px) {
+      .nav {
+        flex-direction: column;
+        justify-content: center;
+        padding: 14px 0 18px;
+      }
+
+      .hero,
+      section { padding-top: 56px; }
+
+      .hero-grid,
+      .launch-grid,
+      .private-catalog,
+      .legal-grid,
+      .contact-grid,
+      .footer-grid,
+      .categories-grid,
+      .cards-4,
+      .gallery-grid,
+      .testimonials-grid,
+      .form-grid,
+      .countdown { grid-template-columns: 1fr; }
+
+      .hero-card { min-height: 480px; }
+      h1 { font-size: clamp(2.7rem, 12vw, 4.2rem); }
+
+      .whatsapp-float {
+        left: 14px;
+        right: 14px;
+        text-align: center;
+      }
+    }
   </style>
 </head>
-
 <body>
-  <div class="container">
-    <header class="topbar">
-      <div class="logo">ÈNIGME</div>
-      <div style="display:flex; gap:16px; align-items:center;">
-        <span class="pill"><span class="dot"></span> Septiembre 2026</span>
-        <button class="pill" id="openCalTop" style="cursor:pointer; background: #fff;">Ver Calendario</button>
-      </div>
-    </header>
+  <a class="whatsapp-float" href="https://wa.me/34602149162?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20%C3%88NIGME%20Honduras" target="_blank" rel="noopener noreferrer">WhatsApp directo</a>
 
-    <main>
-      <section class="heroGrid">
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#inicio" class="brand" aria-label="Ir al inicio">
+        <span class="brand-mark">ÈNIGME</span>
+        <span class="brand-sub">Aura · Misterio · Presencia</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#marca">Marca</a>
+        <a href="#categorias">Categorías</a>
+        <a href="#galeria">Galería</a>
+        <a href="#lanzamiento">Lanzamiento</a>
+        <a href="#catalogo">Catálogo privado</a>
+        <a href="#legal">Legal</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="btn btn-solid">Acceso VIP</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
         <div>
-          <h1 class="h1">Estructuración Operativa en el Sur del País.</h1>
-          <p class="lead">
-            ÈNIGME se prepara para su despliegue oficial. Apertura de postulaciones para la estructuración del equipo directivo y logístico en la jurisdicción sur.
+          <div class="eyebrow">Honduras · Inicio de operaciones en Choluteca · Septiembre 2026</div>
+          <h1>Elegancia boutique para Honduras con lanzamiento desde Choluteca</h1>
+          <p class="hero-copy">
+            ÈNIGME Honduras es una propuesta de estilo elegante y refinado enfocada en joyería, bolsos, carteras boutique, accesorios y relojes. La marca inicia operaciones en Choluteca y atenderá también envíos a Tegucigalpa, con una experiencia visual premium, atención cuidada y presencia de marca diseñada para destacar en Google Honduras.
           </p>
-          <div class="ctaRow">
-            <button class="btn" id="openCalBtn">Fechas de Despliegue</button>
-            <button class="btn manifesto-btn" id="openManifestoBtn">Manifiesto Corporativo</button>
+          <div class="hero-actions">
+            <a class="btn btn-solid" href="#contacto">Solicitar acceso anticipado</a>
+            <a class="btn" href="#galeria">Ver galería</a>
+            <a class="btn" href="#lanzamiento">Próximamente</a>
           </div>
         </div>
-        
-        <div class="infoCard">
-          <h2 class="infoCardTitle">Contexto Territorial</h2>
-          <div class="infoRow">
-            <span class="infoLabel">Lanzamiento</span>
-            <span class="infoValue">Septiembre 2026</span>
-          </div>
-          <div class="infoRow">
-            <span class="infoLabel">Departamento Único</span>
-            <span class="infoValue">Choluteca</span>
-          </div>
-          <div class="infoRow">
-            <span class="infoLabel">Estado</span>
-            <span class="infoValue">Recepción de candidaturas activa</span>
-          </div>
-        </div>
-      </section>
 
-      <section class="section">
-        <h2 class="sectionTitle">Posiciones Disponibles</h2>
-        <p class="sectionSub">
-          Analice los enfoques de cada posición. Al seleccionar una, deberá confirmarla dentro del formulario oficial.
-        </p>
-
-        <div class="cards">
-          <article class="card">
-            <h3 class="cardTitle">Coordinador de Zona</h3>
-            <span class="pill" style="width:max-content; margin-bottom:16px; background:var(--rosaPalo); border:none;">Enfoque Operativo / Administrativo</span>
-            <p class="cardP">
-              Responsable de la ejecución en campo y la gestión administrativa de primer nivel.
+        <div class="hero-card" aria-label="Imagen principal de ÈNIGME Honduras">
+          <div class="hero-card-content">
+            <h3>Firma elegante con presencia real</h3>
+            <p>
+              Lanzamiento proyectado para septiembre de 2026. Operaciones iniciales en Choluteca, Honduras, con expansión comercial y envíos a Tegucigalpa.
             </p>
-            <ul class="cardList">
-              <li>Control de inventarios y logística territorial.</li>
-              <li>Supervisión de personal y resolución de incidencias.</li>
-              <li>Aplica para los 16 municipios de Choluteca.</li>
-            </ul>
-            <button class="btn btnSmall" type="button" onclick="openFormModal()">Inscribirse a Coordinador</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="marca">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">Sobre la marca</span>
+          <h2>Una estética clara, fina y sofisticada</h2>
+          <p>
+            La web está construida con enfoque boutique claro y elegante, pensada para proyectar confianza, belleza visual y posicionamiento local en Honduras. ÈNIGME combina una imagen premium con una estructura lista para conversión, captación y visibilidad en Google.
+          </p>
+        </div>
+
+        <div class="cards-3">
+          <article class="card">
+            <div class="card-number">01 · Origen</div>
+            <h3>Inicio en Choluteca</h3>
+            <p>La operación base arranca en Choluteca, Honduras, reforzando presencia local y coherencia comercial desde el inicio de la marca.</p>
           </article>
-
           <article class="card">
-            <h3 class="cardTitle">Gerencia de Zona</h3>
-            <span class="pill" style="width:max-content; margin-bottom:16px; background:var(--marfilOscuro); border:none;">Enfoque 100% Administrativo</span>
-            <p class="cardP">
-              Dirección ejecutiva centrada en planificación, control y auditoría de procesos.
-            </p>
-            <ul class="cardList">
-              <li>Elaboración de presupuestos y reportes de KPIs.</li>
-              <li>Auditoría de cumplimiento y estandarización de marca.</li>
-              <li>Posición exclusiva de control territorial.</li>
-            </ul>
-            <button class="btn btnSmall" type="button" onclick="openFormModal()">Inscribirse a Gerencia</button>
+            <div class="card-number">02 · Cobertura</div>
+            <h3>Envíos a Tegucigalpa</h3>
+            <p>Además de Choluteca, la web comunica servicio y envíos dirigidos a Tegucigalpa, abriendo alcance para búsquedas y clientela estratégica.</p>
+          </article>
+          <article class="card">
+            <div class="card-number">03 · Posicionamiento</div>
+            <h3>SEO orientado a Honduras</h3>
+            <p>Metaetiquetas, datos estructurados, contenido geográfico, categorías claras y arquitectura preparada para indexación nacional.</p>
           </article>
         </div>
-      </section>
-    </main>
-
-    <footer>
-      © <span id="y"></span> ÈNIGME.
-    </footer>
-  </div>
-
-  <div class="modalOverlay" id="formModal">
-    <div class="modal">
-      <div class="modalHeader">
-        <div>
-          <h2 class="modalTitle">Registro de Postulación</h2>
-          <p class="modalSub">Complete la información. Su rol determinará las zonas disponibles.</p>
-        </div>
-        <button class="x" onclick="closeFormModal()">✕</button>
       </div>
+    </section>
 
-      <div class="modalBody">
-        <form id="applyForm" novalidate>
-          <div class="hp"><input type="text" name="website" tabindex="-1" autocomplete="off" /></div>
+    <section id="categorias">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">Categorías de lanzamiento</span>
+          <h2>Todo lo que saldrá desde el inicio</h2>
+          <p>
+            La etapa de lanzamiento estará enfocada en categorías comerciales elegantes y visualmente fuertes para construir una imagen de marca sólida en Honduras.
+          </p>
+        </div>
 
-          <div class="formGrid">
-            <div class="field">
-              <label>Nombre completo</label>
-              <input id="name" name="name" type="text" placeholder="Ej. Abril Armas" required />
-            </div>
-            
-            <div class="field">
-              <label>Identidad (DNI)</label>
-              <input id="dni" name="dni" type="text" placeholder="0801-1990-12345" required />
-            </div>
+        <div class="categories-grid">
+          <article class="category-card"><h3>Joyería</h3><p>Piezas elegantes y femeninas con alta percepción de valor visual.</p></article>
+          <article class="category-card"><h3>Bolsos</h3><p>Diseños con presencia, estilo boutique y utilidad diaria refinada.</p></article>
+          <article class="category-card"><h3>Carteras boutique</h3><p>Accesorios compactos y sofisticados para una propuesta más completa.</p></article>
+          <article class="category-card"><h3>Accesorios</h3><p>Complementos elegantes seleccionados para elevar la experiencia de marca.</p></article>
+          <article class="category-card"><h3>Relojes</h3><p>Piezas de imagen con perfil femenino y estilo pulido para el lanzamiento.</p></article>
+        </div>
+      </div>
+    </section>
 
-            <div class="field">
-              <label>Correo Electrónico</label>
-              <input id="email" name="email" type="email" placeholder="correo@ejemplo.com" required />
-            </div>
+    <section id="galeria">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">Galería visual</span>
+          <h2>Diseños elegantes y presentación pro</h2>
+          <p>
+            Sube tus imágenes en JPG con estos nombres exactos en la misma carpeta del archivo HTML: <strong>A1.jpg</strong>, <strong>A2.jpg</strong>, <strong>A3.jpg</strong>, <strong>A4.jpg</strong>, <strong>A5.jpg</strong> y <strong>A6.jpg</strong>.
+          </p>
+        </div>
 
-            <div class="field">
-              <label>Departamento</label>
-              <button type="button" class="cselectBtn" disabled style="background:#fff; color:var(--ink); border-color:var(--line); pointer-events: none;">Choluteca</button>
-              <input type="hidden" name="department" id="deptHidden" value="Choluteca" />
-            </div>
+        <div class="gallery-grid">
+          <figure class="gallery-item"><img src="A1.jpg" alt="Imagen editorial ÈNIGME 1" loading="lazy"><figcaption class="gallery-caption">Presentación visual de marca y producto.</figcaption></figure>
+          <figure class="gallery-item"><img src="A2.jpg" alt="Imagen editorial ÈNIGME 2" loading="lazy"><figcaption class="gallery-caption">Composición elegante para joyería y accesorios.</figcaption></figure>
+          <figure class="gallery-item"><img src="A3.jpg" alt="Imagen editorial ÈNIGME 3" loading="lazy"><figcaption class="gallery-caption">Visual premium para bolsos y carteras boutique.</figcaption></figure>
+          <figure class="gallery-item"><img src="A4.jpg" alt="Imagen editorial ÈNIGME 4" loading="lazy"><figcaption class="gallery-caption">Imagen de colección para comunicar sofisticación.</figcaption></figure>
+          <figure class="gallery-item"><img src="A5.jpg" alt="Imagen editorial ÈNIGME 5" loading="lazy"><figcaption class="gallery-caption">Refuerzo de identidad y estética clara tipo boutique.</figcaption></figure>
+          <figure class="gallery-item"><img src="A6.jpg" alt="Imagen editorial ÈNIGME 6" loading="lazy"><figcaption class="gallery-caption">Presencia visual pensada para Honduras y redes sociales.</figcaption></figure>
+        </div>
+      </div>
+    </section>
 
-            <div class="field full">
-              <label>Seleccione Posición a Postular</label>
-              <div class="cselect" id="roleSelect">
-                <button type="button" class="cselectBtn" id="roleBtn">-- Seleccionar Posición --</button>
-                <ul class="cselectList" id="roleList">
-                  <li class="cselectOption" data-value="Coordinador de Zona">Coordinador de Zona</li>
-                  <li class="cselectOption" data-value="Gerencia de Zona">Gerencia de Zona</li>
-                </ul>
-              </div>
-              <input type="hidden" name="role" id="roleHidden" />
-            </div>
-
-            <div class="field full">
-              <label>Municipio / Zona Específica</label>
-              <div class="cselect" id="muniSelect">
-                <button type="button" class="cselectBtn" id="muniBtn">Primero seleccione la posición arriba</button>
-                <ul class="cselectList" id="muniList"></ul>
-              </div>
-              <input type="hidden" name="municipality" id="muniHidden" />
-            </div>
-
-            <div class="full">
-              <div class="consentUI" id="consentTrigger">
-                <div class="visualCheck" id="vCheck"></div>
-                <div class="consentText">
-                  <strong>Marco Legal y Privacidad:</strong> He leído las condiciones y autorizo la inscripción de mis datos bajo normativas de confidencialidad. Haz clic aquí para leer y firmar el acuerdo.
-                </div>
-              </div>
-              <input type="checkbox" id="realConsent" name="consent" style="display:none;" required />
-            </div>
-
-            <input type="hidden" name="_subject" value="Postulación ÈNIGME" />
+    <section id="lanzamiento">
+      <div class="container launch-grid">
+        <div class="glass-card">
+          <span class="label">Próximamente</span>
+          <div class="launch-date">Septiembre 2026</div>
+          <p>
+            ÈNIGME Honduras comienza su etapa de operaciones desde Choluteca, con estructura preparada para posicionarse en Google y captar interesadas antes del lanzamiento oficial.
+          </p>
+          <div class="accent-line"></div>
+          <p>
+            La marca se presentará con diseño elegante, comunicación cuidada y una experiencia boutique clara desde el primer contacto.
+          </p>
+          <div class="countdown" id="countdown" aria-label="Cuenta regresiva al lanzamiento">
+            <div class="count-box"><strong id="days">--</strong><span>Días</span></div>
+            <div class="count-box"><strong id="hours">--</strong><span>Horas</span></div>
+            <div class="count-box"><strong id="minutes">--</strong><span>Minutos</span></div>
+            <div class="count-box"><strong id="seconds">--</strong><span>Segundos</span></div>
           </div>
+        </div>
 
-          <div class="modalFooter">
-            <span style="font-size: 11px; color: var(--ink3);">Se generará su justificante PDF oficial tras enviar.</span>
-            <button class="btn" id="submitBtn" type="submit" disabled>Enviar Postulación</button>
+        <div class="glass-card">
+          <span class="label">Operación y alcance</span>
+          <h2 style="font-size:2.8rem; margin-top:10px;">Presencia comercial en Choluteca y envíos a Tegucigalpa</h2>
+          <div class="feature-list">
+            <div class="feature-item"><strong>Base inicial:</strong> Choluteca, Honduras.</div>
+            <div class="feature-item"><strong>Envíos activos:</strong> Choluteca y Tegucigalpa.</div>
+            <div class="feature-item"><strong>Tiempo estimado de envío:</strong> hasta 25 días.</div>
+            <div class="feature-item"><strong>Promoción de envío:</strong> gratis hasta punto de encuentro en pedidos superiores a 999 lempiras.</div>
+            <div class="feature-item"><strong>Canales de atención:</strong> WhatsApp, Instagram y correo electrónico.</div>
           </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <div class="modalOverlay" id="manifestoModal">
-    <div class="modal" style="width: 750px; border-radius: 20px;">
-      <div class="modalHeader" style="background: var(--marfil);">
-        <div>
-          <h2 class="modalTitle" style="font-size: 32px; color: var(--ink);">Soy ÈNIGME</h2>
-          <p class="modalSub" style="color: var(--gold); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;">Aura · Misterio · Presencia</p>
         </div>
-        <button class="x" onclick="closeManifestoModal()">✕</button>
       </div>
-      <div class="modalBody manifesto-body" style="font-size: 15px; color: var(--ink2); line-height: 1.8; padding: 40px;">
-        <p>
-          <strong>ÈNIGME no es solo una firma de joyería premium; es una declaración de intenciones.</strong> Nacemos con la convicción absoluta de fusionar la estética editorial y el lujo silencioso con una ingeniería operativa impecable y milimétrica. Cada pieza que entregamos y cada proceso que estructuramos está diseñado para crear un aura inconfundible, mantener el misterio de la exclusividad y proyectar una presencia imponente en el mercado.
-        </p>
+    </section>
 
-        <h3>Crecimiento Estructural y Orgánico</h3>
-        <p>
-          No ofrecemos simples puestos de trabajo; <strong>construimos élites corporativas</strong>. ÈNIGME es una plataforma de meritocracia y ambición pura. Nuestro despliegue en la jurisdicción sur de Honduras no es una prueba, es el <em>"Punto Cero"</em> de una expansión monumental.
-        </p>
-        <p>
-          Quienes se integren en esta fase fundacional como Coordinadores o Gerentes, son la piedra angular de nuestra marca. Aquellos que demuestren excelencia y disciplina operativa tienen un camino trazado y garantizado hacia las futuras <strong>Direcciones Regionales y Nacionales</strong>. Creemos fervientemente en el ascenso interno, recompensando de manera agresiva a quienes elevan nuestros estándares.
-        </p>
+    <section id="catalogo">
+      <div class="container private-catalog">
+        <div class="section-head" style="margin-bottom:0;">
+          <span class="label">Catálogo privado</span>
+          <h2>Acceso anticipado para clientas interesadas</h2>
+          <p>
+            Esta sección está pensada para captar personas interesadas antes de la apertura total. Puedes usarla como puerta de entrada a un catálogo privado, lista VIP o preventa especial.
+          </p>
+          <p>
+            También ayuda a generar expectativa y señales de interacción para la marca antes de la etapa de ventas más fuerte.
+          </p>
+        </div>
 
-        <h3>La Cultura de la Excelencia</h3>
-        <p>
-          Rechazamos la mediocridad. Buscamos mentes profundamente analíticas, perfiles resolutivos con una disciplina arquitectónica, y profesionales apasionados por hacer las cosas con una precisión deslumbrante. 
-        </p>
-        <p>
-          Si tienes la visión para estructurar el mañana, la autoridad para liderar desde el ejemplo y la exigencia para jamás conformarte con el estándar de hoy, entonces tu lugar está aquí. <strong>Únete a la redefinición del lujo y la excelencia corporativa. Esto es ÈNIGME.</strong>
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="modalOverlay top" id="privacyModal">
-    <div class="modal" style="width: 600px; border-radius: 16px;">
-      <div class="modalHeader" style="background: var(--marfilOscuro);">
-        <h2 class="modalTitle" style="font-size: 20px;">Acuerdo de Privacidad Legal</h2>
-      </div>
-      <div class="modalBody" style="font-size: 13px; color: var(--ink2); line-height: 1.8;">
-        <p><strong>Cláusula de Protección Institucional:</strong></p>
-        <p>Al confirmar este documento, usted autoriza formalmente a ÈNIGME al tratamiento de su información para procesos de selección y estructuración en la Zona Sur.</p>
-        <p>Todo tratamiento se realiza en estricto rigor bajo la garantía de intimidad consagrada en el <strong>Artículo 76 de la Constitución de la República de Honduras</strong>. Se garantiza plenamente su derecho constitucional de <strong>Hábeas Data</strong>, permitiéndole acceso, actualización o supresión de su expediente.</p>
-        <p style="margin-top: 20px; text-align: center; color: var(--gold); font-weight: 600;">
-          Su inscripción generará un número de registro único e inmutable.
-        </p>
-      </div>
-      <div class="modalFooter" style="justify-content: flex-end;">
-        <button class="btn btnSmall" id="acceptPrivacyBtn" type="button" style="background: var(--ok);">He leído y Acepto Firmar</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="modalOverlay" id="calModal">
-    <div class="modal" style="width: 700px; border-radius: 20px; background: transparent; box-shadow: none;">
-      <div class="calWrap">
-        <div class="calHead">
-          <div>
-            <p class="calMonth">Septiembre 2026</p>
-            <span class="pill" style="margin-top:8px; font-size:10px;">Fase Operativa Sur</span>
+        <div class="glass-card">
+          <h3>Ventajas de la lista VIP</h3>
+          <div class="feature-list">
+            <div class="feature-item">Acceso temprano a colecciones seleccionadas.</div>
+            <div class="feature-item">Información previa al lanzamiento oficial en Honduras.</div>
+            <div class="feature-item">Atención prioritaria por WhatsApp y correo.</div>
+            <div class="feature-item">Avisos de novedades en joyería, bolsos, carteras y relojes.</div>
           </div>
-          <button class="x" onclick="closeCalModal()">✕</button>
-        </div>
-        <div class="calGrid">
-          <div class="calDow">Lun</div><div class="calDow">Mar</div><div class="calDow">Mié</div><div class="calDow">Jue</div><div class="calDow">Vie</div><div class="calDow">Sáb</div><div class="calDow">Dom</div>
-          <div class="calCell muted"></div>
-          <div class="calCell highlight">1</div>
-          <div class="calCell">2</div><div class="calCell">3</div><div class="calCell">4</div><div class="calCell">5</div><div class="calCell">6</div>
-          <div class="calCell">7</div><div class="calCell">8</div><div class="calCell">9</div><div class="calCell">10</div><div class="calCell">11</div><div class="calCell">12</div><div class="calCell">13</div>
-          <div class="calCell">14</div><div class="calCell">15</div><div class="calCell">16</div><div class="calCell">17</div><div class="calCell">18</div><div class="calCell">19</div><div class="calCell">20</div>
-          <div class="calCell">21</div><div class="calCell">22</div><div class="calCell">23</div><div class="calCell">24</div><div class="calCell">25</div><div class="calCell">26</div><div class="calCell">27</div>
-          <div class="calCell">28</div><div class="calCell">29</div><div class="calCell">30</div>
-          <div class="calCell muted"></div><div class="calCell muted"></div><div class="calCell muted"></div><div class="calCell muted"></div>
+          <div style="margin-top:20px; display:flex; gap:12px; flex-wrap:wrap;">
+            <a class="btn btn-solid" href="#contacto">Quiero entrar</a>
+            <a class="btn" href="https://www.instagram.com/enigmehonduras" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <div id="successOverlay" class="success-overlay">
-    <div class="success-icon">✧</div>
-    <h2 class="success-title">Registro Exitoso</h2>
-    <p class="success-subtitle">Su información ha sido encriptada y procesada. Pronto nuestro equipo contactará con usted. Su justificante se ha descargado.</p>
-    <button class="btn" style="background:var(--marfilOscuro); color:var(--ink);" onclick="closeSuccess()">Finalizar</button>
-  </div>
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <span class="label">Motivos para elegir ÈNIGME</span>
+          <h2>Una propuesta seria, visualmente fuerte y comercialmente clara</h2>
+        </div>
+        <div class="cards-4">
+          <article class="card"><h3>Imagen premium</h3><p>Diseño claro, fino y adaptable a móvil, pensado para inspirar confianza y deseo de compra.</p></article>
+          <article class="card"><h3>Enfoque local</h3><p>Contenido orientado a búsquedas desde Honduras con referencias reales a Choluteca y Tegucigalpa.</p></article>
+          <article class="card"><h3>Atención directa</h3><p>Contacto sencillo por WhatsApp, Instagram y correo para facilitar conversiones reales.</p></article>
+          <article class="card"><h3>Escalable</h3><p>La estructura permite crecer luego a catálogo, pasarela de pago, carrito y fichas de producto.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <span class="label">Testimonios</span>
+          <h2>Sección lista para reforzar credibilidad</h2>
+          <p>Puedes dejar estos textos temporales o cambiarlos después por testimonios reales de clientas y compradoras.</p>
+        </div>
+        <div class="testimonials-grid">
+          <article class="card"><h3>Estilo elegante</h3><p>“La estética de la marca transmite cuidado, delicadeza y una imagen mucho más fina de lo habitual.”</p></article>
+          <article class="card"><h3>Muy visual</h3><p>“La presentación boutique hace que todo se vea más exclusivo y aspiracional desde la primera impresión.”</p></article>
+          <article class="card"><h3>Confianza</h3><p>“Se siente como una marca bien pensada, con atención cercana y una propuesta clara para Honduras.”</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="container contact-grid">
+        <div class="section-head" style="margin-bottom:0;">
+          <span class="label">Contacto y registro</span>
+          <h2>Solicita información o entra a la lista de lanzamiento</h2>
+          <p>
+            El formulario ya está conectado para recibir mensajes. Cuando alguien lo envíe, te llegará la solicitud usando la clave que me diste.
+          </p>
+        </div>
+
+        <div class="form-wrap">
+          <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="c0b601d8-0046-4d7d-aec7-9b09feed1381">
+            <input type="hidden" name="subject" value="Nuevo registro desde ÈNIGME Honduras">
+            <input type="hidden" name="from_name" value="ÈNIGME Honduras">
+            <input type="hidden" name="redirect" value="https://enigmeofficial.com/">
+            <input type="checkbox" name="botcheck" class="sr-only" style="display:none;">
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required />
+              </div>
+              <div class="field">
+                <label for="telefono">WhatsApp</label>
+                <input id="telefono" name="telefono" type="tel" placeholder="Tu número" required />
+              </div>
+              <div class="field full">
+                <label for="correo">Correo</label>
+                <input id="correo" name="email" type="email" placeholder="info@ejemplo.com" required />
+              </div>
+              <div class="field full">
+                <label for="interes">Interés principal</label>
+                <select id="interes" name="interes">
+                  <option value="">Selecciona una opción</option>
+                  <option>Joyería</option>
+                  <option>Bolsos</option>
+                  <option>Carteras boutique</option>
+                  <option>Accesorios</option>
+                  <option>Relojes</option>
+                  <option>Todo el lanzamiento</option>
+                </select>
+              </div>
+              <div class="field full">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" placeholder="Quiero recibir información del lanzamiento de ÈNIGME Honduras"></textarea>
+              </div>
+            </div>
+            <div style="margin-top:18px; display:flex; gap:12px; flex-wrap:wrap;">
+              <button type="submit" class="btn btn-solid">Quiero acceso</button>
+              <a href="https://wa.me/34602149162?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20%C3%88NIGME%20Honduras" class="btn" target="_blank" rel="noopener noreferrer">Hablar por WhatsApp</a>
+            </div>
+            <p class="mini-note">WhatsApp: +34 602 149 162 · Instagram: @enigmehonduras · Correo: info@enigmeofficial.com</p>
+            <div class="success-message" id="successMessage">Tu solicitud fue enviada correctamente.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="legal">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">Legal y políticas</span>
+          <h2>Información básica legal ya integrada en la web</h2>
+          <p>
+            Este bloque deja la tienda más seria desde el principio. No sustituye una revisión jurídica local completa, pero sí te da una base profesional visible para publicar.
+          </p>
+        </div>
+
+        <div class="legal-grid">
+          <article class="glass-card">
+            <h3>Política de envíos</h3>
+            <p>
+              ÈNIGME Honduras realiza operaciones iniciales desde Choluteca y ofrece envíos a Tegucigalpa. El plazo estimado de entrega es de hasta 25 días, salvo incidencias externas, demoras logísticas, disponibilidad o causas de fuerza mayor.
+            </p>
+            <p style="margin-top:12px;">
+              En pedidos superiores a <strong>999 lempiras</strong>, el envío hasta punto de encuentro es gratuito. En pedidos iguales o inferiores, el coste de envío o gestión podrá indicarse antes de confirmar el pedido.
+            </p>
+          </article>
+
+          <article class="glass-card">
+            <h3>Condiciones de atención</h3>
+            <p>
+              La información publicada en esta web tiene fines informativos y comerciales. La disponibilidad, precios, promociones, tiempos de entrega y condiciones pueden actualizarse sin previo aviso para mejorar el servicio y la operativa de la marca.
+            </p>
+            <p style="margin-top:12px;">
+              Las consultas realizadas por formulario, WhatsApp, correo o redes sociales serán atendidas según orden de recepción y disponibilidad operativa.
+            </p>
+          </article>
+
+          <article class="glass-card">
+            <h3>Privacidad</h3>
+            <p>
+              Los datos que la persona usuaria facilite mediante formularios o contacto directo se utilizarán únicamente para responder consultas, enviar información comercial relacionada con ÈNIGME y gestionar solicitudes vinculadas a la marca, salvo que se indique otra finalidad concreta.
+            </p>
+            <p style="margin-top:12px;">
+              Para ejercer derechos relacionados con sus datos, la persona interesada podrá escribir a <strong>info@enigmeofficial.com</strong>.
+            </p>
+          </article>
+
+          <article class="glass-card">
+            <h3>Aviso comercial</h3>
+            <p>
+              La marca comunica su lanzamiento en Honduras con inicio de operaciones en Choluteca. El contenido visual, los textos, el nombre comercial y la identidad de la web forman parte de la presentación corporativa de ÈNIGME y no podrán reproducirse sin autorización.
+            </p>
+            <p style="margin-top:12px;">
+              Para colaboraciones, consultas comerciales o información general, el canal oficial es <strong>info@enigmeofficial.com</strong>.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>ÈNIGME Honduras</h3>
+        <p>Firma elegante de joyería, bolsos, carteras boutique, accesorios y relojes.</p>
+        <div class="accent-line"></div>
+        <p>Inicio de operaciones en Choluteca, Honduras, con envíos a Tegucigalpa y estructura preparada para posicionamiento SEO local.</p>
+        <div class="tiny-links">
+          <a href="mailto:info@enigmeofficial.com">info@enigmeofficial.com</a>
+          <a href="https://wa.me/34602149162" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a href="https://www.instagram.com/enigmehonduras" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+      </div>
+      <div>
+        <ul>
+          <li><strong>Ubicación base:</strong> Choluteca, Honduras</li>
+          <li><strong>Cobertura destacada:</strong> Choluteca y Tegucigalpa</li>
+          <li><strong>Lanzamiento:</strong> Septiembre 2026</li>
+          <li><strong>Envíos:</strong> Hasta 25 días</li>
+          <li><strong>Beneficio:</strong> Envío gratis a punto de encuentro en pedidos superiores a 999 L</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-    const FORMSPREE_ENDPOINT = "https://formspree.io/f/xykdaowe";
+    const targetDate = new Date('2026-09-01T00:00:00-06:00').getTime();
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
 
-    let savedY = 0;
-    function lock(){ savedY = window.scrollY; document.body.style.position='fixed'; document.body.style.top=`-${savedY}px`; document.body.style.width='100%'; }
-    function unlock(){ document.body.style.position=''; document.body.style.top=''; document.body.style.width=''; window.scrollTo(0, savedY); }
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
 
-    const formModal = document.getElementById('formModal');
-    function openFormModal(){ 
-      formModal.classList.add('show'); lock(); 
-      // Resetear visuales de selects al abrir
-      setCustomSelectValue('roleSelect', ""); 
-      document.getElementById('roleBtn').textContent = "-- Seleccionar Posición --";
-      document.getElementById('muniList').innerHTML = "";
-      document.getElementById('muniBtn').textContent = "Primero seleccione la posición arriba";
-      document.getElementById('muniBtn').style.pointerEvents = 'auto';
-      document.getElementById('muniBtn').style.background = '#ffffff';
-    }
-    function closeFormModal(){ formModal.classList.remove('show'); unlock(); }
-
-    const calModal = document.getElementById('calModal');
-    function openCalModal(){ calModal.classList.add('show'); lock(); }
-    function closeCalModal(){ calModal.classList.remove('show'); unlock(); }
-
-    const manifestoModal = document.getElementById('manifestoModal');
-    function openManifestoModal(){ manifestoModal.classList.add('show'); lock(); }
-    function closeManifestoModal(){ manifestoModal.classList.remove('show'); unlock(); }
-
-    document.getElementById('openCalBtn').addEventListener('click', openCalModal);
-    document.getElementById('openCalTop').addEventListener('click', openCalModal);
-    document.getElementById('openManifestoBtn').addEventListener('click', openManifestoModal);
-
-    // Lógica Zonas
-    const zonesCoord = [
-      "Choluteca", "Apacilagua", "Concepción de María", "Duyure",
-      "El Corpus", "El Triunfo", "Marcovia", "Morolica", "Namasigüe",
-      "Orocuina", "Pespire", "San Antonio de Flores", "San Isidro",
-      "San José", "San Marcos de Colón", "Santa Ana de Yusguare"
-    ];
-
-    function closeAllSelects(){ document.querySelectorAll('.cselect').forEach(c => c.classList.remove('open')); }
-    
-    function setupSelect(idSelect, idBtn, idList, idHidden, onChange){
-      const cs = document.getElementById(idSelect), btn = document.getElementById(idBtn), lst = document.getElementById(idList), hid = document.getElementById(idHidden);
-      btn.addEventListener('click', e => { e.stopPropagation(); const o = cs.classList.contains('open'); closeAllSelects(); cs.classList.toggle('open', !o); });
-      lst.addEventListener('click', e => {
-        const opt = e.target.closest('.cselectOption'); if(!opt) return;
-        const val = opt.getAttribute('data-value'); hid.value = val; btn.textContent = opt.textContent;
-        lst.querySelectorAll('.cselectOption').forEach(o => o.setAttribute('aria-selected','false'));
-        opt.setAttribute('aria-selected','true'); cs.classList.remove('open');
-        if(onChange) onChange(val);
-      });
-    }
-
-    function setCustomSelectValue(id, val){ document.querySelector(`#${id} input`).value = val; }
-
-    setupSelect('roleSelect', 'roleBtn', 'roleList', 'roleHidden', (roleVal) => {
-      const mList = document.getElementById('muniList');
-      const mBtn = document.getElementById('muniBtn');
-      const mHidden = document.getElementById('muniHidden');
-      mList.innerHTML = '';
-      
-      if(roleVal === 'Gerencia de Zona') {
-        // Bloquear y setear Choluteca
-        mHidden.value = 'Choluteca';
-        mBtn.textContent = 'Choluteca (Zona Única)';
-        mBtn.style.pointerEvents = 'none';
-        mBtn.style.background = 'var(--marfilOscuro)';
-      } else if(roleVal === 'Coordinador de Zona') {
-        // Desbloquear y mostrar 16 municipios
-        mHidden.value = '';
-        mBtn.textContent = 'Seleccione su Municipio';
-        mBtn.style.pointerEvents = 'auto';
-        mBtn.style.background = '#ffffff';
-
-        zonesCoord.forEach(z => {
-          let li = document.createElement('li');
-          li.className = 'cselectOption';
-          li.setAttribute('data-value', z);
-          li.textContent = z;
-          mList.appendChild(li);
-        });
-      }
-    });
-
-    setupSelect('muniSelect', 'muniBtn', 'muniList', 'muniHidden');
-    document.addEventListener('click', closeAllSelects);
-
-    // Lógica de Privacidad PRO
-    const privacyModal = document.getElementById('privacyModal');
-    const consentTrigger = document.getElementById('consentTrigger');
-    const vCheck = document.getElementById('vCheck');
-    const realConsent = document.getElementById('realConsent');
-    const btnSubmit = document.getElementById('submitBtn');
-
-    consentTrigger.addEventListener('click', () => {
-      if(!realConsent.checked){
-        privacyModal.classList.add('show');
-      } else {
-        // Permitir desmarcar directamente
-        realConsent.checked = false;
-        vCheck.classList.remove('checked');
-        btnSubmit.disabled = true;
-      }
-    });
-
-    document.getElementById('acceptPrivacyBtn').addEventListener('click', () => {
-      privacyModal.classList.remove('show');
-      realConsent.checked = true;
-      vCheck.classList.add('checked');
-      btnSubmit.disabled = false;
-    });
-
-    // Enviar y Generar PDF
-    const form = document.getElementById('applyForm');
-    
-    function generatePDF(name, dni, role, zone){
-      if(!window.jspdf) return;
-      const { jsPDF } = window.jspdf;
-      const doc = new jsPDF({ format: 'a5' }); // A5 más elegante para un justificante
-
-      doc.setFillColor(252, 251, 248); // Marfil background
-      doc.rect(0, 0, 148, 210, 'F');
-      
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(22);
-      doc.setTextColor(28, 25, 23);
-      doc.text("ÈNIGME", 74, 30, { align: "center" });
-
-      doc.setDrawColor(194, 160, 82); // Línea dorada
-      doc.setLineWidth(0.5);
-      doc.line(20, 40, 128, 40);
-
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(10);
-      doc.text("CERTIFICADO DE INSCRIPCIÓN OFICIAL", 74, 50, { align: "center" });
-
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(12);
-      
-      doc.text(`REGISTRO:`, 20, 70);
-      doc.setFont("helvetica", "normal");
-      doc.text(`300898 - ${dni}`, 50, 70);
-
-      doc.setFont("helvetica", "bold");
-      doc.text(`CANDIDATO:`, 20, 85);
-      doc.setFont("helvetica", "normal");
-      doc.text(name.toUpperCase(), 50, 85);
-
-      doc.setFont("helvetica", "bold");
-      doc.text(`POSICIÓN:`, 20, 100);
-      doc.setFont("helvetica", "normal");
-      doc.text(role.toUpperCase(), 45, 100);
-
-      doc.setFont("helvetica", "bold");
-      doc.text(`TERRITORIO:`, 20, 115);
-      doc.setFont("helvetica", "normal");
-      doc.text(`CHOLUTECA (${zone.toUpperCase()})`, 50, 115);
-
-      doc.setFontSize(8);
-      doc.setTextColor(100);
-      doc.text("Documento amparado bajo la Ley de Hábeas Data (Honduras).", 74, 180, { align: "center" });
-
-      doc.save(`Enigme_Registro_${dni}.pdf`);
-    }
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      const role = document.getElementById('roleHidden').value;
-      const muni = document.getElementById('muniHidden').value;
-      const name = document.getElementById('name').value;
-      const dni = document.getElementById('dni').value;
-
-      if(!role || !muni || !name || !dni){
-        alert("Asegúrese de seleccionar posición, zona y llenar todos los datos.");
+      if (distance <= 0) {
+        daysEl.textContent = '00';
+        hoursEl.textContent = '00';
+        minutesEl.textContent = '00';
+        secondsEl.textContent = '00';
         return;
       }
 
-      btnSubmit.disabled = true;
-      btnSubmit.textContent = "Procesando...";
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      try{
-        const fd = new FormData(form);
-        fd.set('consent', "Firmado - Art. 76");
-        
-        const res = await fetch(FORMSPREE_ENDPOINT, { method: "POST", headers: { "Accept": "application/json" }, body: fd });
-        
-        if(res.ok){
-          generatePDF(name, dni, role, muni);
-          closeFormModal();
-          document.getElementById('successOverlay').classList.add('show');
-          form.reset();
-          realConsent.checked = false;
-          vCheck.classList.remove('checked');
-        } else {
-          alert("Error de servidor. Intente más tarde.");
-        }
-      } catch (err){
-        alert("Error de red.");
-      } finally {
-        btnSubmit.textContent = "Enviar Postulación";
+      daysEl.textContent = String(days).padStart(2, '0');
+      hoursEl.textContent = String(hours).padStart(2, '0');
+      minutesEl.textContent = String(minutes).padStart(2, '0');
+      secondsEl.textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    const form = document.getElementById("contactForm");
+    const successMessage = document.getElementById("successMessage");
+
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData
+      });
+
+      if (response.ok) {
+        form.reset();
+        successMessage.style.display = "block";
       }
     });
-
-    function closeSuccess(){
-      document.getElementById('successOverlay').classList.remove('show');
-      window.scrollTo(0,0);
-    }
   </script>
 </body>
 </html>
