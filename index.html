@@ -2,65 +2,23 @@
 <html lang="es-HN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>ÈNIGME Honduras | Joyería, Bolsos y Accesorios Premium</title>
-
-  <meta name="description" content="ÈNIGME Honduras inicia operaciones en Choluteca y Valle. Joyería de lujo, bolsos, carteras boutique y relojes con estética premium y atención exclusiva." />
-  <meta name="keywords" content="ÈNIGME Honduras, joyería Choluteca, bolsos Valle, carteras boutique, relojes Honduras, accesorios elegantes, tienda online" />
-  <meta name="author" content="Abril Armas" />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ÈNIGME Honduras | Exclusividad y Elegancia</title>
+  <meta name="description" content="ÈNIGME Honduras. Joyería, plata, acero chapado en oro y carteras boutique en Choluteca y Valle." />
   
-  <link rel="canonical" href="https://enigmeofficial.com/" />
-
-  <meta name="geo.region" content="HN" />
-  <meta name="geo.placename" content="Choluteca, Honduras" />
-  <meta name="geo.position" content="13.3000;-87.1900" />
-  <meta name="ICBM" content="13.3000, -87.1900" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Store",
-    "name": "ÈNIGME Honduras",
-    "founder": "Abril Armas",
-    "image": "https://enigmeofficial.com/A1.jpg",
-    "url": "https://enigmeofficial.com/",
-    "telephone": "+34602149162",
-    "email": "info@enigmeofficial.com",
-    "priceRange": "L",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Choluteca",
-      "addressRegion": "Choluteca",
-      "addressCountry": "HN"
-    },
-    "areaServed": [
-      { "@type": "State", "name": "Choluteca" },
-      { "@type": "State", "name": "Valle" }
-    ]
-  }
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      /* Paleta Premium: Negro, Rosa Palo, Marfil */
       --bg-dark: #0a0a0a;
-      --bg-panel: #141414;
-      --text-main: #fcfcfc;
       --marfil: #FFFFF0;
       --rosa-palo: #E0BFB8;
       --rosa-oscuro: #b8928a;
-      --line: rgba(224, 191, 184, 0.15);
-      --glass-bg: rgba(20, 20, 20, 0.7);
-      --glass-border: rgba(224, 191, 184, 0.2);
-      
-      --shadow-premium: 0 10px 40px rgba(0,0,0,0.5);
-      --glow: 0 0 20px rgba(224, 191, 184, 0.3);
-      --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --glass-bg: rgba(20, 20, 20, 0.6);
+      --glass-border: rgba(224, 191, 184, 0.15);
+      --transition: all 0.4s ease;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -68,369 +26,279 @@
     
     body {
       background-color: var(--bg-dark);
-      color: var(--text-main);
+      color: #ccc;
       font-family: 'Montserrat', sans-serif;
-      line-height: 1.6;
-      overflow-x: hidden;
-      background-image: radial-gradient(circle at top right, rgba(224, 191, 184, 0.05), transparent 40%),
-                        radial-gradient(circle at bottom left, rgba(255, 255, 240, 0.03), transparent 40%);
+      line-height: 1.8;
+      background-image: radial-gradient(circle at 50% 0%, rgba(224, 191, 184, 0.08), transparent 50%);
     }
 
-    h1, h2, h3, h4, .brand-mark {
+    h1, h2, h3, .brand-mark {
       font-family: 'Cinzel', serif;
       font-weight: 600;
       color: var(--marfil);
     }
 
     a { text-decoration: none; color: inherit; }
-    img { width: 100%; display: block; object-fit: cover; }
-    .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+    .container { width: 90%; max-width: 1000px; margin: 0 auto; }
 
-    /* Navegación Glassmorphism */
+    /* Navegación */
     .topbar {
-      position: fixed;
-      width: 100%;
+      padding: 30px 0;
+      text-align: center;
+      border-bottom: 1px solid var(--glass-border);
+      background: var(--bg-dark);
+      position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(10, 10, 10, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--glass-border);
     }
-
-    .nav { display: flex; justify-content: space-between; align-items: center; min-height: 80px; }
     
-    .brand { text-align: center; }
-    .brand-mark { font-size: 2.2rem; letter-spacing: 0.15em; color: var(--rosa-palo); }
-    .brand-sub { font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--marfil); display: block; }
+    .brand-mark { font-size: 2.5rem; letter-spacing: 0.2em; color: var(--rosa-palo); }
+    .brand-sub { font-size: 0.7rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--marfil); display: block; margin-top: 5px; }
 
-    .nav-links { display: flex; gap: 30px; }
-    .nav-links a { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: #aaa; transition: var(--transition); }
-    .nav-links a:hover { color: var(--rosa-palo); text-shadow: var(--glow); }
-
-    /* Botones Premium */
-    .btn {
-      padding: 12px 28px;
-      border: 1px solid var(--rosa-palo);
-      background: transparent;
-      color: var(--rosa-palo);
-      font-size: 0.85rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 25px;
     }
+    .nav-links a { font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; transition: var(--transition); }
+    .nav-links a:hover { color: var(--rosa-palo); }
 
-    .btn:hover { background: var(--rosa-palo); color: var(--bg-dark); box-shadow: var(--glow); }
+    /* Secciones */
+    section { padding: 100px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
     
-    .btn-solid { background: var(--rosa-palo); color: var(--bg-dark); }
-    .btn-solid:hover { background: var(--marfil); border-color: var(--marfil); }
-
-    /* Hero Section */
-    .hero { padding: 160px 0 100px; min-height: 100vh; display: flex; align-items: center; }
-    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-    
+    .section-head { text-align: center; margin-bottom: 50px; }
     .eyebrow {
       display: inline-block;
-      padding: 6px 12px;
+      padding: 6px 15px;
       border: 1px solid var(--glass-border);
       color: var(--rosa-palo);
       font-size: 0.75rem;
       letter-spacing: 3px;
       text-transform: uppercase;
-      margin-bottom: 20px;
-      background: var(--glass-bg);
+      margin-bottom: 25px;
+      border-radius: 2px;
     }
+    h2 { font-size: 2.5rem; margin-bottom: 25px; }
 
-    .hero h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; }
-    .hero p { color: #aaa; font-size: 1.1rem; margin-bottom: 40px; max-width: 500px; }
-
-    /* Imágenes y Tarjetas */
-    .hero-card {
-      position: relative;
-      border-radius: 8px;
-      overflow: hidden;
-      height: 600px;
-      box-shadow: var(--shadow-premium);
-    }
-
-    .hero-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, var(--bg-dark) 0%, transparent 50%);
-    }
-
-    .hero-card img { height: 100%; transition: transform 0.7s ease; }
-    .hero-card:hover img { transform: scale(1.05); }
-
-    /* Secciones Generales */
-    section { padding: 100px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-    
-    .section-head { text-align: center; margin-bottom: 60px; }
-    .section-head h2 { font-size: 2.8rem; margin: 10px 0; color: var(--marfil); }
-    .section-head p { color: #aaa; max-width: 600px; margin: 0 auto; }
-
-    /* Grid de Galerías y Categorías */
-    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-    
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 4px;
-      aspect-ratio: 3/4;
-      cursor: pointer;
-    }
-
-    .gallery-item img { height: 100%; transition: var(--transition); filter: brightness(0.8); }
-    .gallery-item:hover img { transform: scale(1.08); filter: brightness(1.1); }
-    
-    .gallery-caption {
-      position: absolute;
-      bottom: -50px;
-      left: 0;
-      width: 100%;
-      padding: 20px;
-      background: rgba(10, 10, 10, 0.9);
-      color: var(--marfil);
-      font-family: 'Cinzel', serif;
-      font-size: 1.2rem;
-      transition: var(--transition);
+    .lead-text {
+      font-size: 1.1rem;
       text-align: center;
-      border-top: 1px solid var(--rosa-palo);
+      max-width: 800px;
+      margin: 0 auto;
+      color: var(--marfil);
     }
 
-    .gallery-item:hover .gallery-caption { bottom: 0; }
-
-    /* Glass Cards (Información y Legal) */
-    .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+    /* Cards Minimalistas */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
     .glass-card {
       background: var(--glass-bg);
       border: 1px solid var(--glass-border);
       padding: 40px;
-      border-radius: 8px;
-      backdrop-filter: blur(10px);
+      border-radius: 4px;
+      text-align: center;
       transition: var(--transition);
     }
+    .glass-card:hover { border-color: var(--rosa-palo); transform: translateY(-5px); }
+    .glass-card h3 { color: var(--rosa-palo); font-size: 1.3rem; margin-bottom: 15px; }
+    .glass-card p { font-size: 0.95rem; }
 
-    .glass-card:hover { border-color: var(--rosa-palo); transform: translateY(-5px); box-shadow: var(--glow); }
-    .glass-card h3 { color: var(--rosa-palo); font-size: 1.5rem; margin-bottom: 15px; }
-
-    /* Countdown */
-    .countdown { display: flex; gap: 20px; margin-top: 30px; }
+    /* Cuenta Regresiva */
+    .countdown { display: flex; justify-content: center; gap: 30px; margin-top: 40px; }
     .count-box {
-      flex: 1;
       text-align: center;
-      padding: 20px;
-      background: rgba(224, 191, 184, 0.05);
+      padding: 25px;
+      min-width: 140px;
+      background: rgba(224, 191, 184, 0.03);
       border: 1px solid var(--glass-border);
       border-radius: 4px;
     }
-    .count-box strong { display: block; font-family: 'Cinzel', serif; font-size: 2.5rem; color: var(--marfil); }
-    .count-box span { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--rosa-oscuro); }
+    .count-box strong { display: block; font-family: 'Cinzel', serif; font-size: 3.5rem; color: var(--marfil); line-height: 1; }
+    .count-box span { font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; color: var(--rosa-oscuro); margin-top: 10px; display: block; }
 
-    /* Formularios VIP */
-    .form-wrap { background: var(--bg-panel); padding: 50px; border: 1px solid var(--glass-border); border-radius: 8px; }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .field.full { grid-column: 1 / -1; }
-    
-    label { display: block; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: #aaa; margin-bottom: 8px; }
-    input, textarea, select {
-      width: 100%;
-      padding: 15px;
-      background: var(--bg-dark);
-      border: 1px solid #333;
-      color: var(--marfil);
-      font-family: 'Montserrat', sans-serif;
-      border-radius: 4px;
-      transition: var(--transition);
+    /* Listas */
+    .work-list { list-style: none; max-width: 800px; margin: 0 auto; }
+    .work-list li {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--glass-border);
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
     }
-    
-    input:focus, textarea:focus, select:focus { border-color: var(--rosa-palo); outline: none; box-shadow: 0 0 10px rgba(224,191,184,0.1); }
-    
-    /* WhatsApp Flotante Premium */
-    .whatsapp-float {
+    .work-list li strong { color: var(--marfil); font-size: 1.05rem; letter-spacing: 1px; text-transform: uppercase; }
+
+    /* Canales de Contacto Fijos */
+    .contact-floats {
       position: fixed;
       bottom: 30px;
       right: 30px;
-      background: var(--rosa-palo);
-      color: var(--bg-dark);
-      padding: 15px 25px;
-      border-radius: 50px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      box-shadow: var(--glow);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
       z-index: 999;
-      transition: var(--transition);
     }
-    .whatsapp-float:hover { background: var(--marfil); transform: scale(1.05); }
+    .btn-float {
+      background: var(--bg-dark);
+      color: var(--rosa-palo);
+      padding: 12px 25px;
+      border: 1px solid var(--rosa-palo);
+      border-radius: 2px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      text-align: center;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .btn-float.solid { background: var(--rosa-palo); color: var(--bg-dark); }
+    .btn-float:hover { background: var(--marfil); color: var(--bg-dark); border-color: var(--marfil); }
 
-    /* Responsive */
-    @media (max-width: 992px) {
-      .hero-grid, .gallery-grid, .info-grid, .form-grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 2.8rem; }
-      .nav-links { display: none; /* Idealmente aquí va un menú hamburguesa */ }
+    @media (max-width: 768px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .countdown { flex-wrap: wrap; gap: 15px; }
+      .count-box { min-width: calc(50% - 15px); }
+      h2 { font-size: 2rem; }
+      .contact-floats { bottom: 20px; right: 20px; left: 20px; flex-direction: row; justify-content: stretch; }
+      .btn-float { flex: 1; padding: 15px 10px; font-size: 0.75rem; }
     }
   </style>
 </head>
 <body>
 
-  <a href="https://wa.me/34602149162" class="whatsapp-float" target="_blank">Atención VIP WhatsApp</a>
+  <div class="contact-floats">
+    <a href="mailto:info@enigmeofficial.com" class="btn-float">Correo Electrónico</a>
+    <a href="https://wa.me/34602149162" class="btn-float solid" target="_blank">WhatsApp VIP</a>
+  </div>
 
   <header class="topbar">
-    <div class="container nav">
-      <a href="#inicio" class="brand">
-        <span class="brand-mark">ÈNIGME</span>
-        <span class="brand-sub">Aura · Misterio · Presencia</span>
-      </a>
+    <div class="container">
+      <div class="brand-mark">ÈNIGME</div>
+      <div class="brand-sub">Aura · Misterio · Presencia</div>
       <nav class="nav-links">
-        <a href="#marca">La Marca</a>
-        <a href="#galeria">Colecciones</a>
+        <a href="#que-es">La Marca</a>
         <a href="#lanzamiento">Lanzamiento</a>
-        <a href="#vip">Acceso VIP</a>
+        <a href="#forma-trabajo">Operativa</a>
+        <a href="#politicas">Políticas Legales</a>
       </nav>
-      <a href="#vip" class="btn btn-solid">Catálogo Privado</a>
     </div>
   </header>
 
   <main>
-    <section class="hero" id="inicio">
-      <div class="container hero-grid">
-        <div>
-          <span class="eyebrow">Exclusividad en Choluteca y Valle</span>
-          <h1>La nueva era de la elegancia en Honduras</h1>
-          <p>ÈNIGME es una propuesta de alta gama en joyería, bolsos y relojería. Diseñada bajo la dirección de Abril Armas, redefiniendo el lujo local con envíos a todos los municipios de Choluteca y Valle.</p>
-          <div style="display: flex; gap: 15px; margin-top: 20px;">
-            <a href="#vip" class="btn btn-solid">Lista de Espera VIP</a>
-            <a href="#galeria" class="btn">Explorar Piezas</a>
-          </div>
-        </div>
-        <div class="hero-card">
-          <img src="A1.jpg" alt="Alta joyería en marfil y rosa palo" loading="lazy">
-        </div>
-      </div>
-    </section>
-
-    <section id="galeria">
+    <section id="que-es">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">Curaduría Visual</span>
-          <h2>Colección de Lanzamiento</h2>
-          <p>Piezas seleccionadas con un diseño oscuro, marfil y rosa palo para una presencia absoluta.</p>
+          <span class="eyebrow">La Firma</span>
+          <h2>¿Qué es ÈNIGME?</h2>
         </div>
+        <p class="lead-text">
+          ÈNIGME es una firma exclusiva creada y dirigida por <strong>Abril Armas</strong>. Nacemos con el propósito de redefinir la elegancia en Honduras a través de una cuidada selección de accesorios de alta gama.
+        </p>
         
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <img src="A1.jpg" alt="Joyería Premium" loading="lazy">
-            <div class="gallery-caption">Joyería Fina</div>
+        <div class="grid-2">
+          <div class="glass-card">
+            <h3>Joyería Fina</h3>
+            <p>Piezas meticulosamente seleccionadas en plata de primera ley y acero inoxidable chapado en oro, diseñadas para perdurar y destacar con sofisticación.</p>
           </div>
-          <div class="gallery-item">
-            <img src="A2.jpg" alt="Bolsos de Autor" loading="lazy">
-            <div class="gallery-caption">Bolsos Boutique</div>
-          </div>
-          <div class="gallery-item">
-            <img src="A3.jpg" alt="Relojes de Lujo" loading="lazy">
-            <div class="gallery-caption">Alta Relojería</div>
-          </div>
-          <div class="gallery-item">
-            <img src="A4.jpg" alt="Carteras de Piel" loading="lazy">
-            <div class="gallery-caption">Carteras Elegantes</div>
-          </div>
-          <div class="gallery-item">
-            <img src="A5.jpg" alt="Accesorios Exclusivos" loading="lazy">
-            <div class="gallery-caption">Accesorios</div>
-          </div>
-          <div class="gallery-item">
-            <img src="A6.jpg" alt="Estilo ÈNIGME" loading="lazy">
-            <div class="gallery-caption">La Experiencia ÈNIGME</div>
+          <div class="glass-card">
+            <h3>Complementos Boutique</h3>
+            <p>Una colección exclusiva de carteras, bolsos y accesorios de estética premium que proyectan un estilo de vida misterioso, elegante y seguro.</p>
           </div>
         </div>
       </div>
     </section>
 
     <section id="lanzamiento">
-      <div class="container info-grid">
-        <div class="glass-card">
-          <span class="eyebrow">Gran Apertura</span>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">El Inicio</span>
           <h2>Septiembre 2026</h2>
-          <p style="color:#aaa; margin-top: 15px;">Preparando operaciones logísticas exclusivas para los departamentos de Choluteca y Valle. Envío gratuito a punto de encuentro en pedidos superiores a <strong>999 Lempiras</strong>.</p>
-          
-          <div class="countdown" id="countdown">
-            <div class="count-box"><strong id="days">--</strong><span>Días</span></div>
-            <div class="count-box"><strong id="hours">--</strong><span>Horas</span></div>
-            <div class="count-box"><strong id="min">--</strong><span>Min</span></div>
-            <div class="count-box"><strong id="sec">--</strong><span>Seg</span></div>
-          </div>
+          <p class="lead-text" style="font-size: 1rem; color: #aaa; margin-top: 20px;">
+            El tiempo avanza hacia nuestra apertura oficial. Prepárate para descubrir una nueva forma de experimentar el lujo local.
+          </p>
         </div>
 
-        <div class="glass-card">
-          <span class="eyebrow">Servicio al Cliente</span>
-          <h2>Logística y Políticas</h2>
-          <ul style="color:#aaa; margin-top: 15px; padding-left: 20px; line-height: 2;">
-            <li><strong>Sede Principal:</strong> Departamento de Choluteca.</li>
-            <li><strong>Zonas de Cobertura:</strong> Municipios de Choluteca y Valle.</li>
-            <li><strong>Moneda Operativa:</strong> Lempiras (HNL).</li>
-            <li><strong>Tiempos de entrega:</strong> Hasta 25 días hábiles.</li>
-          </ul>
+        <div class="countdown" id="countdown">
+          <div class="count-box"><strong id="days">--</strong><span>Días</span></div>
+          <div class="count-box"><strong id="hours">--</strong><span>Horas</span></div>
+          <div class="count-box"><strong id="min">--</strong><span>Min</span></div>
+          <div class="count-box"><strong id="sec">--</strong><span>Seg</span></div>
         </div>
       </div>
     </section>
 
-    <section id="vip">
+    <section id="forma-trabajo">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">Acceso Restringido</span>
-          <h2>Catálogo Privado</h2>
-          <p>Únete a la lista de espera para acceder a piezas únicas antes del lanzamiento público.</p>
+          <span class="eyebrow">Logística y Operativa</span>
+          <h2>Nuestra Forma de Trabajo</h2>
         </div>
+        
+        <ul class="work-list">
+          <li>
+            <strong>Cobertura Exclusiva</strong>
+            <span>Operamos logística y envíos estrictamente dentro de los departamentos de <strong>Choluteca y Valle</strong> para garantizar un servicio controlado y de excelencia.</span>
+          </li>
+          <li>
+            <strong>Moneda Oficial</strong>
+            <span>Todas nuestras transacciones, cotizaciones y operaciones del catálogo se realizan exclusivamente en <strong>Lempiras (L)</strong>.</span>
+          </li>
+          <li>
+            <strong>Tiempos de Entrega</strong>
+            <span>Trabajamos bajo un modelo de importación y curaduría boutique. El tiempo estimado de entrega para tus piezas es de hasta <strong>25 días hábiles</strong>.</span>
+          </li>
+          <li>
+            <strong>Atención Personalizada</strong>
+            <span>Sin intermediarios automatizados. El asesoramiento y cierre de ventas se realiza de manera VIP a través de nuestro WhatsApp y correo electrónico oficial.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-        <div class="form-wrap">
-          <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="c0b601d8-0046-4d7d-aec7-9b09feed1381">
-            <div class="form-grid">
-              <div class="field">
-                <label>Nombre Completo</label>
-                <input type="text" name="nombre" placeholder="Ej. Isabella Martínez" required>
-              </div>
-              <div class="field">
-                <label>WhatsApp (Con código de área)</label>
-                <input type="tel" name="telefono" placeholder="+504 0000-0000" required>
-              </div>
-              <div class="field full">
-                <label>Departamento de Residencia</label>
-                <select name="departamento" required>
-                  <option value="">Selecciona tu ubicación</option>
-                  <option value="Choluteca">Choluteca </option>
-                  <option value="Valle">Valle </option>
-                </select>
-              </div>
-              <div class="field full">
-                <label>Pieza de mayor interés</label>
-                <select name="interes">
-                  <option value="Joyería">Alta Joyería</option>
-                  <option value="Bolsos">Bolsos Boutique</option>
-                  <option value="Relojes">Relojería Fina</option>
-                </select>
-              </div>
-              <div class="field full">
-                <button type="submit" class="btn btn-solid" style="width: 100%;">Solicitar Acceso Exclusivo</button>
-              </div>
-            </div>
-          </form>
+    <section id="politicas" style="border-bottom: none;">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Transparencia y Confianza</span>
+          <h2>Marco Legal y Devoluciones</h2>
+        </div>
+        
+        <div class="grid-2">
+          <div class="glass-card">
+            <h3>Política Legal de Empresa</h3>
+            <p style="text-align: left; margin-bottom: 10px;">
+              ÈNIGME Honduras es una firma comercial. Toda la información visual y textual de este sitio web es propiedad exclusiva de la marca.
+            </p>
+            <p style="text-align: left;">
+              Nuestra jurisdicción de operaciones y logística está limitada a los departamentos de Choluteca y Valle (con sus respectivos municipios). Nos reservamos el derecho de modificar nuestro catálogo, precios en lempiras y políticas de distribución sin previo aviso para garantizar la sostenibilidad y exclusividad de la marca.
+            </p>
+          </div>
+          
+          <div class="glass-card">
+            <h3>Política de Devoluciones</h3>
+            <p style="text-align: left; margin-bottom: 10px;">
+              Dada la exclusividad y la naturaleza delicada de nuestra joyería (plata, acero chapado en oro) y carteras boutique, <strong>no se aceptan devoluciones ni cambios por arrepentimiento de compra</strong>.
+            </p>
+            <p style="text-align: left;">
+              Únicamente se procesarán solicitudes de cambio o reembolso por defectos de fábrica comprobables, los cuales deben ser reportados a nuestros canales oficiales (WhatsApp o correo) en un plazo máximo de 24 horas tras la recepción de la pieza. En caso de aplicar un reembolso, este se efectuará estrictamente en lempiras.
+            </p>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer style="text-align: center; padding: 50px 0; border-top: 1px solid #222;">
-    <p style="font-family: 'Cinzel', serif; font-size: 1.5rem; color: var(--rosa-palo);">ÈNIGME</p>
-    <p style="color: #666; font-size: 0.8rem; margin-top: 10px;">© 2026 ÈNIGME Honduras por Abril Armas. Todos los derechos reservados.</p>
+  <footer style="text-align: center; padding: 60px 0 100px; border-top: 1px solid #222; margin-top: 20px;">
+    <p style="font-family: 'Cinzel', serif; font-size: 1.8rem; color: var(--rosa-palo);">ÈNIGME</p>
+    <p style="color: #666; font-size: 0.8rem; margin-top: 15px; letter-spacing: 1px;">© 2026 ÈNIGME HONDURAS POR ABRIL ARMAS.</p>
+    <div style="margin-top: 15px;">
+      <a href="mailto:info@enigmeofficial.com" style="color: #888; font-size: 0.8rem; letter-spacing: 1px; margin: 0 10px;">info@enigmeofficial.com</a>
+      <span style="color: #444;">|</span>
+      <span style="color: #888; font-size: 0.8rem; letter-spacing: 1px; margin: 0 10px;">+34 602 149 162</span>
+    </div>
   </footer>
 
   <script>
-    // Configuración del Countdown
     const targetDate = new Date('2026-09-01T00:00:00-06:00').getTime();
     
     function updateTimer() {
